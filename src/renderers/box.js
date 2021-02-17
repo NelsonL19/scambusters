@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
  
+//this is a "renderer" that tells the game what to render (i.e. a game component)
 class Box extends PureComponent {
   render() {
     const size = 100;

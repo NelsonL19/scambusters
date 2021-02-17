@@ -1,14 +1,13 @@
-import './styles/App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
-import Home from './pages/index.js'
+import Game from './pages/index.js'
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route path = "/">
-          Home
+          <Game></Game>
         </Route>
       </Switch>
     </Router>

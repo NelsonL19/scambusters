@@ -1,0 +1,1 @@
+export {default as moveBox} from './moveBox'

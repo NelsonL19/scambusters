@@ -14,8 +14,6 @@ The scambusters game is a game developed for the NC Better Business Bureau with 
 **Node.js**
 * https://nodejs.org/en/download/
 
-In the scambusters directory, run:
-
 ## Running the Project Locally
 
 1. **Clone** the project into your desired folder

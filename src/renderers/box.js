@@ -8,7 +8,7 @@ class Box extends PureComponent {
     const y = this.props.y - size / 2;
     return (
       <div style={{ position: "absolute", width: size, height: size, backgroundColor: "aliceblue", left: x, top: y, textAlign:'center'}}>
-          Scambusters
+          Scambusters®
       </div> 
     );
   }

@@ -9,11 +9,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path = "/">
+        <Route exact path = "/">
           <Home></Home>
           <Level_Prototype/>
         </Route>
-        <Route path = "/level0">
+        <Route exact path = "/level0">
           <Level_0></Level_0>
         </Route>
       </Switch>

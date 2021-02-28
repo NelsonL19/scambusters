@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Game from './pages/index.js'
+import Level_Prototype from './components/level_prototype.jsx'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Switch>
         <Route path = "/">
           <Game></Game>
+          <Level_Prototype/>
         </Route>
       </Switch>
     </Router>

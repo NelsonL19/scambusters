@@ -24,7 +24,6 @@ export default class Level_Prototype extends Component {
                 <Suspense fallback={<div>Loading Level...</div>}>
                     <Level />
                 </Suspense>
-                <div>Level Prototype/site here</div>
             </div>
         )
     }

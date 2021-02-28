@@ -1,5 +1,6 @@
 import React, {Component, useEffect, useState, Suspense} from 'react';
 import Browser_Bar from './browser_bar.jsx'
+import UI_Overlay from './ui_overlay.jsx'
 
 export default class Level_Prototype extends Component {
     constructor(props){
@@ -21,6 +22,7 @@ export default class Level_Prototype extends Component {
         return (
             <div>
                 <Browser_Bar />
+                <UI_Overlay />
                 <Suspense fallback={<div>Loading Level...</div>}>
                     <Level />
                 </Suspense>

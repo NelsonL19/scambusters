@@ -1,0 +1,44 @@
+
+
+div.UI_Parent {
+    width: 95%;
+    height: 95%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    bottom: 20px;
+    /*border: 2px solid salmon;*/
+}
+
+div.flex-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    /*border: 3px solid darkgoldenrod;*/
+}
+
+
+div.top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 900;
+    /*border: 2px solid rebeccapurple;*/
+}
+
+div.bottom-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border: 2px solid rebeccapurple;*/
+}
+
+div.scam-buttons {
+    margin: 10px;
+}
+

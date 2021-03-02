@@ -26,14 +26,14 @@ export default class UI_Overlay extends Component {
                         <h3>Level: 1</h3>
                         <div>
                             <h3>Time Bonus</h3>
-                            <h2 className="bonus">1000</h2>
+                            <h1 className="bonus">1000</h1>
                         </div>
                     </div>
                     <div className="bottom-row">
                         <h3>Scam or Legit?</h3>
                         <div className="scam-buttons">
-                            <Button className="btn" onClick={this.scamPressed} type="primary" shape="round" size="large" style={{ background: "red", borderColor: "white"}}>SCAM</Button>
-                            <Button className="btn" onClick={this.legitPressed} type="primary" shape="round" size="large" style={{ background: "green", borderColor: "white"}}>LEGIT</Button>
+                            <Button className="btn" onClick={this.scamPressed} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white"}}>SCAM</Button>
+                            <Button className="btn" onClick={this.legitPressed} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white"}}>LEGIT</Button>
                         </div>
                     </div>
                 </div>

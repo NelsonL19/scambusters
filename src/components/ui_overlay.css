@@ -33,6 +33,7 @@ div.top-row {
 
 .bonus {
     text-align: right;
+    font-weight: 200;
 }
 
 div.bottom-row {
@@ -51,4 +52,5 @@ div.scam-buttons {
 
 Button.btn {
     margin: 0px 35px 0px 35px;
+    font-weight: bold;
 }

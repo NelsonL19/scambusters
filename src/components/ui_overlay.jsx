@@ -23,17 +23,17 @@ export default class UI_Overlay extends Component {
             <div className="UI_Parent">
                 <div className="flex-container">
                     <div className="top-row">
-                        <p>Level: 1</p>
+                        <h3>Level: 1</h3>
                         <div>
-                            <p>Time Bonus</p>
-                            <p>1000</p>
+                            <h3>Time Bonus</h3>
+                            <h2 className="bonus">1000</h2>
                         </div>
                     </div>
                     <div className="bottom-row">
-                        <h4>Scam or Legit?</h4>
+                        <h3>Scam or Legit?</h3>
                         <div className="scam-buttons">
-                            <Button className="btn" onClick={this.scamPressed} type="primary" style={{ background: "red", borderColor: "white"}}>SCAM</Button>
-                            <Button className="btn" onClick={this.legitPressed} type="primary" style={{ background: "green", borderColor: "white"}}>LEGIT</Button>
+                            <Button className="btn" onClick={this.scamPressed} type="primary" shape="round" size="large" style={{ background: "red", borderColor: "white"}}>SCAM</Button>
+                            <Button className="btn" onClick={this.legitPressed} type="primary" shape="round" size="large" style={{ background: "green", borderColor: "white"}}>LEGIT</Button>
                         </div>
                     </div>
                 </div>

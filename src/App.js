@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Game from './pages/index.js'
 import Level_Prototype from './components/level_prototype.jsx'
+import './App.css'
 
 function App() {
   return (

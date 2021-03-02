@@ -1,4 +1,6 @@
 import React, {Component, useEffect, useState} from 'react';
+import { Button } from 'antd';
+import './ui_overlay.css'
 
 export default class UI_Overlay extends Component {
     constructor(props){
@@ -7,10 +9,37 @@ export default class UI_Overlay extends Component {
             data: null
         }
     }
+
+    scamPressed(){
+        alert("scam pressed")
+    }
+
+    legitPressed(){
+        alert("legit pressed")
+    }
+
     render(){
         return (
-            <div>
-                UI Overlay
+            <div className="UI_Parent">
+                <div className="flex-container">
+                    <div className="top-row">
+                        <div>
+                        <h3>Level</h3>
+                        <h1 className="level">1</h1>
+                        </div>
+                        <div>
+                            <h3>Time Bonus</h3>
+                            <h1 className="bonus">1000</h1>
+                        </div>
+                    </div>
+                    <div className="bottom-row">
+                        <h3>Scam or Legit?</h3>
+                        <div className="scam-buttons">
+                            <Button className="btn" onClick={this.scamPressed} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white"}}>SCAM</Button>
+                            <Button className="btn" onClick={this.legitPressed} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white"}}>LEGIT</Button>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

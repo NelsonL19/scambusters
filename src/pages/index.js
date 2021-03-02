@@ -8,10 +8,7 @@ const Home = (props) => {
     <>
       <h1>Scambusters</h1>
       <Link to = "/level0">Level 0</Link>
-<<<<<<< HEAD
       <Link to = "/level1">Level 1</Link>
-=======
->>>>>>> 5cb4ff6d7a1ed80472fa32fd116a392ead2b4daa
     </>
   )
 }

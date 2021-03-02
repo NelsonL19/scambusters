@@ -13,7 +13,7 @@ export default class Level_0 extends Component {
     render(){
         return(
             <GameEngine
-              style = {{width:800, height: 600, backgroundColor: 'cornflowerblue'}}
+              style = {{width:800, height: 600, backgroundColor: 'gray'}}
               systems = {[moveBox]}
               entities = {{
                 box1: {x:200, y:200, renderer: <Box/>}

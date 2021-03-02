@@ -1,6 +1,6 @@
 import React, {Component, useEffect, useState} from 'react';
 import { Button } from 'antd';
-import './ui_overlay.css'
+import '../styles/ui_overlay.css'
 
 export default class UI_Overlay extends Component {
     constructor(props){
@@ -11,11 +11,21 @@ export default class UI_Overlay extends Component {
     }
 
     scamPressed(){
-        alert("scam pressed")
+        if(this.props.level.isScam){
+            alert("Correct")
+        }
+        else{
+            alert("Incorrect")
+        }
     }
 
     legitPressed(){
-        alert("legit pressed")
+        if(this.props.level.isScam){
+            alert("Incorrect")
+        }
+        else{
+            alert("Correct")
+        }
     }
 
     render(){
@@ -25,7 +35,7 @@ export default class UI_Overlay extends Component {
                     <div className="top-row">
                         <div>
                         <h3>Level</h3>
-                        <h1 className="level">1</h1>
+                        <h1 className="level">{this.props.level.levelNum}</h1>
                         </div>
                         <div>
                             <h3>Time Bonus</h3>
@@ -35,8 +45,8 @@ export default class UI_Overlay extends Component {
                     <div className="bottom-row">
                         <h3>Scam or Legit?</h3>
                         <div className="scam-buttons">
-                            <Button className="btn" onClick={this.scamPressed} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white"}}>SCAM</Button>
-                            <Button className="btn" onClick={this.legitPressed} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white"}}>LEGIT</Button>
+                            <Button className="btn" onClick={this.scamPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white"}}>SCAM</Button>
+                            <Button className="btn" onClick={this.legitPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white"}}>LEGIT</Button>
                         </div>
                     </div>
                 </div>

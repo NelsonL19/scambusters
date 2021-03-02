@@ -31,6 +31,11 @@ div.top-row {
     /*border: 2px solid rebeccapurple;*/
 }
 
+.level {
+    text-align: left;
+    font-weight: 200;
+}
+
 .bonus {
     text-align: right;
     font-weight: 200;

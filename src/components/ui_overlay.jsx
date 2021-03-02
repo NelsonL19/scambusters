@@ -23,7 +23,10 @@ export default class UI_Overlay extends Component {
             <div className="UI_Parent">
                 <div className="flex-container">
                     <div className="top-row">
-                        <h3>Level: 1</h3>
+                        <div>
+                        <h3>Level</h3>
+                        <h1 className="level">1</h1>
+                        </div>
                         <div>
                             <h3>Time Bonus</h3>
                             <h1 className="bonus">1000</h1>

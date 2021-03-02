@@ -10,6 +10,7 @@ div.UI_Parent {
     left: 10px;
     right: 10px;
     bottom: 20px;
+    pointer-events: none;
     /*border: 2px solid salmon;*/
 }
 
@@ -39,6 +40,11 @@ div.bottom-row {
 }
 
 div.scam-buttons {
+    pointer-events: all;
     margin: 10px;
 }
 
+
+Button.btn {
+    margin: 0px 35px 0px 35px;
+}

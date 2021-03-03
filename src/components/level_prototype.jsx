@@ -18,11 +18,11 @@ export default class Level_Prototype extends Component {
     }
 
     render(){
-        const Level = this.loadLevel(2)
+        const Level = this.loadLevel(this.props.level.levelNum)
         return (
             <div>
-                <Browser_Bar />
-                <UI_Overlay />
+                <Browser_Bar url = {this.props.level.url}/>
+                <UI_Overlay level = {this.props.level}/>
                 <Suspense fallback={<div>Loading Level...</div>}>
                     <Level />
                 </Suspense>

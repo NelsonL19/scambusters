@@ -1,4 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
+import {Fake_Netflix, Browser_Bar} from '../components';
 
 
 export default class Level_1 extends Component {
@@ -9,6 +10,13 @@ export default class Level_1 extends Component {
         }
     }
     render(){
-        return (<div>Level 1 here!</div>)
+        return(
+            <>
+                <Fake_Netflix/>
+            </>
+        )
+
+
+
     }
 }

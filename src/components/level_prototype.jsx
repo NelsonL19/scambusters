@@ -9,7 +9,7 @@ export default class Level_Prototype extends Component {
             data: null
         }
     }
-
+    //This function is responsible for taking in the level number, and rendering the level content that is being used for each level.
     loadLevel(number) {
         const Level = React.lazy(() =>
             import(`../pages/level_${number}.js`)
@@ -17,7 +17,9 @@ export default class Level_Prototype extends Component {
         return Level;
     }
 
+
     render(){
+        //Calls the load level function with the level that is being selected.
         const Level = this.loadLevel(this.props.level.levelNum)
         return (
             <div>

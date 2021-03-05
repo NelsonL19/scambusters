@@ -1,6 +1,7 @@
 import '../styles/fake_netflix.css'
 import { Button } from 'antd';
 
+//This file is how the fake Netflix signup page is being created. It features the HTML of the page along with exporting it to be used in a level.
 const Fake_Netflix = () => {
 
     return (

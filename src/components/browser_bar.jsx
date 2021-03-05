@@ -10,6 +10,7 @@ export default class Browser_Bar extends Component {
             data: null
         }
     }
+    //The Render Function allows the browserbar to display on each level, using the classes and elements below.
     render(){
         return (
         <div className="barParent">

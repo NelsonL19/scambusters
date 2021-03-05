@@ -23,7 +23,7 @@ function App() {
       url: "https://neftlix.com"
     }
   ]
-
+  //Function is returning the location and levels that are being played in our app
   return (
     <Router>
       <Switch>

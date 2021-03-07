@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState, Suspense} from 'react';
 import Browser_Bar from './browser_bar.jsx'
 import UI_Overlay from './ui_overlay.jsx'
+import './level_prototype.css'
 
 export default class Level_Prototype extends Component {
     constructor(props){
@@ -23,11 +24,13 @@ export default class Level_Prototype extends Component {
         const Level = this.loadLevel(this.props.level.levelNum)
         return (
             <div>
-                <Browser_Bar url = {this.props.level.url}/>
+                <div className="minification">
+                    <Browser_Bar url = {this.props.level.url}/>
+                    <Suspense fallback={<div>Loading Level...</div>}>
+                        <Level />
+                    </Suspense>
+                </div>
                 <UI_Overlay level = {this.props.level}/>
-                <Suspense fallback={<div>Loading Level...</div>}>
-                    <Level />
-                </Suspense>
             </div>
         )
     }

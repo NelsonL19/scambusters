@@ -1,4 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
+import {apple_music_email, Browser_Bar} from '../components';
 
 
 export default class Level_1 extends Component {
@@ -9,6 +10,10 @@ export default class Level_1 extends Component {
         }
     }
     render(){
-        return (<div>Level 2 here!</div>)
+        return(
+            <>
+                <apple_music_email/>
+            </>
+        )
     }
 }

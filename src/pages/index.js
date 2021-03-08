@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 const Home = (props) => {
   return (
     <>
-      <h1>Welcome to Scambusters: The Video</h1>
+      <h1>Welcome to Scambusters: The Video Game</h1>
       <Link to = "/level0">Level 0</Link>
       <Link to = "/level1">Level 1</Link>
       <Link to = "/level2">Level 2</Link>

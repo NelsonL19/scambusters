@@ -68,11 +68,11 @@ export default class UI_Overlay extends Component {
                 <div className="flex-container">
                     <div className="top-row">
                         <div>
-                        <h2>Level</h2>
+                        <h3>Level</h3>
                         <h1 className="level">{this.props.level.levelNum}</h1>
                         </div>
                         <div>
-                            <h2>Time Bonus</h2>
+                            <h3>Time Bonus</h3>
                             <h1 className="bonus">{this.state.bonusScore}</h1>
                         </div>
                     </div>

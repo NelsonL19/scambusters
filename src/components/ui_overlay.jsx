@@ -8,6 +8,7 @@ export default class UI_Overlay extends Component {
         super(props)
         this.state = {
             data: null,
+            level: this.props.level,
             bonusScore: 3000,
             isLevelComplete: false,
             isCorrect: false

@@ -1,5 +1,6 @@
 import React, {Component, useEffect, useState, Suspense} from 'react';
 import '../styles/level_end.css'
+import { Button } from 'antd';
 
 export default class Level_End extends Component {
     constructor(props){
@@ -7,6 +8,10 @@ export default class Level_End extends Component {
         this.state = {
             data: null
         }
+    }
+
+    goToNextLevel() {
+        alert("going to next level!")
     }
 
     render(){
@@ -22,26 +27,27 @@ export default class Level_End extends Component {
                 <h2 className="sectionHeader">Level score:</h2>
                 <div className="scoreCalculation">
                     <div className="timeBonusDiv">
-                        <h4>Time Bonus</h4>
-                        <h2>{this.props.info.bonusScore}</h2>
+                        <h4 style={{color: 'white', fontStyle: 'italic'}}>Time Bonus</h4>
+                        <h2 className="bonusNum">{this.props.info.bonusScore}</h2>
                     </div>
-                    <h1>X</h1>
+                    <h1 style={{margin: '0', color: 'white'}}>X</h1>
                     <div className="correctBonusDiv">
-                        <h4>Accuracy Bonus</h4>
+                        <h4 style={{color: 'white', fontStyle: 'italic'}}>Accuracy Bonus</h4>
                         {this.props.info.isCorrect && 
-                            <h2>2</h2>
+                            <h2 style={{color: 'gold', margin: '0'}}>2</h2>
                         }
                         {!this.props.info.isCorrect && 
-                            <h2>0.5</h2>
+                            <h2 style={{color: 'darkred', margin: '0'}}>0.5</h2>
                         }
                     </div>
-                    <h1>=</h1>
+                    <h1 style={{margin: '0', color: 'white'}}>=</h1>
                     <div className="totalScoreDiv">
-                        <h4>Total Score</h4>
-                        <h2>{this.props.info.bonusScore * (this.props.info.isCorrect ? 2 : 0.5)}</h2>
+                        <h4 style={{color: 'white', fontStyle: 'italic'}}>Total Score</h4>
+                        <h2 className="totalScoreNum">{this.props.info.bonusScore * (this.props.info.isCorrect ? 2 : 0.5)}</h2>
                     </div>
                 </div>
                 <h2 className="sectionHeader">Leaderboard:</h2>
+                <Button className="next_level_btn" onClick={this.goToNextLevel.bind(this)} type="primary" shape="round" size="large" style={{ background: "#00bbbb", borderColor: "white"}}>Next Level</Button>
 
             </div>
         )

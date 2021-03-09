@@ -12,7 +12,7 @@ export default class Level_2 extends Component {
     render(){
         return(
             <>
-                <apple_music_email/>
+               <apple_music_email/>
             </>
         )
     }

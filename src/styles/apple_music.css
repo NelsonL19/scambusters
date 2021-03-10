@@ -34,3 +34,16 @@
 p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.message button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    outline: white;
+    background-color: rgba(79, 128, 186, 1);
+    border-radius: 20%;
+    font-size: large;
+}
+
+.legaltext {
+    font-size: small;
+}

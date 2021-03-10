@@ -1,8 +1,14 @@
 import '../styles/apple_music.css'
 import logo from '../assets/appleMusicLogo.png' 
+import {Clickable_Region} from '../components'
 
 
 const Apple_music_email = () => {
+
+    const findEvidence = ()=> {
+        alert("Found one!")
+    }
+
 
     return (
         <div className="flex-container" id ="flexApple">
@@ -17,7 +23,7 @@ const Apple_music_email = () => {
     
         <div className="message">
             <h1 className="emailName">Update Your Account Information</h1>
-            <p className="sender">apple.Inc - Update.account.confirmed@altervista.org </p>
+            <p className="sender"><Clickable_Region handleClick = {findEvidence} content = "apple.Inc"/> - Update.account.confirmed@altervista.org </p>
             <p>to me</p>
             <img className="logo" src={logo} alt="AppleMusic" width="128" height="32"/>
             <br/>

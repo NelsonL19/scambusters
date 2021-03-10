@@ -1,5 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
-import {apple_music_email, Browser_Bar} from '../components';
+import {Apple_music_email, Browser_Bar} from '../components';
 
 
 export default class Level_2 extends Component {
@@ -12,7 +12,7 @@ export default class Level_2 extends Component {
     render(){
         return(
             <>
-               <apple_music_email/>
+               <Apple_music_email/>
             </>
         )
     }

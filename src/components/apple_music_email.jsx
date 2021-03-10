@@ -1,10 +1,10 @@
 import '../styles/apple_music.css'
 import { Button } from 'antd';
 
-const apple_music_email = () => {
+const Apple_music_email = () => {
 
     return (
-        <div class="flex-container">
+        <div class="flex-container" id ="flexApple">
         <div class="mailBox">
             <button id="compose">Compose</button>
             <button>Inbox</button>
@@ -18,10 +18,10 @@ const apple_music_email = () => {
             <h1 class="emailName">Update Your Account Information</h1>
             <p class="sender">apple.Inc - Update.account.confirmed@altervista.org </p>
             <p>to me</p>
-            <img class="logo" src="../assets/appleMusicLogo.png" alt="AppleMusic" width="128" height="32"></img>
+            <img class="logo" src="../assets/appleMusicLogo.png" alt="AppleMusic" width="128" height="32"/>
             <p>Dear Apple Music Customer!
-            <br></br>
-            <br></br>
+            <br/>
+            <br/>
             Your Apple Music account has been frozen because we are unable to validate your
             account information. Once you have updated your account records, we will try again
             to validate your information and your account suspension will be lifted. This will help
@@ -31,16 +31,16 @@ const apple_music_email = () => {
             <button>Get Started</button>
             <p>If you need any assistance, go to our Help by left clicking the Help link located in the upper 
                 right-hand corner of any Apple page. 
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
                 Sincerely, 
-                <br></br>
-                <br></br>
+                <br/>
+                <br/>
                 Apple Inc. </p>
 
             <p class="legaltext">Please do not reply to this email. We are unable to respond to inquiries sent to this address. For immedicate answers
                 to your questions, visit our Help left by clikcing “Help” at the top of any Apple page. 
-                <br><br></br></br>
+                <br/><br/>
                 Copyright 2021 Apple Inc. All rights reserved. Apple is located at 2211 N. First St, San Jose, CA 95131</p>
         </div>
     </div>
@@ -48,4 +48,4 @@ const apple_music_email = () => {
         
         )
 }
-export default apple_music_email
+export default Apple_music_email

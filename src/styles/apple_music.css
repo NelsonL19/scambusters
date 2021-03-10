@@ -1,4 +1,4 @@
-.flex-container {
+#flexApple {
     display: flex;
     flex-direction: row;
     outline: 2px solid lightgray;

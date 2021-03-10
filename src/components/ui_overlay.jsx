@@ -19,6 +19,7 @@ export default class UI_Overlay extends Component {
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
         )
+
     }
 
     componentWillUnmount() {
@@ -32,6 +33,8 @@ export default class UI_Overlay extends Component {
         this.setState({
             bonusScore: this.state.bonusScore - 1
         })
+
+        if (this.state.isLevelComplete) {return}
     }
 
     scamPressed(){
@@ -63,7 +66,13 @@ export default class UI_Overlay extends Component {
         }
     }
 
+
+
     render(){
+        let levelType = this.props.level.type;
+
+        if (levelType == "scamOrNot") {
+
         return (
             <div className="UI_Parent">
                 <div className="flex-container">
@@ -92,5 +101,45 @@ export default class UI_Overlay extends Component {
                 </>
             </div>
         )
+
+            } else {
+
+        return (
+            <div className="UI_Parent">
+                <div className="flex-container">
+                    <div className="top-row">
+                        <div>
+                        <h3>Level</h3>
+                        <h1 className="level">{this.props.level.levelNum}</h1>
+                        </div>
+                        <div>
+                            <h3>Time Bonus</h3>
+                            <h1 className="bonus">{this.state.bonusScore}</h1>
+                        </div>
+                    </div>
+                    <div className="bottom-row">
+                        <h3>Evidence Collected:</h3>
+                        <div className="collection-count">
+                            <table>
+                                <tr>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                </tr>
+                                </table>
+                        </div>
+                        </div>
+                </div>
+                <>
+                {this.state.isLevelComplete &&
+                    <Level_End info={this.state}/>
+                }
+                </>
+            </div>
+        )
+
+            }
     }
 }

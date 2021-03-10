@@ -1,4 +1,4 @@
-
+import '../styles/apple_music.css'
 import { Button } from 'antd';
 
 const apple_music_email = () => {

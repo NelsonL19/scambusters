@@ -6,8 +6,6 @@ import Level_1 from './pages/level_1'
 import Level_2 from './pages/level_2'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
-import Level_Collect from './components/level_collect.jsx'
-
 function App() {
 
   //store in firebase?
@@ -45,7 +43,7 @@ function App() {
           <Level_Prototype level = {levelInfo[1]}/>
         </Route>
         <Route path = "/level2">
-        <Level_Collect level = {levelInfo[2]}/>
+        <Level_Prototype level = {levelInfo[2]}/>
         </Route>
       </Switch>
     </Router>

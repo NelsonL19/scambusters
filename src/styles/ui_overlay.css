@@ -41,6 +41,10 @@ div.top-row {
     font-weight: 200;
 }
 
+th {
+    border: 3px solid grey;
+}
+
 div.bottom-row {
     display: flex;
     flex-direction: column;

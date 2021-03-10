@@ -30,7 +30,7 @@ function App() {
       type: "evidenceCollect",
       isScam: true,
       url: "https://mail.google.com/mail/u/0/#inbox",
-      evidenceAmount: 1
+      evidenceAmount: 2
     }
   ]
   //Function is returning the location and levels that are being played in our app

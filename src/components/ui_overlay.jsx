@@ -8,13 +8,9 @@ export default class UI_Overlay extends Component {
         super(props)
         this.state = {
             data: null,
-            level: this.props.level,
             bonusScore: 3000,
             isLevelComplete: false,
             isCorrect: false,
-            evidenceTotal: props.level.evidenceAmount,
-            evidence: []
-
         }
     }
 
@@ -22,12 +18,23 @@ export default class UI_Overlay extends Component {
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
         )
-        if (this.state.evidenceTotal > 0) {
-            for (let i = 0; i < this.state.evidenceTotal; i++) {
-                this.state.evidence[i] = false;
-            }
-        }
+        // if (this.state.evidenceTotal > 0) {
+        //     for (let i = 0; i < this.state.evidenceTotal; i++) {
+        //         this.state.evidence[i] = false;
+        //     }
+        // }
 
+    }
+
+    componentDidUpdate () {
+        if(this.props.level.type == "evidenceCollect"){
+            if(this.props.evidenceFound.length >= this.props.evidenceAmount && this.state.isLevelComplete == false){
+                this.setState({isCorrect: true, isLevelComplete: true})
+            }
+            else if (this.state.isLevelComplete == true && this.props.evidenceFound.length < this.props.evidenceAmount){
+                this.setState({isCorrect: false, isLevelComplete:false})
+            }
+        } 
     }
 
     componentWillUnmount () {
@@ -76,21 +83,13 @@ export default class UI_Overlay extends Component {
         }
     }
 
-    onClickTest = () => {
-        this.setState({
-            evidence: [true]
-        });
-    }
-
     render () {
         let levelType = this.props.level.type;
-        let coloring = "notFound"
-        for (let i = 0; i < this.state.evidence.length; i++) {
-            if (this.state.evidence[i] == true) {
-                coloring = "hasFound"
-            }
-        }
-
+        // for (let i = 0; i < this.state.evidence.length; i++) {
+        //     if (this.state.evidence[i] == true) {
+        //         coloring = "hasFound"
+        //     }
+        // }
 
         if (levelType == "scamOrNot") {
 
@@ -117,7 +116,7 @@ export default class UI_Overlay extends Component {
                     </div>
                     <>
                         {this.state.isLevelComplete &&
-                            <Level_End info={this.state} />
+                            <Level_End info={{...this.state, level: this.props.level}} />
                         }
                     </>
                 </div>
@@ -145,11 +144,12 @@ export default class UI_Overlay extends Component {
                                     <thead></thead>
                                     <tbody>
                                         <tr>
-                                            <th className={coloring}>1</th>
-                                            <th className={coloring}>2</th>
+                                            <th className= {this.props.evidenceFound.length >=1 ? "hasFound" : "notFound"}>1</th>
+                                            <th className= {this.props.evidenceFound.length >=2 ? "hasFound" : "notFound"}>2</th>
+                                            {/* <th className={coloring}>2</th>
                                             <th className={coloring}>3</th>
                                             <th className={coloring}>4</th>
-                                            <th className={coloring}>5</th>
+                                            <th className={coloring}>5</th> */}
                                         </tr>
                                     </tbody>
                                     <tfoot></tfoot>
@@ -159,7 +159,7 @@ export default class UI_Overlay extends Component {
                     </div>
                     <>
                         {this.state.isLevelComplete &&
-                            <Level_End info={this.state} />
+                            <Level_End info={{...this.state, level: this.props.level }}/>
                         }
                     </>
                 </div>

@@ -122,11 +122,11 @@ export default class UI_Overlay extends Component {
                         <div className="collection-count">
                             <table>
                                 <tr>
-                                    <th>1</th>
-                                    <th>2</th>
-                                    <th>3</th>
-                                    <th>4</th>
-                                    <th>5</th>
+                                <th class = "hasFound">1</th>
+                                <th class = "notFound">2</th>
+                                <th class = "notFound">3</th>
+                                <th class = "notFound">4</th>
+                                <th class = "notFound">5</th>
                                 </tr>
                                 </table>
                         </div>

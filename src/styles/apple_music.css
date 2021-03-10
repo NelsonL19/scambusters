@@ -1,0 +1,36 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    outline: 2px solid lightgray;
+}
+
+.mailBox button {
+    background-color: lightgray;
+    color: black;
+    padding: 10px 24px;
+    width: 150%;
+    display: block;
+}
+
+#compose {
+    margin-bottom: 10%;
+}
+
+.message {
+    border-width: 10px;
+    padding-left: 10%;
+}
+
+.emailName {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.sender {
+    line-height: 1rem;
+    color: gray;
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -1,11 +1,11 @@
 import '../styles/apple_music.css'
-import { Button } from 'antd';
+import logo from '../assets/appleMusicLogo.png' 
 
 const Apple_music_email = () => {
 
     return (
-        <div class="flex-container" id ="flexApple">
-        <div class="mailBox">
+        <div className="flex-container" id ="flexApple">
+        <div className="mailBox">
             <button id="compose">Compose</button>
             <button>Inbox</button>
             <button>Starred</button>
@@ -14,11 +14,13 @@ const Apple_music_email = () => {
             <button>Junk</button>
         </div>
     
-        <div class="message">
-            <h1 class="emailName">Update Your Account Information</h1>
-            <p class="sender">apple.Inc - Update.account.confirmed@altervista.org </p>
+        <div className="message">
+            <h1 className="emailName">Update Your Account Information</h1>
+            <p className="sender">apple.Inc - Update.account.confirmed@altervista.org </p>
             <p>to me</p>
-            <img class="logo" src="../assets/appleMusicLogo.png" alt="AppleMusic" width="128" height="32"/>
+            <img className="logo" src={logo} alt="AppleMusic" width="128" height="32"/>
+            <br/>
+            <br/>
             <p>Dear Apple Music Customer!
             <br/>
             <br/>
@@ -38,7 +40,7 @@ const Apple_music_email = () => {
                 <br/>
                 Apple Inc. </p>
 
-            <p class="legaltext">Please do not reply to this email. We are unable to respond to inquiries sent to this address. For immedicate answers
+            <p className="legaltext">Please do not reply to this email. We are unable to respond to inquiries sent to this address. For immedicate answers
                 to your questions, visit our Help left by clikcing “Help” at the top of any Apple page. 
                 <br/><br/>
                 Copyright 2021 Apple Inc. All rights reserved. Apple is located at 2211 N. First St, San Jose, CA 95131</p>

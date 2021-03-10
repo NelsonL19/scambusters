@@ -1,7 +1,6 @@
 #flexApple {
     display: flex;
     flex-direction: row;
-    outline: 2px solid lightgray;
 }
 
 .mailBox button {
@@ -13,6 +12,7 @@
 }
 
 #compose {
+    margin-top: 80px;
     margin-bottom: 10%;
 }
 
@@ -42,6 +42,7 @@ p {
     background-color: rgba(79, 128, 186, 1);
     border-radius: 20%;
     font-size: large;
+    margin-bottom: 15px;
 }
 
 .legaltext {

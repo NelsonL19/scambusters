@@ -11,7 +11,10 @@ export default class UI_Overlay extends Component {
             level: this.props.level,
             bonusScore: 3000,
             isLevelComplete: false,
-            isCorrect: false
+            isCorrect: false,
+            evidenceTotal: props.level.evidenceAmount,
+            evidence: []
+
         }
     }
 
@@ -19,6 +22,11 @@ export default class UI_Overlay extends Component {
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
         )
+        if (this.state.evidenceTotal > 0) {
+            for (let i = 0; i < this.state.evidenceTotal; i++) {
+                this.state.evidence[i] = false;
+            }
+        }
 
     }
 
@@ -51,6 +59,8 @@ export default class UI_Overlay extends Component {
         }
     }
 
+
+
     legitPressed () {
         // make sure the level is not already done!
         if (this.state.isLevelComplete) { return }
@@ -66,10 +76,21 @@ export default class UI_Overlay extends Component {
         }
     }
 
-
+    onClickTest = () => {
+        this.setState({
+            evidence: [true]
+        });
+    }
 
     render () {
         let levelType = this.props.level.type;
+        let coloring = "notFound"
+        for (let i = 0; i < this.state.evidence.length; i++) {
+            if (this.state.evidence[i] == true) {
+                coloring = "hasFound"
+            }
+        }
+
 
         if (levelType == "scamOrNot") {
 
@@ -103,7 +124,7 @@ export default class UI_Overlay extends Component {
             )
 
         } else {
-            console.log(this.props.level);
+            let found = false;
             return (
                 <div className="UI_Parent">
                     <div className="flex-container">
@@ -123,13 +144,13 @@ export default class UI_Overlay extends Component {
                                 <table>
                                     <thead></thead>
                                     <tbody>
-                                    <tr>
-                                        <th className="notFound">1</th>
-                                        <th className="notFound">2</th>
-                                        <th className="notFound">3</th>
-                                        <th className="notFound">4</th>
-                                        <th className="notFound">5</th>
-                                    </tr>
+                                        <tr>
+                                            <th className={coloring}>1</th>
+                                            <th className={coloring}>2</th>
+                                            <th className={coloring}>3</th>
+                                            <th className={coloring}>4</th>
+                                            <th className={coloring}>5</th>
+                                        </tr>
                                     </tbody>
                                     <tfoot></tfoot>
                                 </table>

@@ -3,6 +3,8 @@
     flex-direction: row;
 }
 
+
+
 .mailBox button {
     background-color: lightgray;
     color: black;
@@ -34,6 +36,7 @@
 p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .message button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -14,19 +14,23 @@ function App() {
       levelNum: 0,
       type:"scamOrNot",
       isScam: false,
-      url: "URL HERE"
+      url: "URL HERE",
+      evidenceAmount: 0
+
     },
     {
       levelNum: 1,
       type: "scamOrNot",
       isScam: true,
-      url: "https://neftlix.com"
+      url: "https://neftlix.com",
+      evidenceAmount: 0
     },
     {
       levelNum: 2,
       type: "evidenceCollect",
       isScam: true,
-      url: "https://mail.google.com/mail/u/0/#inbox"
+      url: "https://mail.google.com/mail/u/0/#inbox",
+      evidenceAmount: 1
     }
   ]
   //Function is returning the location and levels that are being played in our app

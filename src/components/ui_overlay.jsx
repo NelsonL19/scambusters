@@ -1,96 +1,170 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Button } from 'antd';
 import Level_End from './level_end.jsx'
 import '../styles/ui_overlay.css'
 
 export default class UI_Overlay extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             data: null,
-            level: this.props.level,
             bonusScore: 3000,
             isLevelComplete: false,
-            isCorrect: false
+            isCorrect: false,
         }
     }
 
-    componentDidMount() {
+    componentDidMount () {
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
         )
+        // if (this.state.evidenceTotal > 0) {
+        //     for (let i = 0; i < this.state.evidenceTotal; i++) {
+        //         this.state.evidence[i] = false;
+        //     }
+        // }
+
     }
 
-    componentWillUnmount() {
+    componentDidUpdate () {
+        if(this.props.level.type == "evidenceCollect"){
+            if(this.props.evidenceFound.length >= this.props.evidenceAmount && this.state.isLevelComplete == false){
+                this.setState({isCorrect: true, isLevelComplete: true})
+            }
+            else if (this.state.isLevelComplete == true && this.props.evidenceFound.length < this.props.evidenceAmount){
+                this.setState({isCorrect: false, isLevelComplete:false})
+            }
+        } 
+    }
+
+    componentWillUnmount () {
         clearInterval(this.bonusTimerID)
     }
 
-    tickDownBonus(){
+    tickDownBonus () {
         // only count down if the bonus > 0 AND the level is still being played.
-        if(this.state.bonusScore <= 0 || this.state.isLevelComplete) {return}
+        if (this.state.bonusScore <= 0 || this.state.isLevelComplete) { return }
 
         this.setState({
             bonusScore: this.state.bonusScore - 1
         })
+
+        if (this.state.isLevelComplete) { return }
     }
 
-    scamPressed(){
+    scamPressed () {
         // make sure the level is not already done!
-        if (this.state.isLevelComplete) {return}
+        if (this.state.isLevelComplete) { return }
 
-        if(this.props.level.isScam){
+        if (this.props.level.isScam) {
             // Correct!
-            this.setState({isLevelComplete: true, isCorrect: true})
+            this.setState({ isLevelComplete: true, isCorrect: true })
         }
-        else{
+        else {
             // Incorrect
-            this.setState({isLevelComplete: true, isCorrect: false})
+            this.setState({ isLevelComplete: true, isCorrect: false })
         }
     }
 
-    legitPressed(){
+
+
+    legitPressed () {
         // make sure the level is not already done!
-        if (this.state.isLevelComplete) {return}
+        if (this.state.isLevelComplete) { return }
 
-        if(this.props.level.isScam){
+        if (this.props.level.isScam) {
             // Incorrect
-            this.setState({isLevelComplete: true, isCorrect: false})
+            this.setState({ isLevelComplete: true, isCorrect: false })
         }
-        else{
+        else {
             // Correct!
-            this.setState({isLevelComplete: true, isCorrect: true})
+            this.setState({ isLevelComplete: true, isCorrect: true })
 
         }
     }
 
-    render(){
-        return (
-            <div className="UI_Parent">
-                <div className="flex-container">
-                    <div className="top-row">
-                        <div>
-                        <h3>Level</h3>
-                        <h1 className="level">{this.props.level.levelNum}</h1>
+    render () {
+        let levelType = this.props.level.type;
+        // for (let i = 0; i < this.state.evidence.length; i++) {
+        //     if (this.state.evidence[i] == true) {
+        //         coloring = "hasFound"
+        //     }
+        // }
+
+        if (levelType == "scamOrNot") {
+
+            return (
+                <div className="UI_Parent">
+                    <div className="flex-container">
+                        <div className="top-row">
+                            <div>
+                                <h3>Level</h3>
+                                <h1 className="level">{this.props.level.levelNum}</h1>
+                            </div>
+                            <div>
+                                <h3>Time Bonus</h3>
+                                <h1 className="bonus">{this.state.bonusScore}</h1>
+                            </div>
                         </div>
-                        <div>
-                            <h3>Time Bonus</h3>
-                            <h1 className="bonus">{this.state.bonusScore}</h1>
+                        <div className="bottom-row">
+                            <h3>Scam or Legit?</h3>
+                            <div className="scam-buttons">
+                                <Button className="btn" onClick={this.scamPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
+                                <Button className="btn" onClick={this.legitPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
+                            </div>
                         </div>
                     </div>
-                    <div className="bottom-row">
-                        <h3>Scam or Legit?</h3>
-                        <div className="scam-buttons">
-                            <Button className="btn" onClick={this.scamPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white"}}>SCAM</Button>
-                            <Button className="btn" onClick={this.legitPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white"}}>LEGIT</Button>
-                        </div>
-                    </div>
+                    <>
+                        {this.state.isLevelComplete &&
+                            <Level_End info={{...this.state, level: this.props.level}} />
+                        }
+                    </>
                 </div>
-                <>
-                {this.state.isLevelComplete &&
-                    <Level_End info={this.state}/>
-                }
-                </>
-            </div>
-        )
+            )
+
+        } else {
+            let found = false;
+            return (
+                <div className="UI_Parent">
+                    <div className="flex-container">
+                        <div className="top-row">
+                            <div>
+                                <h3>Level</h3>
+                                <h1 className="level">{this.props.level.levelNum}</h1>
+                            </div>
+                            <div>
+                                <h3>Time Bonus</h3>
+                                <h1 className="bonus">{this.state.bonusScore}</h1>
+                            </div>
+                        </div>
+                        <div className="bottom-row">
+                            <h3>Evidence Collected:</h3>
+                            <div className="collection-count">
+                                <table>
+                                    <thead></thead>
+                                    <tbody>
+                                        <tr>
+                                            <th className= {this.props.evidenceFound.length >=1 ? "hasFound" : "notFound"}>1</th>
+                                            <th className= {this.props.evidenceFound.length >=2 ? "hasFound" : "notFound"}>2</th>
+                                            {/* <th className={coloring}>2</th>
+                                            <th className={coloring}>3</th>
+                                            <th className={coloring}>4</th>
+                                            <th className={coloring}>5</th> */}
+                                        </tr>
+                                    </tbody>
+                                    <tfoot></tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <>
+                        {this.state.isLevelComplete &&
+                            <Level_End info={{...this.state, level: this.props.level }}/>
+                        }
+                    </>
+                </div>
+            )
+
+        }
     }
 }

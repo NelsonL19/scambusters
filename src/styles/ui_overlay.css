@@ -41,6 +41,17 @@ div.top-row {
     font-weight: 200;
 }
 
+
+th.notFound {
+    border: 3px solid grey;
+    background-color: red;
+}
+
+th.hasFound {
+    border: 3px solid grey;
+    background-color: green;
+}
+
 div.bottom-row {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,54 @@
+#flexApple {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.mailBox button {
+    background-color: lightgray;
+    color: black;
+    padding: 10px 24px;
+    width: 150%;
+    display: block;
+}
+
+#compose {
+    margin-top: 80px;
+    margin-bottom: 10%;
+}
+
+.message {
+    border-width: 10px;
+    padding-left: 10%;
+}
+
+.emailName {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.sender {
+    line-height: 1rem;
+    color: gray;
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black
+}
+
+
+.message button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    outline: white;
+    background-color: rgba(79, 128, 186, 1);
+    border-radius: 20%;
+    font-size: large;
+    margin-bottom: 15px;
+}
+
+.legaltext {
+    font-size: small;
+}

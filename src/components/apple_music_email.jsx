@@ -1,11 +1,11 @@
 import '../styles/apple_music.css'
 import logo from '../assets/appleMusicLogo.png' 
 import {Clickable_Region} from '../components'
+import { Tooltip } from 'antd';
 
 
 const Apple_music_email = (props) => {
 
-    console.log(props.evidenceFound)
 
     return (
         <div className="flex-container" id ="flexApple">
@@ -20,7 +20,15 @@ const Apple_music_email = (props) => {
     
         <div className="message">
             <h1 className="emailName">Update Your Account Information</h1>
-            <p className="sender"><Clickable_Region handleCRClick = {props.handleCRClick} evID = {0} found = {props.evidenceFound.includes(0)} content = "apple.Inc"/> - <Clickable_Region handleCRClick = {props.handleCRClick} evID = {1} found = {props.evidenceFound.includes(1)} content = "Update.account.confirmed@altervista.org"/> </p>
+            <p className="sender">
+                <Tooltip title = {"The capitalization in the sender's name is incorrect"} trigger = {[]} visible = {props.evidenceFound.includes(0)} placement = 'top'>
+                    <Clickable_Region handleCRClick = {props.handleCRClick} evID = {0} found = {props.evidenceFound.includes(0)} content = "apple.Inc"/>
+                </Tooltip>
+                 - 
+                <Tooltip title = {"This email address doesn't seem like an Apple company email address"} trigger = {[]} visible = {props.evidenceFound.includes(1)} placement = 'bottom'>
+                    <Clickable_Region handleCRClick = {props.handleCRClick} evID = {1} found = {props.evidenceFound.includes(1)} content = "Update.account.confirmed@altervista.org"/> 
+                </Tooltip>
+            </p>
             <p>to me</p>
             <img className="logo" src={logo} alt="AppleMusic" width="128" height="32"/>
             <br/>

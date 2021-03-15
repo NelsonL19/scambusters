@@ -14,6 +14,7 @@ export default class UI_Overlay extends Component {
         }
     }
 
+
     componentDidMount () {
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
@@ -28,12 +29,12 @@ export default class UI_Overlay extends Component {
 
     componentDidUpdate () {
         if(this.props.level.type == "evidenceCollect"){
-            if(this.props.evidenceFound.length >= this.props.evidenceAmount && this.state.isLevelComplete == false){
-                this.setState({isCorrect: true, isLevelComplete: true})
+            if(this.props.evidenceFound.length >= this.props.level.evidenceAmount && this.props.isLevelComplete == false){
+                this.props.handleCorrect()
             }
-            else if (this.state.isLevelComplete == true && this.props.evidenceFound.length < this.props.evidenceAmount){
-                this.setState({isCorrect: false, isLevelComplete:false})
-            }
+        //     else if (this.state.isLevelComplete == true && this.props.evidenceFound.length < this.props.level.evidenceAmount){
+        //         this.setState({isCorrect: false, isLevelComplete:false})
+        //     }
         } 
     }
 
@@ -43,44 +44,44 @@ export default class UI_Overlay extends Component {
 
     tickDownBonus () {
         // only count down if the bonus > 0 AND the level is still being played.
-        if (this.state.bonusScore <= 0 || this.state.isLevelComplete) { return }
+        if (this.state.bonusScore <= 0 || this.props.isLevelComplete) { return }
 
         this.setState({
             bonusScore: this.state.bonusScore - 1
         })
 
-        if (this.state.isLevelComplete) { return }
+        if (this.props.isLevelComplete) { return }
     }
 
     scamPressed () {
-        // make sure the level is not already done!
-        if (this.state.isLevelComplete) { return }
+        // // make sure the level is not already done!
+        // if (this.state.isLevelComplete) { return }
 
-        if (this.props.level.isScam) {
-            // Correct!
-            this.setState({ isLevelComplete: true, isCorrect: true })
-        }
-        else {
-            // Incorrect
-            this.setState({ isLevelComplete: true, isCorrect: false })
-        }
+        // if (this.props.level.isScam) {
+        //     // Correct!
+        //     this.setState({ isLevelComplete: true, isCorrect: true })
+        // }
+        // else {
+        //     // Incorrect
+        //     this.setState({ isLevelComplete: true, isCorrect: false })
+        // }
     }
 
 
 
     legitPressed () {
-        // make sure the level is not already done!
-        if (this.state.isLevelComplete) { return }
+        // // make sure the level is not already done!
+        // if (this.state.isLevelComplete) { return }
 
-        if (this.props.level.isScam) {
-            // Incorrect
-            this.setState({ isLevelComplete: true, isCorrect: false })
-        }
-        else {
-            // Correct!
-            this.setState({ isLevelComplete: true, isCorrect: true })
+        // if (this.props.level.isScam) {
+        //     // Incorrect
+        //     this.setState({ isLevelComplete: true, isCorrect: false })
+        // }
+        // else {
+        //     // Correct!
+        //     this.setState({ isLevelComplete: true, isCorrect: true })
 
-        }
+        // }
     }
 
     render () {
@@ -109,14 +110,19 @@ export default class UI_Overlay extends Component {
                         <div className="bottom-row">
                             <h3>Scam or Legit?</h3>
                             <div className="scam-buttons">
-                                <Button className="btn" onClick={this.scamPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
-                                <Button className="btn" onClick={this.legitPressed.bind(this)} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
+                                <Button className="btn" onClick={this.props.handleCorrect} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
+                                <Button className="btn" onClick={this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
                             </div>
                         </div>
                     </div>
                     <>
-                        {this.state.isLevelComplete &&
-                            <Level_End info={{...this.state, level: this.props.level}} />
+                        {this.props.isLevelComplete &&
+                            <Level_End 
+                            level = {this.props.level} 
+                            bonusScore = {this.state.bonusScore}
+                            isCorrect = {this.props.isCorrect}
+                            resetLevelState = {this.props.resetLevelState}
+                            />
                         }
                     </>
                 </div>
@@ -158,8 +164,13 @@ export default class UI_Overlay extends Component {
                         </div>
                     </div>
                     <>
-                        {this.state.isLevelComplete &&
-                            <Level_End info={{...this.state, level: this.props.level }}/>
+                        {this.props.isLevelComplete &&
+                            <Level_End 
+                                level = {this.props.level}
+                                bonusScore = {this.state.bonusScore}
+                                isCorrect =  {this.props.isCorrect}
+                                resetLevelState = {this.props.resetLevelState}
+                            />
                         }
                     </>
                 </div>

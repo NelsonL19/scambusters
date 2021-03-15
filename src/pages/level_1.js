@@ -12,7 +12,7 @@ export default class Level_1 extends Component {
     render(){
         return(
             <>
-                <Fake_Netflix/>
+                <Fake_Netflix allTooltipsVisible = {this.props.allTooltipsVisible}/>
             </>
         )
 

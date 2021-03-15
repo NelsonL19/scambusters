@@ -13,8 +13,6 @@ export default class Level_2 extends Component {
 
 
     render(){
-        console.log(this.props.evidenceFound)
-        console.log(this.props.handleCRClick)
         return(
             <>
                <Apple_music_email handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound}/>

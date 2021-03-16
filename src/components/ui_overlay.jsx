@@ -96,6 +96,9 @@ export default class UI_Overlay extends Component {
 
             return (
                 <div className="UI_Parent">
+                    <div>
+                        <h1 className="prompt">Is the media below a scam?</h1>
+                    </div>
                     <div className="flex-container">
                         <div className="top-row">
                             <div>
@@ -108,7 +111,7 @@ export default class UI_Overlay extends Component {
                             </div>
                         </div>
                         <div className="bottom-row">
-                            <h3>Scam or Legit?</h3>
+                            <h3>Scam or legit?</h3>
                             <div className="scam-buttons">
                                 <Button className="btn" onClick={this.props.handleCorrect} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
                                 <Button className="btn" onClick={this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
@@ -132,6 +135,9 @@ export default class UI_Overlay extends Component {
             let found = false;
             return (
                 <div className="UI_Parent">
+                    <div>
+                        <h1 className="prompt">This is a scam. Collect all __ pieces of evidence!</h1>
+                    </div>
                     <div className="flex-container">
                         <div className="top-row">
                             <div>
@@ -170,6 +176,7 @@ export default class UI_Overlay extends Component {
                                 bonusScore = {this.state.bonusScore}
                                 isCorrect =  {this.props.isCorrect}
                                 resetLevelState = {this.props.resetLevelState}
+                                numCollected = {this.props.evidenceFound.length}
                             />
                         }
                     </>

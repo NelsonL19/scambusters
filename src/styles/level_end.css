@@ -1,3 +1,55 @@
+@keyframes finalResultWrong {
+    0% {
+      color: white;
+    }
+  
+    50% {
+      color: red;
+      letter-spacing: 5px;
+    }
+
+    100% {
+        color: white;
+      }
+  }
+
+  @keyframes finalResultCorrect {
+    0% {
+      color: white;
+    }
+  
+    50% {
+      color: gold;
+      letter-spacing: 5px;
+    }
+
+    100% {
+        color: white;
+      }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+      }
+  }
+
+  @keyframes wiggle {
+    0% {
+        transform: rotate(-3deg);
+      }
+
+    50% {
+        transform: rotate(3deg);
+      }
+
+    100% {
+        transform: rotate(-3deg);
+      }
+  }
 
 
 div.endLevelParent {
@@ -22,9 +74,26 @@ div.endLevelParent {
     align-items: center;
 }
 
-h1.endHeader {
+h1.endHeaderCorrect {
     font-size: 300%;
     color: white;
+    font-weight: bolder;
+
+    /* animation stuff */
+    animation-duration: 5s;
+    animation-name: finalResultCorrect;
+    animation-iteration-count: infinite;
+}
+
+h1.endHeaderWrong {
+    font-size: 300%;
+    color: white;
+    font-weight: bolder;
+
+    /* animation stuff */
+    animation-duration: 5s;
+    animation-name: finalResultWrong;
+    animation-iteration-count: infinite;
 }
 
 .sectionHeader {
@@ -56,6 +125,13 @@ div.timeBonusDiv {
     flex-direction: column;
     align-items: center;
     margin-right: 30px;
+
+    /* animation stuff */
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: 0.4s;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
 }
 
 div.correctBonusDiv {
@@ -64,6 +140,13 @@ div.correctBonusDiv {
     align-items: center;
     margin-left: 30px;
     margin-right: 30px;
+
+    /* animation stuff */
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: 1.0s;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
 }
 
 .bonusNum {
@@ -77,6 +160,12 @@ div.totalScoreDiv {
     align-items: center;
     margin: 0px 0px 0px 30px;
 
+    /* animation stuff */
+    opacity: 0;
+    animation-duration: 1s;
+    animation-delay: 1.6s;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
 }
 
 .totalScoreNum {
@@ -84,6 +173,12 @@ div.totalScoreDiv {
     font-weight: bold;
     margin: 0px;
     color: white;
+
+    /* animation stuff */
+    animation-duration: 1s;
+    animation-name: wiggle;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
 }
 
 Button.next_level_btn {

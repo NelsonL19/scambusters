@@ -19,10 +19,10 @@ export default class Level_End extends Component {
         return (
             <div className="endLevelParent">
                 {this.props.info.isCorrect &&
-                    <h1 className="endHeader">Correct!</h1>
+                    <h1 className="endHeaderCorrect">Correct!</h1>
                 }
                 {!this.props.info.isCorrect &&
-                    <h1 className="endHeader">Incorrect :(</h1>
+                    <h1 className="endHeaderWrong">Incorrect :(</h1>
                 }
                 <h2 className="sectionHeader">Level score:</h2>
                 <div className="scoreCalculation">

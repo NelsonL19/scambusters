@@ -36,20 +36,57 @@ div.top-row {
     font-weight: 200;
 }
 
+.prompt {
+    position: absolute;
+    top: -1%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    text-align: center;
+    font-weight: 600;
+}
+
 .bonus {
     text-align: right;
     font-weight: 200;
 }
 
+.notFound {
+    /* alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin: 0px 50px 0px 50px;
 
-th.notFound {
-    border: 3px solid grey;
-    background-color: red;
+    /* coloring */
+    border-radius: 5px;
+    background-color: #ff9d9d;
+    color: white;
+    font-weight: 1000;
+    font-size: xx-large;
+    box-shadow: 3px 3px 5px grey;
 }
 
-th.hasFound {
-    border: 3px solid grey;
-    background-color: green;
+.hasFound {
+    /* alignment */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin: 0px 50px 0px 50px;
+
+    /* coloring */
+    border-radius: 5px;
+    background-color: #139f00;
+    color: white;
+    font-weight: 1000;
+    font-size: xx-large;
+    box-shadow: 3px 3px 5px grey;
 }
 
 div.bottom-row {
@@ -58,6 +95,14 @@ div.bottom-row {
     justify-content: center;
     align-items: center;
     /*border: 2px solid rebeccapurple;*/
+}
+
+div.collection-count {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
 }
 
 div.scam-buttons {

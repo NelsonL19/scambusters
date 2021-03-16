@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
-import { Button } from 'antd';
+import { Button, Table } from 'antd';
 import Level_End from './level_end.jsx'
 import '../styles/ui_overlay.css'
 
@@ -16,6 +16,7 @@ export default class UI_Overlay extends Component {
 
 
     componentDidMount () {
+        console.log(this.props)
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
         )
@@ -82,6 +83,18 @@ export default class UI_Overlay extends Component {
         //     this.setState({ isLevelComplete: true, isCorrect: true })
 
         // }
+    }
+
+    createEvidenceMarkers = (num) => {
+        var children = []
+        for(let i = 0; i < num; i++){
+            children.push(
+                <div className={this.props.evidenceFound.length >=i+1 ? "hasFound" : "notFound"} >
+                    {i+1}
+                </div>
+            )
+        }
+        return children
     }
 
     render () {
@@ -152,20 +165,7 @@ export default class UI_Overlay extends Component {
                         <div className="bottom-row">
                             <h3>Evidence Collected:</h3>
                             <div className="collection-count">
-                                <table>
-                                    <thead></thead>
-                                    <tbody>
-                                        <tr>
-                                            <th className= {this.props.evidenceFound.length >=1 ? "hasFound" : "notFound"}>1</th>
-                                            <th className= {this.props.evidenceFound.length >=2 ? "hasFound" : "notFound"}>2</th>
-                                            {/* <th className={coloring}>2</th>
-                                            <th className={coloring}>3</th>
-                                            <th className={coloring}>4</th>
-                                            <th className={coloring}>5</th> */}
-                                        </tr>
-                                    </tbody>
-                                    <tfoot></tfoot>
-                                </table>
+                                {this.createEvidenceMarkers(this.props.level.evidenceAmount)}
                             </div>
                         </div>
                     </div>

@@ -49,7 +49,7 @@ const Level_End = (props) => {
 
             {props.level.type === "scamOrNot" &&
             <div className="scoreCalculation">
-                <div className="correctBonusDiv">
+                <div className="numberDiv">
                     <h4 style={{color: 'white', fontStyle: 'italic'}}>Accuracy</h4>
                     {props.isCorrect && 
                         <h2 style={{color: 'gold', margin: '0'}}>3000</h2>
@@ -59,7 +59,7 @@ const Level_End = (props) => {
                     }
                 </div>
                 <h1 className="mathSymbol">+</h1>
-                <div className="timeBonusDiv">
+                <div className="numberDiv">
                     <h4 style={{color: 'white', fontStyle: 'italic'}}>Time</h4>
                     <h2 className="bonusNum">{props.bonusScore}</h2>
                 </div>

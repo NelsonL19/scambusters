@@ -25,7 +25,7 @@ The project will run on [http://localhost:3000](http://localhost:3000).
 
 # Deployment
 
-Scambusters game has not been deployed yet
+The game has been deployed on Firebase as of v0.2-Alpha. The Firebase link is: https://scambusters-47d4a.web.app/
 
 # Development Team
 

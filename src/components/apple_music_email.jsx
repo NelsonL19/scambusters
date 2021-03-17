@@ -6,9 +6,14 @@ import { Tooltip } from 'antd';
 
 const Apple_music_email = (props) => {
 
+    const test = (e) => {
+        console.log(e.target)
+        console.log(e.currentTarget)
+    }
+
 
     return (
-        <div className="flex-container" id ="flexApple">
+        <div className="flex-container" id ="flexApple"  >
             <div className="mailBox">
                 <button id="compose">Compose</button>
                 <button>Inbox</button>

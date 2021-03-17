@@ -10,7 +10,7 @@ const Level_Prototype = (props) => {
     const [isLevelComplete, setIsLevelComplete] = useState(false)
     const [isCorrect, setIsCorrect] = useState(false)
     const [allTooltipsVisible,setAllTooltipsVisible] = useState(false)
-
+    const [misclicks, setMisclicks] = useState(0)
     //This function is responsible for taking in the level number, and rendering the level content that is being used for each level.
     const loadLevel = (number) => {
         const Level = React.lazy(() =>
@@ -21,8 +21,28 @@ const Level_Prototype = (props) => {
 
     //event handler for clicking in a clickable region
     const handleCRClick = (evID) => {
-        console.log("here")
         setEvidenceFound([...evidenceFound, evID])
+    }
+
+    const handleMisclick = (e) => {
+        e.stopPropagation()
+
+        const circle = document.querySelector(".misclick-circle")
+        const bonus = document.querySelector(".bonus")
+        circle.style.left = (e.clientX - 20)+ "px";
+        circle.style.top = (e.clientY - 20)+ "px";
+        circle.classList.add("visible")
+        bonus.classList.add('red-flash')
+
+        setTimeout(()=> {
+            circle.classList.remove("visible")
+            bonus.classList.remove("red-flash")
+
+        },250)
+
+
+
+        setMisclicks(misclicks + 1)
     }
 
     //handle correct selection in scam/no scam levels
@@ -69,12 +89,13 @@ const Level_Prototype = (props) => {
         setEvidenceFound([])
     },[props.level])
 
+
     const Level = loadLevel(props.level.levelNum)
 
     return(
         //Calls the load level function with the level that is being selected.
                 <div>
-                    <div className="minification">
+                    <div className="minification" onClick = {(e) => handleMisclick(e)}>
                         <Browser_Bar url={props.level.url} />
                         <Suspense fallback={<div>Loading Level...</div>}>
                             {props.level.type == "scamOrNot" && 
@@ -83,7 +104,13 @@ const Level_Prototype = (props) => {
                                     isCorrect = {isCorrect}
                                     allTooltipsVisible = {allTooltipsVisible}
                                 />}
-                            {props.level.type == "evidenceCollect" && <Level handleCRClick = {handleCRClick} evidenceFound = {evidenceFound} isLevelComplete = {isLevelComplete} isCorrect = {isCorrect}/>}
+                            {props.level.type == "evidenceCollect" && 
+                                <Level 
+                                    handleCRClick = {handleCRClick} 
+                                    evidenceFound = {evidenceFound} 
+                                    isLevelComplete = {isLevelComplete} 
+                                    isCorrect = {isCorrect}
+                                />}
                         </Suspense>
                     </div>
                     <UI_Overlay 
@@ -94,7 +121,9 @@ const Level_Prototype = (props) => {
                         handleCorrect = {handleCorrect}
                         handleIncorrect = {handleIncorrect}
                         resetLevelState = {resetLevelState}
+                        misclicks = {misclicks}
                     />
+                    <div className = "misclick-circle"></div>
                 </div>
             )
 }

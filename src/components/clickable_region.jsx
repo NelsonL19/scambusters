@@ -4,6 +4,7 @@ import '../styles/clickable_region.css'
 const Clickable_Region = (props) =>{
 
     const handleClick = (e) => {
+        e.stopPropagation();
         if(!props.found){
             props.handleCRClick(props.evID)
         }

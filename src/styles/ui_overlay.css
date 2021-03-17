@@ -49,6 +49,11 @@ div.top-row {
 .bonus {
     text-align: right;
     font-weight: 200;
+    transition: background-color 1s ease;
+}
+
+.bonus.red-flash{
+    background-color:red;
 }
 
 .notFound {

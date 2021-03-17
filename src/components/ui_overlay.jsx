@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
-import { Button, Table } from 'antd';
+import { Button } from 'antd';
 import Level_End from './level_end.jsx'
 import '../styles/ui_overlay.css'
 
@@ -8,15 +8,14 @@ export default class UI_Overlay extends Component {
         super(props)
         this.state = {
             data: null,
-            bonusScore: 3000,
+            timeBonus: 3000,
             isLevelComplete: false,
             isCorrect: false,
+            isTimeOut: false
         }
     }
 
-
     componentDidMount () {
-        console.log(this.props)
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
         )
@@ -45,13 +44,20 @@ export default class UI_Overlay extends Component {
 
     tickDownBonus () {
         // only count down if the bonus > 0 AND the level is still being played.
-        if (this.state.bonusScore <= 0 || this.props.isLevelComplete) { return }
+        if (this.state.timeBonus - this.props.misclicks*100 <= 0) {
+            this.setState({
+                isTimeOut: true
+            })
+            return
+        }
+        if (this.props.isLevelComplete) { return }
 
         this.setState({
-            bonusScore: this.state.bonusScore - 1
+            timeBonus: this.state.timeBonus - 1
         })
 
         if (this.props.isLevelComplete) { return }
+
     }
 
     scamPressed () {
@@ -85,18 +91,6 @@ export default class UI_Overlay extends Component {
         // }
     }
 
-    createEvidenceMarkers = (num) => {
-        var children = []
-        for(let i = 0; i < num; i++){
-            children.push(
-                <div className={this.props.evidenceFound.length >=i+1 ? "hasFound" : "notFound"} >
-                    {i+1}
-                </div>
-            )
-        }
-        return children
-    }
-
     render () {
         let levelType = this.props.level.type;
         // for (let i = 0; i < this.state.evidence.length; i++) {
@@ -109,9 +103,6 @@ export default class UI_Overlay extends Component {
 
             return (
                 <div className="UI_Parent">
-                    <div>
-                        <h1 className="prompt">Is the media below a scam?</h1>
-                    </div>
                     <div className="flex-container">
                         <div className="top-row">
                             <div>
@@ -120,11 +111,11 @@ export default class UI_Overlay extends Component {
                             </div>
                             <div>
                                 <h3>Time Bonus</h3>
-                                <h1 className="bonus">{this.state.bonusScore}</h1>
+                                <h1 className="bonus">{!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}</h1>
                             </div>
                         </div>
                         <div className="bottom-row">
-                            <h3>Scam or legit?</h3>
+                            <h3>Scam or Legit?</h3>
                             <div className="scam-buttons">
                                 <Button className="btn" onClick={this.props.handleCorrect} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
                                 <Button className="btn" onClick={this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
@@ -134,10 +125,10 @@ export default class UI_Overlay extends Component {
                     <>
                         {this.props.isLevelComplete &&
                             <Level_End 
-                            level = {this.props.level} 
-                            bonusScore = {this.state.bonusScore}
-                            isCorrect = {this.props.isCorrect}
-                            resetLevelState = {this.props.resetLevelState}
+                                level = {this.props.level} 
+                                timeBonus = {!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}
+                                isCorrect = {this.props.isCorrect}
+                                resetLevelState = {this.props.resetLevelState}
                             />
                         }
                     </>
@@ -148,9 +139,6 @@ export default class UI_Overlay extends Component {
             let found = false;
             return (
                 <div className="UI_Parent">
-                    <div>
-                        <h1 className="prompt">This is a scam. Collect all __ pieces of evidence!</h1>
-                    </div>
                     <div className="flex-container">
                         <div className="top-row">
                             <div>
@@ -159,13 +147,26 @@ export default class UI_Overlay extends Component {
                             </div>
                             <div>
                                 <h3>Time Bonus</h3>
-                                <h1 className="bonus">{this.state.bonusScore}</h1>
+                                <h1 className="bonus">{!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100: 0}</h1>
                             </div>
                         </div>
                         <div className="bottom-row">
                             <h3>Evidence Collected:</h3>
                             <div className="collection-count">
-                                {this.createEvidenceMarkers(this.props.level.evidenceAmount)}
+                                <table>
+                                    <thead></thead>
+                                    <tbody>
+                                        <tr>
+                                            <th className= {this.props.evidenceFound.length >=1 ? "hasFound" : "notFound"}>1</th>
+                                            <th className= {this.props.evidenceFound.length >=2 ? "hasFound" : "notFound"}>2</th>
+                                            {/* <th className={coloring}>2</th>
+                                            <th className={coloring}>3</th>
+                                            <th className={coloring}>4</th>
+                                            <th className={coloring}>5</th> */}
+                                        </tr>
+                                    </tbody>
+                                    <tfoot></tfoot>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -173,10 +174,10 @@ export default class UI_Overlay extends Component {
                         {this.props.isLevelComplete &&
                             <Level_End 
                                 level = {this.props.level}
-                                bonusScore = {this.state.bonusScore}
+                                timeBonus = {!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}
                                 isCorrect =  {this.props.isCorrect}
-                                resetLevelState = {this.props.resetLevelState}
                                 numCollected = {this.props.evidenceFound.length}
+                                resetLevelState = {this.props.resetLevelState}
                             />
                         }
                     </>

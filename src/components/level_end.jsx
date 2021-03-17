@@ -10,6 +10,7 @@ const Level_End = (props) => {
     const [levelScore, setLevelScore] = useState(0)
 
 
+
     //resets level state and redirects to next level
     const handleNextLevelClick = () => {
         props.resetLevelState()
@@ -61,12 +62,12 @@ const Level_End = (props) => {
                 <h1 className="mathSymbol">+</h1>
                 <div className="numberDiv">
                     <h4 style={{color: 'white', fontStyle: 'italic'}}>Time</h4>
-                    <h2 className="bonusNum">{props.bonusScore}</h2>
+                    <h2 className="bonusNum">{props.timeBonus}</h2>
                 </div>
                 <h1 className="mathSymbol">=</h1>
                 <div className="levelScoreDiv">
                     <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
-                    <h2 className="levelScoreNum">{props.bonusScore + (props.isCorrect ? 3000 : 0)}</h2>
+                    <h2 className="levelScoreNum">{props.timeBonus + (props.isCorrect ? 3000 : 0)}</h2>
                 </div>
             </div>            
             }
@@ -85,12 +86,12 @@ const Level_End = (props) => {
                     <h1 className="mathSymbol">+</h1>
                     <div className="numberDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Time</h4>
-                        <h2 className="bonusNum">{props.bonusScore}</h2>
+                        <h2 className="bonusNum">{props.timeBonus}</h2>
                     </div>
                     <h1 className="mathSymbol">=</h1>
                     <div className="levelScoreDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
-                        <h2 className="levelScoreNum">{props.numCollected * 3000 + props.bonusScore}</h2>
+                        <h2 className="levelScoreNum">{props.numCollected * 3000 + props.timeBonus}</h2>
                     </div>
                 </div>  
             }
@@ -105,19 +106,19 @@ const Level_End = (props) => {
                     <div className="numberDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
                         {props.level.type === "evidenceCollect" &&
-                            <h2 className="bonusNum">{props.numCollected * 3000 + props.bonusScore}</h2>
+                            <h2 className="bonusNum">{props.numCollected * 3000 + props.timeBonus}</h2>
                         }
                         {props.level.type === "scamOrNot" &&
-                            <h2 className="bonusNum">{props.bonusScore + (props.isCorrect ? 3000 : 0)}</h2>
+                            <h2 className="bonusNum">{props.timeBonus + (props.isCorrect ? 3000 : 0)}</h2>
                         }
                     </div>
                 </div>
                 <div>
                     {props.level.type === "evidenceCollect" &&
-                        <h2 className="totalScoreNum">{0 + (props.numCollected * 3000 + props.bonusScore)}</h2>
+                        <h2 className="totalScoreNum">{0 + (props.numCollected * 3000 + props.timeBonus)}</h2>
                     }
                     {props.level.type === "scamOrNot" &&
-                        <h2 className="totalScoreNum">{props.bonusScore + (props.isCorrect ? 3000 : 0)}</h2>
+                        <h2 className="totalScoreNum">{props.timeBonus + (props.isCorrect ? 3000 : 0)}</h2>
                     }
                 </div>
             </div>

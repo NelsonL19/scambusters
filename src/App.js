@@ -4,6 +4,7 @@ import Home from './pages/index.js'
 import Level_0 from './pages/level_0'
 import Level_1 from './pages/level_1'
 import Level_2 from './pages/level_2'
+import Level_3 from './pages/level_3'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
 function App() {
@@ -31,6 +32,13 @@ function App() {
       isScam: true,
       url: "https://mail.google.com/mail/u/0/#inbox",
       evidenceAmount: 2
+    },
+    {
+      levelNum: 3,
+      type: "evidenceCollect",
+      isScam: true,
+      url: "REMOVE_URL_BAR",
+      evidenceAmount: 3
     }
   ]
   //Function is returning the location and levels that are being played in our app
@@ -40,15 +48,13 @@ function App() {
         <Route exact path = "/">
           <Home></Home>
         </Route>
-        <Route path = "/level0">
-          <Level_Prototype level = {levelInfo[0]}/>
-        </Route>
-        <Route path = "/level1">
-          <Level_Prototype level = {levelInfo[1]}/>
-        </Route>
-        <Route path = "/level2">
-        <Level_Prototype level = {levelInfo[2]}/>
-        </Route>
+        {levelInfo.map(function(level, i){
+          return (
+          <Route key={i} path = {`/level${level.levelNum}`}>
+            <Level_Prototype level = {level}/>
+          </Route>
+          )
+        })}
       </Switch>
     </Router>
   );

@@ -1,10 +1,8 @@
-import '../styles/apple_music.css'
-import logo from '../assets/appleMusicLogo.png' 
 import {Clickable_Region} from '../components'
 import { Tooltip } from 'antd';
 
 
-const Apple_music_email = (props) => {
+const Iphone_Text = (props) => {
 
     const test = (e) => {
         console.log(e.target)
@@ -58,7 +56,7 @@ const Apple_music_email = (props) => {
                     Apple Inc. </p>
 
                 <p className="legaltext">Please do not reply to this email. We are unable to respond to inquiries sent to this address. For immedicate answers
-                    to your questions, visit our Help left by clicking “Help” at the top of any Apple page. 
+                    to your questions, visit our Help left by clikcing “Help” at the top of any Apple page. 
                     <br/><br/>
                     Copyright 2021 Apple Inc. All rights reserved. Apple is located at 2211 N. First St, San Jose, CA 95131</p>
             </div>
@@ -67,4 +65,4 @@ const Apple_music_email = (props) => {
         
     )
 }
-export default Apple_music_email
+export default Iphone_Text

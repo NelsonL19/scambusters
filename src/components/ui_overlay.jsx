@@ -155,7 +155,7 @@ export default class UI_Overlay extends Component {
             return (
                 <div className="UI_Parent">
                     <div>
-                        <h1 className="prompt">This is a scam. Collect all __ pieces of evidence!</h1>
+                        <h1 className="prompt">This is a scam. Collect all {this.props.level.evidenceAmount} pieces of evidence!</h1>
                     </div>
                     <div className="flex-container">
                         <div className="top-row">

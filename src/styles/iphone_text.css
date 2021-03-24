@@ -1,0 +1,59 @@
+.div_god {
+    position: relative;
+    color: white;
+}
+
+.iphone_img {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    width: 45%;
+}
+
+.phoneNumberDiv {
+    /* positioning and sizing */
+    position: absolute;
+    padding: 5px;
+    width: 13%;
+    height: 9%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-37%, -380%);
+
+}
+
+.messageDiv {
+    /* positioning and sizing */
+    position: absolute;
+    padding: 5px;
+    width: 13%;
+    height: 9%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -240%);
+    /* coloring and style */
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+.messageDiv2 {
+    /* positioning and sizing */
+    position: absolute;
+    padding: 5px;
+    width: 13%;
+    height: 9%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -130%);
+    /* coloring and style */
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+
+p {
+    color: white;
+    font-size: large;
+}

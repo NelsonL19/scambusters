@@ -17,15 +17,15 @@ const Iphone_Text = (props) => {
             <img className="iphone_img" src={iphone} alt="iphone"/>
             <div className="phoneNumberDiv">
                 <p>
-                    <Tooltip title = {"Suspicious, random phone number"} trigger = {[]} visible = {props.evidenceFound.includes(2)} placement = 'top'>
+                    <Tooltip title = {"Random unknown phone number"} trigger = {[]} visible = {props.evidenceFound.includes(2)} placement = 'top'>
                         <Clickable_Region handleCRClick = {props.handleCRClick} evID = {2} found = {props.evidenceFound.includes(2)} content = "+1 (804) 540-6813"/>
                     </Tooltip> 
                 </p>
             </div>
             <div className="messageDiv">
                 <p>
-                    USPS Update: Azlan, Parcel&nbsp;                     
-                    <Tooltip title = {"This is not what a USPS Parcel ID looks like"} trigger = {[]} visible = {props.evidenceFound.includes(0)} placement = 'left'>
+                    USPS Update: Azlan, Package with tracking number&nbsp;                     
+                    <Tooltip title = {"This is not what a USPS Tracking Number looks like"} trigger = {[]} visible = {props.evidenceFound.includes(0)} placement = 'left'>
                         <Clickable_Region handleCRClick = {props.handleCRClick} evID = {0} found = {props.evidenceFound.includes(0)} content = "ID-IW8476"/>
                     </Tooltip> 
                     &nbsp;is pending delivery in our warehouse.

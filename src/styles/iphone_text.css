@@ -29,10 +29,10 @@
     position: absolute;
     padding: 5px;
     width: 13%;
-    height: 9%;
+    height: 11%;
     top: 50%;
     left: 50%;
-    transform: translate(-70%, -240%);
+    transform: translate(-70%, -210%);
     /* coloring and style */
     background-color: #333333;
     border-radius: 10px;

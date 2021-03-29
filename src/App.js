@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Home from './pages/index.js'
+import Lobby_Created from './pages/lobby-created'
 import Level_0 from './pages/level_0'
 import Level_1 from './pages/level_1'
 import Level_2 from './pages/level_2'
@@ -40,6 +41,7 @@ function App() {
         <Route exact path = "/">
           <Home></Home>
         </Route>
+        <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/level0">
           <Level_Prototype level = {levelInfo[0]}/>
         </Route>

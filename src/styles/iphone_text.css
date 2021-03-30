@@ -63,10 +63,9 @@ to {
     border-radius: 10px;
 
     /* animation stuff */
-    opacity: 0;
     animation-duration: 0.5s;
     animation-delay: 0.4s;
-    animation-name: fadeIn1;
+    animation-name: fadeIn1_UNUSED;
     animation-fill-mode: forwards;
 
 }
@@ -86,10 +85,9 @@ to {
     border-radius: 10px;
 
     /* animation stuff */
-    opacity: 0;
     animation-duration: 0.5s;
     animation-delay: 1.4s;
-    animation-name: fadeIn2;
+    animation-name: fadeIn2_UNUSED;
     animation-fill-mode: forwards;
 }
 

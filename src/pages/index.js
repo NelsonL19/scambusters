@@ -15,6 +15,8 @@ const Home = (props) => {
       <Link to = "/level2">Level 2</Link>
       <br/>
       <Link to = "/level3">Level 3</Link>
+      <br/>
+      <Link to = "/level4">Level 4</Link>
     </>
   )
 }

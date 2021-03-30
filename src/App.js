@@ -5,6 +5,7 @@ import Level_0 from './pages/level_0'
 import Level_1 from './pages/level_1'
 import Level_2 from './pages/level_2'
 import Level_3 from './pages/level_3'
+import Level_4 from './pages/level_4'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
 function App() {
@@ -39,6 +40,13 @@ function App() {
       isScam: true,
       url: "REMOVE_URL_BAR",
       evidenceAmount: 3
+    },
+    {
+      levelNum: 4,
+      type: "scamOrNot",
+      isScam: true,
+      url: "My Voicemail Box",
+      evidenceAmount: 0
     }
   ]
   //Function is returning the location and levels that are being played in our app

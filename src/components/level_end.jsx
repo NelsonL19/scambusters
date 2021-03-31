@@ -7,7 +7,11 @@ const Level_End = (props) => {
 
     const history = useHistory()
     const [showContent, setShowContent] = useState(false)
-    const [levelScore, setLevelScore] = useState(0)
+    const [totalScore, setTotalScore] = useState(props.level.type == "scamOrNot" ? 
+        props.timeBonus + (props.isCorrect ? 3000 : 0) 
+        :
+        props.numCollected * 3000 + props.timeBonus
+        )
 
 
 
@@ -91,7 +95,7 @@ const Level_End = (props) => {
                     <h1 className="mathSymbol">=</h1>
                     <div className="levelScoreDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
-                        <h2 className="levelScoreNum">{props.numCollected * 3000 + props.timeBonus}</h2>
+                        <h2 className="levelScoreNum">{}</h2>
                     </div>
                 </div>  
             }
@@ -106,19 +110,19 @@ const Level_End = (props) => {
                     <div className="numberDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
                         {props.level.type === "evidenceCollect" &&
-                            <h2 className="bonusNum">{props.numCollected * 3000 + props.timeBonus}</h2>
+                            <h2 className="bonusNum">{totalScore}</h2>
                         }
                         {props.level.type === "scamOrNot" &&
-                            <h2 className="bonusNum">{props.timeBonus + (props.isCorrect ? 3000 : 0)}</h2>
+                            <h2 className="bonusNum">{totalScore}</h2>
                         }
                     </div>
                 </div>
                 <div>
                     {props.level.type === "evidenceCollect" &&
-                        <h2 className="totalScoreNum">{0 + (props.numCollected * 3000 + props.timeBonus)}</h2>
+                        <h2 className="totalScoreNum">{0 + totalScore}</h2>
                     }
                     {props.level.type === "scamOrNot" &&
-                        <h2 className="totalScoreNum">{props.timeBonus + (props.isCorrect ? 3000 : 0)}</h2>
+                        <h2 className="totalScoreNum">{0 + totalScore}</h2>
                     }
                 </div>
             </div>

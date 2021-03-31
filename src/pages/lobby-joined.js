@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 
 const Lobby_Joined = (props) => {
     const history = useHistory();
-    const startGame = () => {history.push({pathname: "/level1", state: {username: props.location.state.user, pass: props.location.state.pass}})}
+    const startGame = () => {history.push({pathname: "/level1", state: {user: props.location.state.user, pass: props.location.state.pass}})}
 
 
 return (

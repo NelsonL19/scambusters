@@ -7,6 +7,7 @@ import { Button } from 'antd';
 const Level_End = (props) => {
 
     const history = useHistory()
+    const db = firebase.firestore()
     const [showContent, setShowContent] = useState(false)
     const [totalScore, setTotalScore] = useState(props.level.type == "scamOrNot" ? 
         props.timeBonus + (props.isCorrect ? 3000 : 0) 
@@ -36,6 +37,14 @@ const Level_End = (props) => {
 
     })
 
+
+    useEffect(() => {
+
+        db.collection("lobbies").doc(props.lobbyInfo.pass).update({
+            [props.lobbyInfo.user]: totalScore
+          })
+
+    },[])
 
     //Calls the load level function with the level that is being selected.
     return (

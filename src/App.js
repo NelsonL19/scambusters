@@ -41,14 +41,17 @@ function App() {
         </Route>
         <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>
-        <Route path = "/level0">
-          <Level_Prototype level = {levelInfo[0]}/>
+        <Route path = "/level0" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[0]}/>
+        )}>
         </Route>
-        <Route path = "/level1">
-          <Level_Prototype level = {levelInfo[1]}/>
+        <Route path = "/level1" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[1]}/>
+        )}>
         </Route>
-        <Route path = "/level2">
-        <Level_Prototype level = {levelInfo[2]}/>
+        <Route path = "/level2" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[2]}/>
+        )}>
         </Route>
       </Switch>
     </Router>

@@ -9,6 +9,7 @@ const Level_End = (props) => {
     const history = useHistory()
     const db = firebase.firestore()
     const [showContent, setShowContent] = useState(false)
+    const [pastScore, setPastScore] = useState(0)
     const [totalScore, setTotalScore] = useState(props.level.type == "scamOrNot" ? 
         props.timeBonus + (props.isCorrect ? 3000 : 0) 
         :
@@ -41,8 +42,7 @@ const Level_End = (props) => {
     useEffect(() => {
         db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
             console.log(doc.data())
-
-            const pastScore = doc.data()[props.lobbyInfo.user]
+            setPastScore(doc.data()[props.lobbyInfo.user])
             db.collection("lobbies").doc(props.lobbyInfo.pass).update({
                 [props.lobbyInfo.user]: totalScore + pastScore
             })
@@ -117,7 +117,7 @@ const Level_End = (props) => {
                 <div className="totalScoreRow">
                     <div className="numberDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Previous Score</h4>
-                        <h2 style={{color: 'white', margin: '0'}}>WIP</h2>
+                        <h2 style={{color: 'white', margin: '0'}}>{pastScore}</h2>
                     </div>
                     <h1 className="mathSymbol">+</h1>
                     <div className="numberDiv">
@@ -132,10 +132,10 @@ const Level_End = (props) => {
                 </div>
                 <div>
                     {props.level.type === "evidenceCollect" &&
-                        <h2 className="totalScoreNum">{0 + totalScore}</h2>
+                        <h2 className="totalScoreNum">{pastScore + totalScore}</h2>
                     }
                     {props.level.type === "scamOrNot" &&
-                        <h2 className="totalScoreNum">{0 + totalScore}</h2>
+                        <h2 className="totalScoreNum">{pastScore + totalScore}</h2>
                     }
                 </div>
             </div>

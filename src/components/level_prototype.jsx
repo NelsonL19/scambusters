@@ -24,6 +24,10 @@ const Level_Prototype = (props) => {
     }
 
     const handleMisclick = (e) => {
+        if(props.level.type=="scamOrNot") {
+            return
+        }
+
         e.stopPropagation()
 
         const circle = document.querySelector(".misclick-circle")

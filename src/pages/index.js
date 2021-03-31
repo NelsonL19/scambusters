@@ -53,7 +53,9 @@ const Home = (props) => {
       <Link to = "/level1">Level 1</Link>
       <br/>
       <Link to = "/level2">Level 2</Link>
-
+      <br/>
+      <Link to = "/level4">Level 4</Link>
+    
       <button className = "lobby-button" onClick = {createLobby}>Create New Lobby</button>
       <br></br>
       <input className = "lobby-input" value = {username} onChange = {(e) => setUsername(e.target.value)} placeholder = "Username"></input>

@@ -11,6 +11,7 @@
     "antd": "^4.13.0",
     "firebase": "^8.3.1",
     "react": "^17.0.1",
+    "react-audio-player": "^0.14.0",
     "react-dom": "^17.0.1",
     "react-firebase-hooks": "^2.2.0",
     "react-game-engine": "^1.0.0",

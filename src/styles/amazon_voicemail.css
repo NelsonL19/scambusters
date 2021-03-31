@@ -1,0 +1,28 @@
+.website{
+    display:flex;
+    height:calc(100vh - 80px);
+    background-color:gray;
+}
+
+.intro{
+    display:flex;
+    justify-content: center;
+}
+
+.audio{
+    width:600px;
+    margin:auto;
+    padding:50px;
+    background-color: gainsboro;
+}
+
+.player {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 10px;
+}
+
+.transcript{
+    align-content: center;
+}

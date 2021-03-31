@@ -91,6 +91,18 @@ export default class UI_Overlay extends Component {
         // }
     }
 
+    createEvidenceMarkers = (num) => {
+        var children = []
+        for(let i = 0; i < num; i++){
+            children.push(
+                <div className={this.props.evidenceFound.length >=i+1 ? "hasFound" : "notFound"} >
+                    {i+1}
+                </div>
+            )
+        }
+        return children
+    }
+
     render () {
         let levelType = this.props.level.type;
         // for (let i = 0; i < this.state.evidence.length; i++) {
@@ -103,6 +115,9 @@ export default class UI_Overlay extends Component {
 
             return (
                 <div className="UI_Parent">
+                    <div>
+                        <h1 className="prompt">Is the media below a scam?</h1>
+                    </div>
                     <div className="flex-container">
                         <div className="top-row">
                             <div>
@@ -140,6 +155,9 @@ export default class UI_Overlay extends Component {
             let found = false;
             return (
                 <div className="UI_Parent">
+                    <div>
+                        <h1 className="prompt">This is a scam. Collect all __ pieces of evidence!</h1>
+                    </div>
                     <div className="flex-container">
                         <div className="top-row">
                             <div>
@@ -154,20 +172,7 @@ export default class UI_Overlay extends Component {
                         <div className="bottom-row">
                             <h3>Evidence Collected:</h3>
                             <div className="collection-count">
-                                <table>
-                                    <thead></thead>
-                                    <tbody>
-                                        <tr>
-                                            <th className= {this.props.evidenceFound.length >=1 ? "hasFound" : "notFound"}>1</th>
-                                            <th className= {this.props.evidenceFound.length >=2 ? "hasFound" : "notFound"}>2</th>
-                                            {/* <th className={coloring}>2</th>
-                                            <th className={coloring}>3</th>
-                                            <th className={coloring}>4</th>
-                                            <th className={coloring}>5</th> */}
-                                        </tr>
-                                    </tbody>
-                                    <tfoot></tfoot>
-                                </table>
+                                {this.createEvidenceMarkers(this.props.level.evidenceAmount)}
                             </div>
                         </div>
                     </div>

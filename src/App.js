@@ -30,6 +30,13 @@ function App() {
       isScam: true,
       url: "https://mail.google.com/mail/u/0/#inbox",
       evidenceAmount: 2
+    },
+    {
+      levelNum: 4,
+      type: "scamOrNot",
+      isScam: true,
+      url: "My Voicemail Box",
+      evidenceAmount: 0
     }
   ]
   //Function is returning the location and levels that are being played in our app
@@ -51,6 +58,10 @@ function App() {
         </Route>
         <Route path = "/level2" render={(props) => (
               <Level_Prototype {...props} level = {levelInfo[2]}/>
+        )}>
+        </Route>
+         <Route path = "/level4" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[3]}/>
         )}>
         </Route>
       </Switch>

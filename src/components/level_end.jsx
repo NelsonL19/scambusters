@@ -108,7 +108,7 @@ const Level_End = (props) => {
                     <h1 className="mathSymbol">=</h1>
                     <div className="levelScoreDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
-                        <h2 className="levelScoreNum">{}</h2>
+                        <h2 className="levelScoreNum">{totalScore}</h2>
                     </div>
                 </div>  
             }

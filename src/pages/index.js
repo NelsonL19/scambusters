@@ -54,7 +54,7 @@ const Home = (props) => {
       <br/>
       <Link to = "/level2">Level 2</Link>
       <br/>
-      <Link to = "/level4">Level 4</Link>
+      <Link to = "/level3">Level 3</Link>
     
       <button className = "lobby-button" onClick = {createLobby}>Create New Lobby</button>
       <br></br>

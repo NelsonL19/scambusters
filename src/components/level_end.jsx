@@ -20,7 +20,7 @@ const Level_End = (props) => {
     //resets level state and redirects to next level
     const handleNextLevelClick = () => {
         props.resetLevelState()
-        history.push(`/level${props.level.levelNum + 1}`)
+        history.push({pathname: `/level${props.level.levelNum + 1}`, state: {user: props.lobbyInfo.user, pass: props.lobbyInfo.pass}})
     }
 
     useEffect(() => {
@@ -39,11 +39,14 @@ const Level_End = (props) => {
 
 
     useEffect(() => {
+        db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
+            console.log(doc.data())
 
-        db.collection("lobbies").doc(props.lobbyInfo.pass).update({
-            [props.lobbyInfo.user]: totalScore
-          })
-
+            const pastScore = doc.data()[props.lobbyInfo.user]
+            db.collection("lobbies").doc(props.lobbyInfo.pass).update({
+                [props.lobbyInfo.user]: totalScore + pastScore
+            })
+        })
     },[])
 
     //Calls the load level function with the level that is being selected.

@@ -1,10 +1,8 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Home from './pages/index.js'
-import Level_0 from './pages/level_0'
-import Level_1 from './pages/level_1'
-import Level_2 from './pages/level_2'
-import Level_4 from './pages/level_4'
+import Lobby_Created from './pages/lobby-created'
+import Lobby_Joined from './pages/lobby-joined'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
 function App() {
@@ -48,17 +46,23 @@ function App() {
         <Route exact path = "/">
           <Home></Home>
         </Route>
-        <Route path = "/level0">
-          <Level_Prototype level = {levelInfo[0]}/>
+        <Route path = "/lobby-created" component = {Lobby_Created}></Route>
+        <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>
+        <Route path = "/level0" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[0]}/>
+        )}>
         </Route>
-        <Route path = "/level1">
-          <Level_Prototype level = {levelInfo[1]}/>
+        <Route path = "/level1" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[1]}/>
+        )}>
         </Route>
-        <Route path = "/level2">
-        <Level_Prototype level = {levelInfo[2]}/>
+        <Route path = "/level2" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[2]}/>
+        )}>
         </Route>
-        <Route path = "/level4">
-          <Level_Prototype level = {levelInfo[3]}/>
+         <Route path = "/level4" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[3]}/>
+        )}>
         </Route>
       </Switch>
     </Router>

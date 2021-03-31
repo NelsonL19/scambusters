@@ -5,7 +5,6 @@ import UI_Overlay from './ui_overlay.jsx'
 import './level_prototype.css'
 
 const Level_Prototype = (props) => {
-
     const [evidenceFound, setEvidenceFound] = useState([])
     const [isLevelComplete, setIsLevelComplete] = useState(false)
     const [isCorrect, setIsCorrect] = useState(false)
@@ -126,6 +125,7 @@ const Level_Prototype = (props) => {
                         handleIncorrect = {handleIncorrect}
                         resetLevelState = {resetLevelState}
                         misclicks = {misclicks}
+                        lobbyInfo = {{user: props.location.state.user, pass: props.location.state.pass}}
                     />
                     <div className = "misclick-circle"></div>
                 </div>

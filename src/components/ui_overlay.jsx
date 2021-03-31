@@ -144,6 +144,7 @@ export default class UI_Overlay extends Component {
                                 timeBonus = {!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}
                                 isCorrect = {this.props.isCorrect}
                                 resetLevelState = {this.props.resetLevelState}
+                                lobbyInfo = {this.props.lobbyInfo}
                             />
                         }
                     </>
@@ -183,6 +184,7 @@ export default class UI_Overlay extends Component {
                                 isCorrect =  {this.props.isCorrect}
                                 numCollected = {this.props.evidenceFound.length}
                                 resetLevelState = {this.props.resetLevelState}
+                                lobbyInfo = {this.props.lobbyInfo}
                             />
                         }
                     </>

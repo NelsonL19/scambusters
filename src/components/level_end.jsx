@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState, Suspense} from 'react';
 import {Link, useHistory} from 'react-router-dom'
 import '../styles/level_end.css'
+import {firebase} from '../firebase-config/config'
 import { Button } from 'antd';
 
 const Level_End = (props) => {

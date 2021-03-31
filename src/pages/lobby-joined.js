@@ -9,9 +9,6 @@ const Lobby_Joined = (props) => {
 return (
     <>
       <h1>Lobby Joined!</h1>
-      <p>Your Room Code is: {props.location.state.pass}</p>
-
-      <p>Players in this lobby: {players.join(", ")} </p>
       <button onClick={() => startGame()}>Start Game</button>
     </>
   )

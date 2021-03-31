@@ -92,7 +92,12 @@ to {
 }
 
 
-p {
+p.imessageText {
+    color: white;
+    font-size: medium;
+}
+
+p.phoneNumberText {
     color: white;
     font-size: medium;
 }

@@ -38,17 +38,17 @@ function App() {
     },
     {
       levelNum: 3,
-      type: "evidenceCollect",
-      isScam: true,
-      url: "REMOVE_URL_BAR",
-      evidenceAmount: 3
-    },
-    {
-      levelNum: 4,
       type: "scamOrNot",
       isScam: true,
       url: "My Voicemail Box",
       evidenceAmount: 0
+    },
+    {
+      levelNum: 4,
+      type: "evidenceCollect",
+      isScam: true,
+      url: "REMOVE_URL_BAR",
+      evidenceAmount: 3
     }
   ]
   //Function is returning the location and levels that are being played in our app

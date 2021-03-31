@@ -32,7 +32,7 @@ function App() {
       evidenceAmount: 2
     },
     {
-      levelNum: 4,
+      levelNum: 3,
       type: "scamOrNot",
       isScam: true,
       url: "My Voicemail Box",
@@ -60,7 +60,7 @@ function App() {
               <Level_Prototype {...props} level = {levelInfo[2]}/>
         )}>
         </Route>
-         <Route path = "/level4" render={(props) => (
+         <Route path = "/level3" render={(props) => (
               <Level_Prototype {...props} level = {levelInfo[3]}/>
         )}>
         </Route>

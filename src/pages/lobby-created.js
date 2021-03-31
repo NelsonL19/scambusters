@@ -1,10 +1,12 @@
 
 
+import {Link} from "react-router-dom"
+import {useHistory} from 'react-router-dom'
 import {firebase} from '../firebase-config/config'
 import {useState, useEffect} from 'react'
 
 const Lobby_Created = (props) => {
-
+    const history = useHistory();
     const db = firebase.firestore()
     const [players, setPlayers] = useState([]) 
 
@@ -18,10 +20,11 @@ const Lobby_Created = (props) => {
     }, []);
 
 
+
     return (
       <>
         <h1>Lobby Created!</h1>
-        <p>Your passcode is: {props.location.state.pass}</p>
+        <p>Your Room Code is: {props.location.state.pass}</p>
 
         <p>Players in this lobby: {players.join(", ")} </p>
       </>

@@ -4,11 +4,14 @@ import {useState, useEffect} from 'react'
 
 const Lobby_Joined = (props) => {
     const history = useHistory();
-    const startGame = () => {history.push("/level1")}
+    const startGame = () => {history.push({pathname: "/level1", state: {username: props.location.state.user, pass: props.location.state.pass}})}
+
 
 return (
     <>
       <h1>Lobby Joined!</h1>
+      <p>Your Username is: {props.location.state.user}</p>
+      <p>Your Room Code is: {props.location.state.pass}</p>
       <button onClick={() => startGame()}>Start Game</button>
     </>
   )

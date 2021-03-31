@@ -29,7 +29,7 @@ const Home = (props) => {
     db.collection("lobbies").doc(passcode).update({
       [username]: 0
     })
-    history.push("/lobby-joined")    
+    history.push({pathname: "/lobby-joined", state: {user: username, pass: passcode}})
   }
 
   const generatePasscode = () => {

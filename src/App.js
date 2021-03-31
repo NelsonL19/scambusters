@@ -1,6 +1,11 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Home from './pages/index.js'
+import Level_0 from './pages/level_0'
+import Level_1 from './pages/level_1'
+import Level_2 from './pages/level_2'
+import Level_3 from './pages/level_3'
+import Level_4 from './pages/level_4'
 import Lobby_Created from './pages/lobby-created'
 import Lobby_Joined from './pages/lobby-joined'
 import Level_Prototype from './components/level_prototype.jsx'
@@ -37,6 +42,13 @@ function App() {
       isScam: true,
       url: "My Voicemail Box",
       evidenceAmount: 0
+    },
+    {
+      levelNum: 4,
+      type: "evidenceCollect",
+      isScam: true,
+      url: "REMOVE_URL_BAR",
+      evidenceAmount: 3
     }
   ]
   //Function is returning the location and levels that are being played in our app
@@ -62,6 +74,10 @@ function App() {
         </Route>
          <Route path = "/level3" render={(props) => (
               <Level_Prototype {...props} level = {levelInfo[3]}/>
+        )}>
+        </Route>
+        <Route path = "/level4" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[4]}/>
         )}>
         </Route>
       </Switch>

@@ -1,0 +1,103 @@
+@keyframes fadeIn1 {
+from {
+    opacity: 0;
+    transform: translate(-70%, -190%);
+}
+
+to {
+    opacity: 1;
+    transform: translate(-70%, -210%);
+}
+}
+
+@keyframes fadeIn2 {
+from {
+    opacity: 0;
+    transform: translate(-70%, -110%);
+}
+
+to {
+    opacity: 1;
+    transform: translate(-70%, -130%);
+}
+}
+
+.div_god {
+    position: relative;
+    color: white;
+}
+
+.iphone_img {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    width: 45%;
+}
+
+.phoneNumberDiv {
+    /* positioning and sizing */
+    position: absolute;
+    padding: 5px;
+    width: 13%;
+    height: 9%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-37%, -380%);
+
+}
+
+.messageDiv {
+    /* positioning and sizing */
+    position: absolute;
+    padding: 5px;
+    width: 13%;
+    height: 11%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -210%);
+
+    /* coloring and style */
+    background-color: #333333;
+    border-radius: 10px;
+
+    /* animation stuff */
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-name: fadeIn1_UNUSED;
+    animation-fill-mode: forwards;
+
+}
+
+.messageDiv2 {
+    /* positioning and sizing */
+    position: absolute;
+    padding: 5px;
+    width: 13%;
+    height: 9%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-70%, -130%);
+
+    /* coloring and style */
+    background-color: #333333;
+    border-radius: 10px;
+
+    /* animation stuff */
+    animation-duration: 0.5s;
+    animation-delay: 1.4s;
+    animation-name: fadeIn2_UNUSED;
+    animation-fill-mode: forwards;
+}
+
+
+p.imessageText {
+    color: white;
+    font-size: medium;
+}
+
+p.phoneNumberText {
+    color: white;
+    font-size: medium;
+}

@@ -1,20 +1,27 @@
 import React, {Component, useEffect, useState, Suspense} from 'react';
 import {Link, useHistory} from 'react-router-dom'
 import '../styles/level_end.css'
+import {firebase} from '../firebase-config/config'
 import { Button } from 'antd';
 
 const Level_End = (props) => {
 
     const history = useHistory()
+    const db = firebase.firestore()
     const [showContent, setShowContent] = useState(false)
-    const [levelScore, setLevelScore] = useState(0)
+    const [pastScore, setPastScore] = useState(0)
+    const [totalScore, setTotalScore] = useState(props.level.type == "scamOrNot" ? 
+        props.timeBonus + (props.isCorrect ? 3000 : 0) 
+        :
+        props.numCollected * 3000 + props.timeBonus
+        )
 
 
 
     //resets level state and redirects to next level
     const handleNextLevelClick = () => {
         props.resetLevelState()
-        history.push(`/level${props.level.levelNum + 1}`)
+        history.push({pathname: `/level${props.level.levelNum + 1}`, state: {user: props.lobbyInfo.user, pass: props.lobbyInfo.pass}})
     }
 
     useEffect(() => {
@@ -31,6 +38,16 @@ const Level_End = (props) => {
 
     })
 
+
+    useEffect(() => {
+        db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
+            console.log(doc.data())
+            setPastScore(doc.data()[props.lobbyInfo.user])
+            db.collection("lobbies").doc(props.lobbyInfo.pass).update({
+                [props.lobbyInfo.user]: totalScore + pastScore
+            })
+        })
+    },[])
 
     //Calls the load level function with the level that is being selected.
     return (
@@ -91,7 +108,7 @@ const Level_End = (props) => {
                     <h1 className="mathSymbol">=</h1>
                     <div className="levelScoreDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
-                        <h2 className="levelScoreNum">{props.numCollected * 3000 + props.timeBonus}</h2>
+                        <h2 className="levelScoreNum">{}</h2>
                     </div>
                 </div>  
             }
@@ -100,25 +117,25 @@ const Level_End = (props) => {
                 <div className="totalScoreRow">
                     <div className="numberDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Previous Score</h4>
-                        <h2 style={{color: 'white', margin: '0'}}>WIP</h2>
+                        <h2 style={{color: 'white', margin: '0'}}>{pastScore}</h2>
                     </div>
                     <h1 className="mathSymbol">+</h1>
                     <div className="numberDiv">
                         <h4 style={{color: 'white', fontStyle: 'italic'}}>Level Score</h4>
                         {props.level.type === "evidenceCollect" &&
-                            <h2 className="bonusNum">{props.numCollected * 3000 + props.timeBonus}</h2>
+                            <h2 className="bonusNum">{totalScore}</h2>
                         }
                         {props.level.type === "scamOrNot" &&
-                            <h2 className="bonusNum">{props.timeBonus + (props.isCorrect ? 3000 : 0)}</h2>
+                            <h2 className="bonusNum">{totalScore}</h2>
                         }
                     </div>
                 </div>
                 <div>
                     {props.level.type === "evidenceCollect" &&
-                        <h2 className="totalScoreNum">{0 + (props.numCollected * 3000 + props.timeBonus)}</h2>
+                        <h2 className="totalScoreNum">{pastScore + totalScore}</h2>
                     }
                     {props.level.type === "scamOrNot" &&
-                        <h2 className="totalScoreNum">{props.timeBonus + (props.isCorrect ? 3000 : 0)}</h2>
+                        <h2 className="totalScoreNum">{pastScore + totalScore}</h2>
                     }
                 </div>
             </div>

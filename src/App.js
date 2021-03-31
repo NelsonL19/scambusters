@@ -6,6 +6,8 @@ import Level_1 from './pages/level_1'
 import Level_2 from './pages/level_2'
 import Level_3 from './pages/level_3'
 import Level_4 from './pages/level_4'
+import Lobby_Created from './pages/lobby-created'
+import Lobby_Joined from './pages/lobby-joined'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
 function App() {
@@ -56,13 +58,28 @@ function App() {
         <Route exact path = "/">
           <Home></Home>
         </Route>
-        {levelInfo.map(function(level, i){
-          return (
-          <Route key={i} path = {`/level${level.levelNum}`}>
-            <Level_Prototype level = {level}/>
-          </Route>
-          )
-        })}
+        <Route path = "/lobby-created" component = {Lobby_Created}></Route>
+        <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>
+        <Route path = "/level0" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[0]}/>
+        )}>
+        </Route>
+        <Route path = "/level1" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[1]}/>
+        )}>
+        </Route>
+        <Route path = "/level2" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[2]}/>
+        )}>
+        </Route>
+         <Route path = "/level3" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[3]}/>
+        )}>
+        </Route>
+        <Route path = "/level4" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[4]}/>
+        )}>
+        </Route>
       </Switch>
     </Router>
   );

@@ -28,14 +28,14 @@ export default class UI_Overlay extends Component {
     }
 
     componentDidUpdate () {
-        if(this.props.level.type == "evidenceCollect"){
-            if(this.props.evidenceFound.length >= this.props.level.evidenceAmount && this.props.isLevelComplete == false){
+        if (this.props.level.type == "evidenceCollect") {
+            if (this.props.evidenceFound.length >= this.props.level.evidenceAmount && this.props.isLevelComplete == false) {
                 this.props.handleCorrect()
             }
-        //     else if (this.state.isLevelComplete == true && this.props.evidenceFound.length < this.props.level.evidenceAmount){
-        //         this.setState({isCorrect: false, isLevelComplete:false})
-        //     }
-        } 
+            //     else if (this.state.isLevelComplete == true && this.props.evidenceFound.length < this.props.level.evidenceAmount){
+            //         this.setState({isCorrect: false, isLevelComplete:false})
+            //     }
+        }
     }
 
     componentWillUnmount () {
@@ -44,7 +44,7 @@ export default class UI_Overlay extends Component {
 
     tickDownBonus () {
         // only count down if the bonus > 0 AND the level is still being played.
-        if (this.state.timeBonus - this.props.misclicks*100 <= 0) {
+        if (this.state.timeBonus - this.props.misclicks * 100 <= 0) {
             this.setState({
                 isTimeOut: true
             })
@@ -91,12 +91,14 @@ export default class UI_Overlay extends Component {
         // }
     }
 
+    
+
     createEvidenceMarkers = (num) => {
         var children = []
-        for(let i = 0; i < num; i++){
+        for (let i = 0; i < num; i++) {
             children.push(
-                <div className={this.props.evidenceFound.length >=i+1 ? "hasFound" : "notFound"} >
-                    {i+1}
+                <div className={this.props.evidenceFound.length >= i + 1 ? "hasFound" : "notFound"} >
+                    {i + 1}
                 </div>
             )
         }
@@ -126,7 +128,7 @@ export default class UI_Overlay extends Component {
                             </div>
                             <div>
                                 <h3>Time Bonus</h3>
-                                <h1 className="bonus">{!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}</h1>
+                                <h1 className="bonus">{!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks * 100 : 0}</h1>
                             </div>
                         </div>
                         <div className="bottom-row">
@@ -139,11 +141,11 @@ export default class UI_Overlay extends Component {
                     </div>
                     <>
                         {this.props.isLevelComplete &&
-                            <Level_End 
-                                level = {this.props.level} 
-                                timeBonus = {!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}
-                                isCorrect = {this.props.isCorrect}
-                                resetLevelState = {this.props.resetLevelState}
+                            <Level_End
+                                level={this.props.level}
+                                timeBonus={!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks * 100 : 0}
+                                isCorrect={this.props.isCorrect}
+                                resetLevelState={this.props.resetLevelState}
                             />
                         }
                     </>
@@ -155,7 +157,7 @@ export default class UI_Overlay extends Component {
             return (
                 <div className="UI_Parent">
                     <div>
-                        <h1 className="prompt">This is a scam. Collect all __ pieces of evidence!</h1>
+                        <h1 className="prompt" >This is a scam. Collect all __ pieces of evidence!</h1>
                     </div>
                     <div className="flex-container">
                         <div className="top-row">
@@ -165,7 +167,7 @@ export default class UI_Overlay extends Component {
                             </div>
                             <div>
                                 <h3>Time Bonus</h3>
-                                <h1 className="bonus">{!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100: 0}</h1>
+                                <h1 className="bonus">{!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks * 100 : 0}</h1>
                             </div>
                         </div>
                         <div className="bottom-row">
@@ -177,12 +179,12 @@ export default class UI_Overlay extends Component {
                     </div>
                     <>
                         {this.props.isLevelComplete &&
-                            <Level_End 
-                                level = {this.props.level}
-                                timeBonus = {!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}
-                                isCorrect =  {this.props.isCorrect}
-                                numCollected = {this.props.evidenceFound.length}
-                                resetLevelState = {this.props.resetLevelState}
+                            <Level_End
+                                level={this.props.level}
+                                timeBonus={!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks * 100 : 0}
+                                isCorrect={this.props.isCorrect}
+                                numCollected={this.props.evidenceFound.length}
+                                resetLevelState={this.props.resetLevelState}
                             />
                         }
                     </>

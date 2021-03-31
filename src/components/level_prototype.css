@@ -23,3 +23,9 @@ div.misclick-circle.visible{
     display:block;
     opacity:1
 }
+
+.menuBtn {
+    color: black;
+    background-color: ghostwhite;
+    margin-left: 40px;
+}

@@ -8,7 +8,7 @@ const Game_End = (props) => {
     const returnToMain = () => {history.push({pathname: "/"})}
 
     //      <p>Your Lobby was: {props.location.state.pass}</p>
-
+    //TODO: Adjust app.js in order to pass in length of levels array. When Level_End.jsx loads and it's at the end of the array, it should link here
 return (
     <>
       <h1>You've completed the game!</h1>

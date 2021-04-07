@@ -43,6 +43,10 @@ const Home = (props) => {
     return pass
   }
 
+  const endTest = () => {
+    history.push({pathname: "/game_end"})
+  }
+
   return (
     <>
       <h1>Welcome to Scambusters®: The Video Game</h1>
@@ -57,6 +61,11 @@ const Home = (props) => {
       <Link to = "/level3">Level 3</Link>
       <br/>
       <Link to = "/level4">Level 4</Link>
+      <br/>
+      <button className = "lobby-button" onClick = {endTest}>End Test</button>
+ 
+
+
 
       <button className = "lobby-button" onClick = {createLobby}>Create New Lobby</button>
       <br></br>

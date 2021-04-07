@@ -62,7 +62,6 @@ const Home = (props) => {
       <br/>
       <Link to = "/level4">Level 4</Link>
       <br/>
-      <button className = "lobby-button" onClick = {endTest}>End Test</button>
  
 
 

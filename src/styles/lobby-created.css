@@ -53,6 +53,10 @@ div.lobbyBodyDiv {
     box-shadow: 3px 3px 10px #333333;
 }
 
+.playerScore {
+    margin: 0;
+}
+
 div.statsDiv {
     display: flex;
     flex-direction: column;

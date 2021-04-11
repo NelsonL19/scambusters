@@ -2,14 +2,22 @@ import {Link} from "react-router-dom"
 import {useHistory} from 'react-router-dom'
 import {firebase} from '../firebase-config/config'
 import {useState, useEffect} from 'react'
-import { Button } from 'antd';
+import { Button, Popover, notification, Space } from 'antd';
 import '../styles/lobby-created.css'
 
 const Lobby_Created = (props) => {
     const history = useHistory();
     const db = firebase.firestore()
-    const [players, setPlayers] = useState({}) 
+    const [players, setPlayers] = useState({})
+    const [popoverVisible, setPopoverVisible] = useState(false) 
     const [lobbyActive, setLobbyActive] = useState(true)
+    const openNotificationWithIcon = type => {
+      notification[type]({
+        message: 'Deleting Lobby...',
+        duration: 2,
+        onClose: deleteLobby
+      });
+    };
 
     useEffect(() => { 
       const unsubscribe = db.collection("lobbies").doc(props.location.state.pass).onSnapshot(snap => {
@@ -21,6 +29,9 @@ const Lobby_Created = (props) => {
       return () => unsubscribe()
     }, []);
 
+    const showDeletePopover = () => {
+      openNotificationWithIcon('warning')
+    }
     const deleteLobby = () => {
       setLobbyActive(false)
       db.collection("lobbies").doc(props.location.state.pass).delete().then(() => {
@@ -29,6 +40,24 @@ const Lobby_Created = (props) => {
         console.error("problem deleting lobby: ", error);
       })
     }
+
+    const showPopover = () => {
+      setPopoverVisible(true)
+    }
+
+    const hidePopover = () => {
+      setPopoverVisible(false)
+    }
+
+    const popoverTitle = <span>Are you sure?</span>
+    const popoverBody = (
+      <div>
+        <Space>
+          <Button className="adminBtn" type="primary" shape="round" size="medium" style={{ background: "#ff0000", borderColor: "white"}}  onClick = {showDeletePopover}>Yes, delete lobby</Button>
+        </Space>
+        <Button className="adminBtn" type="primary" shape="round" size="medium" style={{ background: "#55cc55", borderColor: "white"}}  onClick = {hidePopover}>No, nevermind</Button>
+      </div>
+      )
     
     const playersToCSV = () => {
       const csv = [
@@ -80,7 +109,7 @@ const Lobby_Created = (props) => {
                   return(
                     <div className="playerRow">
                       <p className="playerName">{player}</p>
-                      <p style={{fontWeight: "lighter", fontSize: "larger"}}>{players[player]}</p>
+                      <p className="playerScore" style={{fontWeight: "lighter", fontSize: "larger"}}>{players[player]}</p>
                     </div>
                   )
                 })}
@@ -88,7 +117,9 @@ const Lobby_Created = (props) => {
             </div>
 
             <div className="buttonContainer">
-              <Button className="adminBtn" type="primary" shape="round" size="large" style={{ background: "#ff0000", borderColor: "white"}}  onClick = {deleteLobby}>Delete Lobby</Button>
+              <Popover placement="bottom" title={popoverTitle} content={popoverBody} trigger="click" visible={popoverVisible}>
+                <Button className="adminBtn" type="primary" shape="round" size="large" style={{ background: "#ff0000", borderColor: "white"}}  onClick = {showPopover}>Delete Lobby</Button>
+              </Popover>
               <Button className="adminBtn" type="primary" shape="round" size="large" style={{ background: "#55cc55", borderColor: "white"}}  onClick = {playersToCSV}>Download Lobby CSV</Button>
             </div>
         </>

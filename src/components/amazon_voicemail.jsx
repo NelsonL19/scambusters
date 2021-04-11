@@ -13,7 +13,6 @@ However, if you have not made any such transaction you can call
 Amazon support right away on 669-247-0906.
 Again the number is 669-247-0906. Thank you.`;
 
-//This file is how the fake Netflix signup page is being created. It features the HTML of the page along with exporting it to be used in a level.
 const Amazon_Voicemail = (props) => {
 
     return (

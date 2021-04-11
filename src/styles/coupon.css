@@ -1,0 +1,27 @@
+.coupon {
+    background-color: #F5EFE8;
+    border: 2px dotted black;
+}
+
+.background {
+    border: 20px solid white;
+}
+
+.daily {
+    text-align: center;
+    padding: '8px 0';
+}
+
+.top {
+    padding-top: 20px;
+}
+
+.coupons {
+    text-align: center;
+    justify-content: center;
+    width:300px;
+    padding:40px;
+    background-color: silver;
+    border: 2px dotted black;
+    font-size: 18px;
+}

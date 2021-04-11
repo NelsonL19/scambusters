@@ -6,6 +6,7 @@ import Level_1 from './pages/level_1'
 import Level_2 from './pages/level_2'
 import Level_3 from './pages/level_3'
 import Level_4 from './pages/level_4'
+import Level_5 from './pages/level_5'
 import Lobby_Created from './pages/lobby-created'
 import Lobby_Joined from './pages/lobby-joined'
 import Level_Prototype from './components/level_prototype.jsx'
@@ -40,7 +41,7 @@ function App() {
       levelNum: 3,
       type: "scamOrNot",
       isScam: true,
-      url: "My Voicemail Box",
+      url: "REMOVE_URL_BAR",
       evidenceAmount: 0
     },
     {
@@ -49,6 +50,13 @@ function App() {
       isScam: true,
       url: "REMOVE_URL_BAR",
       evidenceAmount: 3
+    },
+    {
+      levelNum: 5,
+      type: "scamOrNot",
+      isScam: false,
+      url: "REMOVE_URL_BAR",
+      evidenceAmount: 0
     }
   ]
   //Function is returning the location and levels that are being played in our app
@@ -78,6 +86,10 @@ function App() {
         </Route>
         <Route path = "/level4" render={(props) => (
               <Level_Prototype {...props} level = {levelInfo[4]}/>
+        )}>
+        </Route>
+        <Route path = "/level5" render={(props) => (
+              <Level_Prototype {...props} level = {levelInfo[5]}/>
         )}>
         </Route>
       </Switch>

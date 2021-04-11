@@ -132,8 +132,8 @@ export default class UI_Overlay extends Component {
                         <div className="bottom-row">
                             <h3>Scam or Legit?</h3>
                             <div className="scam-buttons">
-                                <Button className="btn" onClick={this.props.handleCorrect} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
-                                <Button className="btn" onClick={this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
+                                <Button className="btn" onClick={this.props.level.isScam ? this.props.handleCorrect : this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
+                                <Button className="btn" onClick={!this.props.level.isScam ? this.props.handleCorrect : this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
                             </div>
                         </div>
                     </div>

@@ -54,6 +54,10 @@ const Home = (props) => {
     return pass
   }
 
+  const endTest = () => {
+    history.push({pathname: "/game_end"})
+  }
+
   return (
     <>
       <div className="titleBlock">
@@ -72,6 +76,10 @@ const Home = (props) => {
       <Link to = "/level3">Level 3</Link>
       <br/>
       <Link to = "/level4">Level 4</Link>
+      <br/>
+ 
+
+
 
       <div className="playDiv">
         <div className="lobbyDiv">

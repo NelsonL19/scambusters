@@ -9,6 +9,7 @@ import Level_4 from './pages/level_4'
 import Level_5 from './pages/level_5'
 import Lobby_Created from './pages/lobby-created'
 import Lobby_Joined from './pages/lobby-joined'
+import Game_End from './pages/game_end'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
 function App() {
@@ -68,6 +69,7 @@ function App() {
         </Route>
         <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>
+        <Route path = "/game_end" component = {Game_End}></Route>
         <Route path = "/level0" render={(props) => (
               <Level_Prototype {...props} level = {levelInfo[0]}/>
         )}>

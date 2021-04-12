@@ -40,7 +40,7 @@ const Home = (props) => {
     db.collection("lobbies").doc('GUEST').update({
       [tempUser]: 0
     })
-    history.push({pathname: "/lobby-joined", state: {user: tempUser, pass: "GUEST"}})
+    history.push({pathname: "/level1", state: {user: tempUser, pass: "GUEST"}})
   }
 
   const generatePasscode = () => {
@@ -63,24 +63,9 @@ const Home = (props) => {
       <div className="titleBlock">
         <h1 className="gameTitle">Scambusters®</h1>
         <h3 className="gameSubtitle">The Video Game</h3>
-        <p className="releaseVersion">Release Version: v0.4-Alpha</p>
+        <p className="releaseVersion">Release Version: v0.5-Beta</p>
       </div>
-
-      <p>Debug Menu</p>
-      <Link to = "/level0">Level 0</Link>
       <br/>
-      <Link to = "/level1">Level 1</Link>
-      <br/>
-      <Link to = "/level2">Level 2</Link>
-      <br/>
-      <Link to = "/level3">Level 3</Link>
-      <br/>
-      <Link to = "/level4">Level 4</Link>
-      <br/>
- 
-
-
-
       <div className="playDiv">
         <div className="lobbyDiv">
           <h2 className="lobbyTitle">Create a new lobby</h2>

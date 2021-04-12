@@ -22,7 +22,7 @@ const Level_End = (props) => {
     //TODO: Pass in length of array, if levelnum = length, go to gameend
     const handleNextLevelClick = () => {
         props.resetLevelState()
-        if (props.level.levelNum == 4) {
+        if (props.level.levelNum == 5) {
             history.push({ pathname: "/game_end", state: { score: pastScore + totalScore, pass: props.lobbyInfo.pass }})
         } else {
             history.push({ pathname: `/level${props.level.levelNum + 1}`, state: { user: props.lobbyInfo.user, pass: props.lobbyInfo.pass } })

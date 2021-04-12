@@ -1,14 +1,16 @@
 import React, { Component, useEffect, useState, Suspense } from 'react';
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import Browser_Bar from './browser_bar.jsx'
 import UI_Overlay from './ui_overlay.jsx'
 import './level_prototype.css'
+import ReactAudioPlayer from 'react-audio-player';
+import elevatorMusic from '../assets/leopard-print-elevator-by-kevin-macleod-from-filmmusic-io.mp3'
 
 const Level_Prototype = (props) => {
     const [evidenceFound, setEvidenceFound] = useState([])
     const [isLevelComplete, setIsLevelComplete] = useState(false)
     const [isCorrect, setIsCorrect] = useState(false)
-    const [allTooltipsVisible,setAllTooltipsVisible] = useState(false)
+    const [allTooltipsVisible, setAllTooltipsVisible] = useState(false)
     const [misclicks, setMisclicks] = useState(0)
     //This function is responsible for taking in the level number, and rendering the level content that is being used for each level.
     const loadLevel = (number) => {
@@ -24,7 +26,7 @@ const Level_Prototype = (props) => {
     }
 
     const handleMisclick = (e) => {
-        if(props.level.type=="scamOrNot") {
+        if (props.level.type == "scamOrNot") {
             return
         }
 
@@ -32,16 +34,16 @@ const Level_Prototype = (props) => {
 
         const circle = document.querySelector(".misclick-circle")
         const bonus = document.querySelector(".bonus")
-        circle.style.left = (e.clientX - 20)+ "px";
-        circle.style.top = (e.clientY - 20)+ "px";
+        circle.style.left = (e.clientX - 20) + "px";
+        circle.style.top = (e.clientY - 20) + "px";
         circle.classList.add("visible")
         bonus.classList.add('red-flash')
 
-        setTimeout(()=> {
+        setTimeout(() => {
             circle.classList.remove("visible")
             bonus.classList.remove("red-flash")
 
-        },250)
+        }, 250)
 
 
 
@@ -50,12 +52,12 @@ const Level_Prototype = (props) => {
 
     //handle correct selection in scam/no scam levels
     const handleCorrect = () => {
-        if(isLevelComplete){
+        if (isLevelComplete) {
             return
         }
         setIsLevelComplete(true)
         setIsCorrect(true)
-        if(props.level.type == "scamOrNot"){
+        if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
             setTimeout(() => {
                 setAllTooltipsVisible(false)
@@ -66,12 +68,12 @@ const Level_Prototype = (props) => {
 
     //handle incorrect selection in scam/no scam levels
     const handleIncorrect = () => {
-        if(isLevelComplete){
+        if (isLevelComplete) {
             return
         }
         setIsLevelComplete(true)
-        setIsCorrect(false)  
-        if(props.level.type == "scamOrNot"){
+        setIsCorrect(false)
+        if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
             setTimeout(() => {
                 setAllTooltipsVisible(false)
@@ -81,7 +83,7 @@ const Level_Prototype = (props) => {
     }
 
     //handle click of "next level" button
-    const resetLevelState  = () => {
+    const resetLevelState = () => {
         setEvidenceFound([])
         setIsCorrect(false)
         setIsLevelComplete(false)
@@ -90,46 +92,53 @@ const Level_Prototype = (props) => {
 
     useEffect(() => {
         setEvidenceFound([])
-    },[props.level])
+    }, [props.level])
 
 
     const Level = loadLevel(props.level.levelNum)
 
-    return(
+    return (
         //Calls the load level function with the level that is being selected.
-                <div>
-                    <div className="minification" onClick = {(e) => handleMisclick(e)}>
-                        <Browser_Bar url={props.level.url} />
-                        <Suspense fallback={<div>Loading Level...</div>}>
-                            {props.level.type == "scamOrNot" && 
-                                <Level 
-                                    isLevelComplete = {isLevelComplete} 
-                                    isCorrect = {isCorrect}
-                                    allTooltipsVisible = {allTooltipsVisible}
-                                />}
-                            {props.level.type == "evidenceCollect" && 
-                                <Level 
-                                    handleCRClick = {handleCRClick} 
-                                    evidenceFound = {evidenceFound} 
-                                    isLevelComplete = {isLevelComplete} 
-                                    isCorrect = {isCorrect}
-                                />}
-                        </Suspense>
-                    </div>
-                    <UI_Overlay 
-                        level={props.level}
-                        evidenceFound = {evidenceFound} 
-                        isLevelComplete = {isLevelComplete}
-                        isCorrect = {isCorrect}
-                        handleCorrect = {handleCorrect}
-                        handleIncorrect = {handleIncorrect}
-                        resetLevelState = {resetLevelState}
-                        misclicks = {misclicks}
-                        lobbyInfo = {{user: props.location.state.user, pass: props.location.state.pass}}
-                    />
-                    <div className = "misclick-circle"></div>
-                </div>
-            )
+        <div>
+
+            <ReactAudioPlayer
+                src={elevatorMusic}
+                autoPlay="true"
+                loop="true"
+                volume="0.5"
+            />
+            <div className="minification" onClick={(e) => handleMisclick(e)}>
+                <Browser_Bar url={props.level.url} />
+                <Suspense fallback={<div>Loading Level...</div>}>
+                    {props.level.type == "scamOrNot" &&
+                        <Level
+                            isLevelComplete={isLevelComplete}
+                            isCorrect={isCorrect}
+                            allTooltipsVisible={allTooltipsVisible}
+                        />}
+                    {props.level.type == "evidenceCollect" &&
+                        <Level
+                            handleCRClick={handleCRClick}
+                            evidenceFound={evidenceFound}
+                            isLevelComplete={isLevelComplete}
+                            isCorrect={isCorrect}
+                        />}
+                </Suspense>
+            </div>
+            <UI_Overlay
+                level={props.level}
+                evidenceFound={evidenceFound}
+                isLevelComplete={isLevelComplete}
+                isCorrect={isCorrect}
+                handleCorrect={handleCorrect}
+                handleIncorrect={handleIncorrect}
+                resetLevelState={resetLevelState}
+                misclicks={misclicks}
+                lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass }}
+            />
+            <div className="misclick-circle"></div>
+        </div>
+    )
 }
 
 export default Level_Prototype;

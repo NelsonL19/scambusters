@@ -54,8 +54,8 @@ const Home = (props) => {
     return pass
   }
 
-  const endTest = () => {
-    history.push({pathname: "/game_end"})
+  const goToCredits = () => {
+    history.push({pathname: "/credits"})
   }
 
   return (
@@ -87,6 +87,7 @@ const Home = (props) => {
         </div>
       </div>
 
+      <Button className="credits-button" type="primary" size="large" onClick = {goToCredits}>Credits</Button>
     </>
   )
 }

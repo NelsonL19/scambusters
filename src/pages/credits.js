@@ -14,18 +14,18 @@ const Credits = (props) => {
 return (
     <>
       <h1>Credits</h1>
-      <h1>The Scambusters® Video Game Team:</h1>
-      <h1>Nelson Lopez</h1>
-      <h1>Jerett Rende</h1>
-      <h1>Savannah Evans</h1>
-      <h1>Benjamin Bunze</h1>
-      <h1>Original Scambusters® Game:</h1>
-      <h1>Steve Fromme</h1>
-      <h1>The Better Business Buearu of Raleigh, NC.</h1>
+      <h2>The Scambusters® Video Game Team:</h2>
+      <p>Nelson Lopez</p>
+      <p>Jerett Rende</p>
+      <p>Savannah Evans</p>
+      <p>Benjamin Bunze</p>
+      <h2>Original Scambusters® Game:</h2>
+      <p>Steve Fromme</p>
+      <p>The Better Business Buearu of Raleigh, NC.</p>
 
-      <h1>Licenses and Attributions</h1>
-      <p>Leopard Print Elevator by Kevin MacLeod
-          Link: https://incompetech.filmmusic.io/song/3974-leopard-print-elevator
+      <h2>Licenses and Attributions</h2>
+      <p>Leopard Print Elevator by Kevin MacLeod<br/>
+          Link: https://incompetech.filmmusic.io/song/3974-leopard-print-elevator<br/>
           License: https://filmmusic.io/standard-license</p>
       <button onClick={() => returnToMain()}>Return to Main Menu</button>
     </>

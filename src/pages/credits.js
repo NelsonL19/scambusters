@@ -27,6 +27,12 @@ return (
       <p>Leopard Print Elevator by Kevin MacLeod<br/>
           Link: https://incompetech.filmmusic.io/song/3974-leopard-print-elevator<br/>
           License: https://filmmusic.io/standard-license</p>
+      <p>Computer Error Alert by Mike Koenig<br/>
+      Link: https://soundbible.com/1540-Computer-Error-Alert.html
+      License: Attribution 3.0</p>
+      <p>Text Message Alert 2 by Daniel Simion<br/>
+      Link: https://soundbible.com/2155-Text-Message-Alert-2.html
+      License: Attribution 3.0</p>
       <button onClick={() => returnToMain()}>Return to Main Menu</button>
     </>
   )

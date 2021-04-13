@@ -5,6 +5,10 @@ import UI_Overlay from './ui_overlay.jsx'
 import './level_prototype.css'
 import ReactAudioPlayer from 'react-audio-player';
 import elevatorMusic from '../assets/leopard-print-elevator-by-kevin-macleod-from-filmmusic-io.mp3'
+import misclickSFX from '../assets/ComputerError.mp3'
+import rightSFX from '../assets/smsAlert.mp3'
+
+
 
 const Level_Prototype = (props) => {
     const [evidenceFound, setEvidenceFound] = useState([])
@@ -22,6 +26,8 @@ const Level_Prototype = (props) => {
 
     //event handler for clicking in a clickable region
     const handleCRClick = (evID) => {
+        let correctFX = new Audio(rightSFX);
+        correctFX.play();
         setEvidenceFound([...evidenceFound, evID])
     }
 
@@ -38,7 +44,8 @@ const Level_Prototype = (props) => {
         circle.style.top = (e.clientY - 20) + "px";
         circle.classList.add("visible")
         bonus.classList.add('red-flash')
-
+        let soundFX = new Audio(misclickSFX);
+        soundFX.play();
         setTimeout(() => {
             circle.classList.remove("visible")
             bonus.classList.remove("red-flash")
@@ -103,9 +110,9 @@ const Level_Prototype = (props) => {
 
             <ReactAudioPlayer
                 src={elevatorMusic}
-                autoPlay="true"
-                loop="true"
-                volume="0.5"
+                autoPlay={true}
+                loop={true}
+                volume={0.5}
             />
             <div className="minification" onClick={(e) => handleMisclick(e)}>
                 <Browser_Bar url={props.level.url} />

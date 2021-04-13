@@ -23,9 +23,9 @@ const Amazon_Voicemail = (props) => {
                 <div className = "player">
                     <ReactAudioPlayer
                     src={voicemail}
-                    autoPlay="false"
-                    controls="true"
-                    loop="false"
+                    autoPlay={false}
+                    controls={true}
+                    loop={false}
                     />
                 </div>
                 <br/>

@@ -7,6 +7,9 @@ import ReactAudioPlayer from 'react-audio-player';
 import elevatorMusic from '../assets/leopard-print-elevator-by-kevin-macleod-from-filmmusic-io.mp3'
 import misclickSFX from '../assets/ComputerError.mp3'
 import rightSFX from '../assets/smsAlert.mp3'
+import correctSound from '../assets/winNotification.wav'
+import incorrectSound from '../assets/failure.wav'
+
 
 
 
@@ -62,6 +65,8 @@ const Level_Prototype = (props) => {
         if (isLevelComplete) {
             return
         }
+        let winSound = new Audio(correctSound);
+        winSound.play();
         setIsLevelComplete(true)
         setIsCorrect(true)
         if (props.level.type == "scamOrNot") {
@@ -78,6 +83,8 @@ const Level_Prototype = (props) => {
         if (isLevelComplete) {
             return
         }
+        let loseSound = new Audio(incorrectSound);
+        loseSound.play();
         setIsLevelComplete(true)
         setIsCorrect(false)
         if (props.level.type == "scamOrNot") {

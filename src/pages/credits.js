@@ -33,6 +33,12 @@ return (
       <p>Text Message Alert 2 by Daniel Simion<br/>
       Link: https://soundbible.com/2155-Text-Message-Alert-2.html
       License: Attribution 3.0</p>
+      <p>Quick win video game notification<br/>
+      Link: https://mixkit.co/free-sound-effects/click/
+      License: Mixkit Sound Effects Free License</p>
+      <p>Failure arcade alert notification<br/>
+      Link: https://mixkit.co/free-sound-effects/video-game/
+      License: Mixkit Sound Effects Free License</p>
       <button onClick={() => returnToMain()}>Return to Main Menu</button>
     </>
   )

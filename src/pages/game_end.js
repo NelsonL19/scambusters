@@ -11,15 +11,15 @@ import victoryMusic from '../assets/blippyTrance.mp3'
 const Game_End = (props) => {
   const history = useHistory();
   const returnToMain = () => { history.push({ pathname: "/" }) }
-  let prefix = ""
+  let prefix = "a"
 
   //TODO: Adjust app.js in order to pass in length of levels array. When Level_End.jsx loads and it's at the end of the array, it should link here
 
   const loadPrefix = () => {
-    if (props.location.state.score > 0) { prefix = "" };
-    if (props.location.state.score > 5000) { prefix = "Great" };
-    if (props.location.state.score > 10000) { prefix = "Amazing" };
-    if (props.location.state.score > 15000) { prefix = "Super" };
+    if (props.location.state.score > 0) { prefix = "a" };
+    if (props.location.state.score > 5000) { prefix = "a Great" };
+    if (props.location.state.score > 10000) { prefix = "an Amazing" };
+    if (props.location.state.score > 15000) { prefix = "a Super" };
 
     if (props.location.state.pass == "GUEST") { props.location.state.pass = "Single Player Mode" }
   }
@@ -39,7 +39,7 @@ const Game_End = (props) => {
         <p className="lobby">{props.location.state.pass}</p>
         <p className="general">Your Final Score is:</p>
         <p className="score">{props.location.state.score} Points</p>
-        <h1 className="result">You are a {prefix} Scambuster!</h1>
+        <h1 className="result">You are {prefix} Scambuster!</h1>
         <img src={bbbLogo} alt="bbbLogo" width="100px"></img>
         <button className="return" onClick={() => returnToMain()}>Return to Main Menu</button>
         <img src={scambustersLogo} alt="scambusters picture" height="100px"></img>

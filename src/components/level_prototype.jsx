@@ -30,6 +30,7 @@ const Level_Prototype = (props) => {
     //event handler for clicking in a clickable region
     const handleCRClick = (evID) => {
         let correctFX = new Audio(rightSFX);
+        correctFX.volume = 0.5;
         correctFX.play();
         setEvidenceFound([...evidenceFound, evID])
     }

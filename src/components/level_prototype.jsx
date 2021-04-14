@@ -20,6 +20,7 @@ const Level_Prototype = (props) => {
     const [allTooltipsVisible, setAllTooltipsVisible] = useState(false)
     const [misclicks, setMisclicks] = useState(0)
     //This function is responsible for taking in the level number, and rendering the level content that is being used for each level.
+
     const loadLevel = (number) => {
         const Level = React.lazy(() =>
             import(`../pages/level_${number}.js`)

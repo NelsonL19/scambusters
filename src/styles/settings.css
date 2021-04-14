@@ -21,3 +21,8 @@ button.font-select-button{
     line-height:20px;
     height:50px;
 }
+
+button.selected, button.selected:focus, button.selected:hover{
+    background-color:#1890ff;
+    color:white;
+}

@@ -58,6 +58,10 @@ const Home = (props) => {
     history.push({pathname: "/credits"})
   }
 
+  const goToSettings = () => {
+    history.push({pathname: "/settings"})
+  }
+
   return (
     <>
       <div className="titleBlock">
@@ -87,6 +91,7 @@ const Home = (props) => {
         </div>
       </div>
 
+      <Button className="credits-button" type="primary" size="large" onClick = {goToSettings}>Settings</Button>
       <Button className="credits-button" type="primary" size="large" onClick = {goToCredits}>Credits</Button>
     </>
   )

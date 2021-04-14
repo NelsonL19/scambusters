@@ -11,6 +11,7 @@ import Lobby_Created from './pages/lobby-created'
 import Lobby_Joined from './pages/lobby-joined'
 import Game_End from './pages/game_end'
 import Credits from './pages/credits'
+import Settings from './pages/settings'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
 function App() {
@@ -68,6 +69,7 @@ function App() {
         <Route exact path = "/">
           <Home></Home>
         </Route>
+        <Route path = "/settings" component = {Settings}></Route>
         <Route path = "/credits" component = {Credits}></Route>
         <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>

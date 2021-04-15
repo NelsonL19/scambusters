@@ -121,12 +121,22 @@ const Level_Prototype = (props) => {
         setEvidenceFound([])
     }, [props.level])
 
+    const getFontSize = () =>{
+        switch(props.settings.fontSize){
+            case "sm":
+                return "8px"
+            case "md":
+                return "12px"
+            case "lg":
+                return "16px"
+        }
+    }
 
     const Level = loadLevel(props.level.levelNum)
 
     return (
         //Calls the load level function with the level that is being selected.
-        <div>
+        <div style = {{fontSize: getFontSize()}}>
 
             {props.settings.musicToggle && 
                 <ReactAudioPlayer

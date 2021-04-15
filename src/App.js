@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {useState} from 'react'
 
 import Home from './pages/index.js'
 import Level_0 from './pages/level_0'
@@ -11,9 +12,12 @@ import Lobby_Created from './pages/lobby-created'
 import Lobby_Joined from './pages/lobby-joined'
 import Game_End from './pages/game_end'
 import Credits from './pages/credits'
+import Settings from './pages/settings'
 import Level_Prototype from './components/level_prototype.jsx'
 import './App.css'
 function App() {
+
+  const [settings, setSettings] = useState({soundToggle: true, soundVolume:100, musicToggle: true, musicVolume:100, fontSize: 'md'})
 
   //store in firebase?
   const levelInfo = [
@@ -68,32 +72,36 @@ function App() {
         <Route exact path = "/">
           <Home></Home>
         </Route>
+        <Route path = "/settings" render={(props) => (
+              <Settings {...props} settings = {settings} setSettings = {setSettings}/>
+        )}>
+        </Route>
         <Route path = "/credits" component = {Credits}></Route>
         <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>
         <Route path = "/game_end" component = {Game_End}></Route>
         <Route path = "/level0" render={(props) => (
-              <Level_Prototype {...props} level = {levelInfo[0]}/>
+              <Level_Prototype {...props} level = {levelInfo[0]} settings = {settings}/>
         )}>
         </Route>
         <Route path = "/level1" render={(props) => (
-              <Level_Prototype {...props} level = {levelInfo[1]}/>
+              <Level_Prototype {...props} level = {levelInfo[1]} settings = {settings}/>
         )}>
         </Route>
         <Route path = "/level2" render={(props) => (
-              <Level_Prototype {...props} level = {levelInfo[2]}/>
+              <Level_Prototype {...props} level = {levelInfo[2]} settings = {settings}/>
         )}>
         </Route>
          <Route path = "/level3" render={(props) => (
-              <Level_Prototype {...props} level = {levelInfo[3]}/>
+              <Level_Prototype {...props} level = {levelInfo[3]} settings = {settings}/>
         )}>
         </Route>
         <Route path = "/level4" render={(props) => (
-              <Level_Prototype {...props} level = {levelInfo[4]}/>
+              <Level_Prototype {...props} level = {levelInfo[4]} settings = {settings}/>
         )}>
         </Route>
         <Route path = "/level5" render={(props) => (
-              <Level_Prototype {...props} level = {levelInfo[5]}/>
+              <Level_Prototype {...props} level = {levelInfo[5]} settings = {settings}/>
         )}>
         </Route>
       </Switch>

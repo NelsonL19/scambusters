@@ -20,6 +20,7 @@ const Level_Prototype = (props) => {
     const [allTooltipsVisible, setAllTooltipsVisible] = useState(false)
     const [misclicks, setMisclicks] = useState(0)
     //This function is responsible for taking in the level number, and rendering the level content that is being used for each level.
+
     const loadLevel = (number) => {
         const Level = React.lazy(() =>
             import(`../pages/level_${number}.js`)
@@ -29,9 +30,13 @@ const Level_Prototype = (props) => {
 
     //event handler for clicking in a clickable region
     const handleCRClick = (evID) => {
-        let correctFX = new Audio(rightSFX);
-        correctFX.volume = 0.5;
-        correctFX.play();
+
+        if(props.settings.soundToggle){
+            let correctFX = new Audio(rightSFX);
+            correctFX.volume = props.settings.soundVolume/100
+            correctFX.play();
+        }
+
         setEvidenceFound([...evidenceFound, evID])
     }
 
@@ -48,8 +53,11 @@ const Level_Prototype = (props) => {
         circle.style.top = (e.clientY - 20) + "px";
         circle.classList.add("visible")
         bonus.classList.add('red-flash')
-        let soundFX = new Audio(misclickSFX);
-        soundFX.play();
+        if(props.settings.soundToggle){
+            let soundFX = new Audio(misclickSFX);
+            soundFX.volume = props.settings.soundVolume/100
+            soundFX.play();
+        }
         setTimeout(() => {
             circle.classList.remove("visible")
             bonus.classList.remove("red-flash")
@@ -66,8 +74,11 @@ const Level_Prototype = (props) => {
         if (isLevelComplete) {
             return
         }
-        let winSound = new Audio(correctSound);
-        winSound.play();
+        if(props.settings.soundToggle){
+            let winSound = new Audio(correctSound);
+            winSound.volume = props.settings.soundVolume/100
+            winSound.play();
+        }
         setIsLevelComplete(true)
         setIsCorrect(true)
         if (props.level.type == "scamOrNot") {
@@ -84,8 +95,11 @@ const Level_Prototype = (props) => {
         if (isLevelComplete) {
             return
         }
-        let loseSound = new Audio(incorrectSound);
-        loseSound.play();
+        if(props.settings.soundToggle){
+            let loseSound = new Audio(incorrectSound);
+            loseSound.volume = props.settings.soundVolume/100
+            loseSound.play();
+        }
         setIsLevelComplete(true)
         setIsCorrect(false)
         if (props.level.type == "scamOrNot") {
@@ -109,19 +123,31 @@ const Level_Prototype = (props) => {
         setEvidenceFound([])
     }, [props.level])
 
+    const getFontSize = () =>{
+        switch(props.settings.fontSize){
+            case "sm":
+                return "8px"
+            case "md":
+                return "12px"
+            case "lg":
+                return "16px"
+        }
+    }
 
     const Level = loadLevel(props.level.levelNum)
 
     return (
         //Calls the load level function with the level that is being selected.
-        <div>
+        <div style = {{fontSize: getFontSize()}}>
 
-            <ReactAudioPlayer
-                src={elevatorMusic}
-                autoPlay={true}
-                loop={true}
-                volume={0.5}
-            />
+            {props.settings.musicToggle && 
+                <ReactAudioPlayer
+                    src={elevatorMusic}
+                    autoPlay={true}
+                    loop={true}
+                    volume={(props.settings.musicVolume/100) * 0.5}
+                />
+            }
             <div className="minification" onClick={(e) => handleMisclick(e)}>
                 <Browser_Bar url={props.level.url} />
                 <Suspense fallback={<div>Loading Level...</div>}>

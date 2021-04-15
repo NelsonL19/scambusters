@@ -22,6 +22,11 @@ const Credits = (props) => {
       <h2>Original Scambusters® Game:</h2>
       <p>Steve Fromme</p>
       <p>The Better Business Buearu of Raleigh, NC.</p>
+      <h2>Special Thanks:</h2>
+      <p>Dr. Diane Pozefsky</p>
+      <p>The Computer Science Department at the University of North Carolina at Chapel Hill</p>
+      <p>You!</p>
+      
 
       <h2>Licenses and Attributions</h2>
       <p>Leopard Print Elevator by Kevin MacLeod<br />

@@ -8,7 +8,7 @@ input{
     margin-bottom:5px;
 }
 
-p{
+p.ccText{
     font-size:1em;
     line-height:1rem;
     color:gray;
@@ -24,7 +24,8 @@ b{
     display:flex;
     height:calc(100vh - 80px);
     background-image: url('../assets/netflixBack.jpg');
-    background-size: 50%;
+    background-size:100%;
+    background-position: 100%;
 }
 
 .title{

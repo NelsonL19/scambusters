@@ -33,7 +33,7 @@ const Credits = (props) => {
       <h2 className="subTitles">Special Thanks:</h2>
       <p className="name">Dr. Diane Pozefsky</p>
       <p className="name">The Computer Science Department at the University of North Carolina at Chapel Hill</p>
-      <p className="name">You!</p>
+      <p className="name">Player like You!</p>
       </div>
       
       <br/>

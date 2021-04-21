@@ -1,3 +1,16 @@
+p.transcript{
+    font-size:1.4em;
+}
+
+div.ant-collapse{
+    font-size:1em;
+}
+
+div.ant-collapse-header{
+    font-size:1.4em;
+}
+
+
 .website{
     display:flex;
     height:calc(100vh - 80px);

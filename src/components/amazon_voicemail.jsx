@@ -35,7 +35,7 @@ const Amazon_Voicemail = (props) => {
                         defaultActiveKey={['1']}
                         expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
                         className="site-collapse-custom-collapse">
-                    <Panel header="View Audio Transcript"><p>{text}</p></Panel>
+                    <Panel header="View Audio Transcript"><p className = "transcript">{text}</p></Panel>
                     </Collapse>
                 </div>
             </div>

@@ -36,6 +36,7 @@
 }
 
 p {
+    font-size:1em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black
 }
@@ -47,10 +48,10 @@ p {
     outline: white;
     background-color: rgba(79, 128, 186, 1);
     border-radius: 20%;
-    font-size: large;
+    font-size: 1.2em;
     margin-bottom: 15px;
 }
 
 .legaltext {
-    font-size: small;
+    font-size: 1em;
 }

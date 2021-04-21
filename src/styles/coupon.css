@@ -19,9 +19,9 @@
 .coupons {
     text-align: center;
     justify-content: center;
-    width:300px;
+    width:calc(240px + 4em);
     padding:40px;
     background-color: silver;
     border: 2px dotted black;
-    font-size: 18px;
+    font-size: 1.4em;
 }

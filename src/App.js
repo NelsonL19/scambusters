@@ -79,7 +79,10 @@ function App() {
         <Route path = "/credits" component = {Credits}></Route>
         <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>
-        <Route path = "/game_end" component = {Game_End}></Route>
+        <Route path = "/game_end" render={(props) => (
+              <Game_End {...props} settings = {settings}/>
+        )}>
+        </Route>
         <Route path = "/level0" render={(props) => (
               <Level_Prototype {...props} level = {levelInfo[0]} settings = {settings}/>
         )}>

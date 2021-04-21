@@ -8,14 +8,14 @@ input{
     margin-bottom:5px;
 }
 
-p{
+p.subtext{
     font-size:1em;
-    line-height:1rem;
-    color:gray;
+    line-height:1.2em;
+    color:white;
 }
 
 b{
-    color:white;
+    color:white !important;
     text-decoration:underline;
     cursor:pointer;
 }
@@ -37,7 +37,7 @@ b{
 }
 
 .sign-in{
-    width:350px;
+    width:30em;
     margin:auto;
     padding:50px;
     background-color: rgba(0,0,0,.4);
@@ -61,4 +61,5 @@ button.sign-in-button{
 .new-acct-text{
     color:gray;
     font-size:1.5em;
+
 }

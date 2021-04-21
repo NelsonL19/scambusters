@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState, Suspense } from 'react';
 import { Link, useHistory } from 'react-router-dom'
 import { firebase } from '../firebase-config/config'
 import { Button } from 'antd';
+import '../styles/index.css';
 
 const Credits = (props) => {
   const history = useHistory();
@@ -21,7 +22,7 @@ const Credits = (props) => {
       <p>Benjamin Bunze</p>
       <h2>Original Scambusters® Game:</h2>
       <p>Steve Fromme</p>
-      <p>The Better Business Buearu of Raleigh, NC.</p>
+      <p>BBB Educational Foundation of Eastern NC, Inc.</p>
       <h2>Special Thanks:</h2>
       <p>Dr. Diane Pozefsky</p>
       <p>The Computer Science Department at the University of North Carolina at Chapel Hill</p>
@@ -47,7 +48,7 @@ const Credits = (props) => {
       <p>Failure arcade alert notification<br />
       Link: https://mixkit.co/free-sound-effects/video-game/
       License: Mixkit Sound Effects Free License</p>
-      <button onClick={() => returnToMain()}>Return to Main Menu</button>
+      <Button type="primary" onClick={() => returnToMain()}>Return to Main Menu</Button>
     </>
   )
 }

@@ -1,5 +1,7 @@
 import {useHistory} from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import { Button } from 'antd';
+import '../styles/join.css'
 
 
 const Lobby_Joined = (props) => {
@@ -9,10 +11,12 @@ const Lobby_Joined = (props) => {
 
 return (
     <>
-      <h1>Lobby Joined!</h1>
+    <center>
+      <h1 className="joined">Lobby Joined!</h1>
       <p>Your Username is: {props.location.state.user}</p>
       <p>Your Room Code is: {props.location.state.pass}</p>
-      <button onClick={() => startGame()}>Start Game</button>
+      <Button type="primary" onClick={() => startGame()}>Start Game</Button>
+      </center>
     </>
   )
 }

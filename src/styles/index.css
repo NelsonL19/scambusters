@@ -12,11 +12,20 @@ code {
     monospace;
 }
 
+#logoImg {
+  max-width:75%;
+  size: 100px;
+}
+
 div.titleBlock {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+div.backgroundColors {
+  background-color: rgb(66,170,219);
 }
 
 h1.gameTitle {

@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import {useHistory} from 'react-router-dom'
 import {firebase} from '../firebase-config/config'
 import {Button} from 'antd';
+import titleLogo from '../assets/scambustersLogo.jpg'
 
 //GameEngine takes a list of systems and an object of entities (described by renderers)
 const Home = (props) => {
@@ -62,12 +63,15 @@ const Home = (props) => {
     history.push({pathname: "/settings"})
   }
 
+  // <h1 className="gameTitle">Scambusters®</h1>
+  // <h3 className="gameSubtitle">The Video Game</h3>
+  // <p className="releaseVersion">Release Version: v0.5-Beta</p>
+
   return (
     <>
+    <div className="backgroundColors">
       <div className="titleBlock">
-        <h1 className="gameTitle">Scambusters®</h1>
-        <h3 className="gameSubtitle">The Video Game</h3>
-        <p className="releaseVersion">Release Version: v0.5-Beta</p>
+      <img id ="logoImg" src={titleLogo} alt="Logo Image" size="100px"></img>
       </div>
       <br/>
       <div className="playDiv">
@@ -90,9 +94,13 @@ const Home = (props) => {
           <Button className="lobby-button" type="primary" size="large" onClick = {joinLobby_SP}>Begin Single Player</Button>
         </div>
       </div>
-
+      <br/>
+      <div className="playDiv">
       <Button className="credits-button" type="primary" size="large" onClick = {goToSettings}>Settings</Button>
       <Button className="credits-button" type="primary" size="large" onClick = {goToCredits}>Credits</Button>
+      </div>
+      <br/>
+      </div>
     </>
   )
 }

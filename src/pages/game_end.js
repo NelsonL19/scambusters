@@ -4,7 +4,7 @@ import { firebase } from '../firebase-config/config'
 import { Button } from 'antd';
 import '../styles/end.css';
 import bbbLogo from '../assets/bbbLogo.png'
-import scambustersLogo from '../assets/scambusters.png'
+import scambustersLogo from '../assets/scambustersMedal.png'
 import ReactAudioPlayer from 'react-audio-player';
 import victoryMusic from '../assets/blippyTrance.mp3'
 

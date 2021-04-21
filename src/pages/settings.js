@@ -88,7 +88,7 @@ return (
                 Large
           </Button>
       </div>
-      <Button type="primary" size="large" onClick = {() => cancel()} className = "settings-button">Cancel</Button>
+      <Button type="danger" size="large" onClick = {() => cancel()} className = "settings-button">Cancel</Button>
       <Button type="primary" size="large" onClick = {() => saveSettings()} className = "settings-button">Save Settings</Button>
     </>
   )

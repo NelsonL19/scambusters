@@ -29,6 +29,7 @@ p.score {
 h1.congrats {
     font-size: 700%;
     font-weight: 400;
+    margin-bottom: -1px;
 }
 
 h1.result {

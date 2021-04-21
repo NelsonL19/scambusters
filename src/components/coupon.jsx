@@ -7,7 +7,7 @@ const Coupon = (props) => {
     console.log(props.allTooltipsVisible)
 
     return (
-        <div className="background">
+        <div className="backgroundCoupon">
         <Row className="coupon">
             <Col span={12}>
             <div className="daily">

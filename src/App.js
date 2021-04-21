@@ -33,7 +33,7 @@ function App() {
       levelNum: 1,
       type: "scamOrNot",
       isScam: true,
-      url: "https://neftlix.com",
+      url: "https://netflix.com",
       evidenceAmount: 0
     },
     {

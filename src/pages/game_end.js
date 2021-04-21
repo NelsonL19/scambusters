@@ -3,8 +3,8 @@ import { Link, useHistory } from 'react-router-dom'
 import { firebase } from '../firebase-config/config'
 import { Button } from 'antd';
 import '../styles/end.css';
-import bbbLogo from '../assets/bbbLogo.png'
-import scambustersLogo from '../assets/scambusters.png'
+import bbbLogo from '../assets/bbbLogo.jpg'
+import scambustersLogo from '../assets/scambustersMedal.png'
 import ReactAudioPlayer from 'react-audio-player';
 import victoryMusic from '../assets/blippyTrance.mp3'
 
@@ -34,15 +34,19 @@ const Game_End = (props) => {
         volume={0.5}
       />
       <div className="endText">
+        <div className="info">
         <h1 className="congrats" onLoad={loadPrefix()}>Congratulations!</h1>
         <p className="general">Your Lobby was:</p>
         <p className="lobby">{props.location.state.pass}</p>
         <p className="general">Your Final Score is:</p>
         <p className="score">{props.location.state.score} Points</p>
         <h1 className="result">You are {prefix} Scambuster!</h1>
-        <img src={bbbLogo} alt="bbbLogo" width="100px"></img>
-        <button className="return" onClick={() => returnToMain()}>Return to Main Menu</button>
-        <img src={scambustersLogo} alt="scambusters picture" height="100px"></img>
+        </div>
+        <br/>
+        <Button className="return" type="primary" onClick={() => returnToMain()}>Return to Main Menu</Button>
+        <br/>
+        <br/>
+        <img src={scambustersLogo} alt="scambusters picture" height="500px"></img>
       </div>
     </>
   )

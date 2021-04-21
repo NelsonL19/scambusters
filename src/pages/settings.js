@@ -28,6 +28,7 @@ const Settings = (props) => {
 
 return (
     <>
+    <div className="settingsPage">
       <h1 className = "gameSubtitle">Settings</h1>
       <h2>Sound settings</h2>
       <div className = "settings-grid">
@@ -52,7 +53,7 @@ return (
 
         <span>Music:</span>
         <span style = {{width:'100%', textAlign:'center'}}>
-            off 
+            off
             <Switch 
                 defaultChecked = {tempSettings.musicToggle} 
                 onChange = {() => updateTempSettings("musicToggle", !tempSettings.musicToggle)}>
@@ -88,8 +89,9 @@ return (
                 Large
           </Button>
       </div>
-      <Button type="primary" size="large" onClick = {() => cancel()} className = "settings-button">Cancel</Button>
+      <Button type="danger" size="large" onClick = {() => cancel()} className = "settings-button">Cancel</Button>
       <Button type="primary" size="large" onClick = {() => saveSettings()} className = "settings-button">Save Settings</Button>
+      </div>
     </>
   )
 }

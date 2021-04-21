@@ -16,12 +16,12 @@ p.general {
     font-size: 150%;
 }
 
-p.lobby{
+p.lobby {
     font-size: 200%;
     font-weight: 500;
 }
 
-p.score{
+p.score {
     font-size: 350%;
     font-weight: 900;
 }
@@ -29,6 +29,7 @@ p.score{
 h1.congrats {
     font-size: 700%;
     font-weight: 400;
+    margin-bottom: -1px;
 }
 
 h1.result {
@@ -39,10 +40,12 @@ h1.result {
 div.endText {
     text-align: center;
     padding-top: 4%;
+    background-color: rgb(67, 182, 232);
+
 }
 
 button.return {
-    background-color: black;
-    color: white;
     margin-right: 1%;
+    margin-left: 1%;
+
 }

@@ -13,8 +13,10 @@ return (
     <>
     <center>
       <h1 className="joined">Lobby Joined!</h1>
-      <p>Your Username is: {props.location.state.user}</p>
-      <p>Your Room Code is: {props.location.state.pass}</p>
+      <p className="general">Your Username is:</p>
+      <p className="name">{props.location.state.user}</p>
+      <p className="general">Your Room Code is:</p>
+      <p className="lobby"> {props.location.state.pass}</p>
       <Button type="primary" onClick={() => startGame()}>Start Game</Button>
       </center>
     </>

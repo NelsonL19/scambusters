@@ -13,7 +13,7 @@ code {
 }
 
 #logoImg {
-  max-width:75%;
+  max-width:60%;
   size: 100px;
 }
 
@@ -23,9 +23,10 @@ div.titleBlock {
   justify-content: center;
   align-items: center;
 }
-
+/*For Alt Version: background-color: rgb(67,182,232);*/
+/*For Regular Background: background-color: rgb(66,170,219)*/
 div.backgroundColors {
-  background-color: rgb(66,170,219);
+  background-color: rgb(67,182,232);
 }
 
 h1.gameTitle {

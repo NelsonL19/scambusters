@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import {useHistory} from 'react-router-dom'
 import {firebase} from '../firebase-config/config'
 import {Button} from 'antd';
-import titleLogo from '../assets/scambustersLogo.jpg'
+import titleLogo from '../assets/scambustersLogoAlt.jpg'
 
 //GameEngine takes a list of systems and an object of entities (described by renderers)
 const Home = (props) => {

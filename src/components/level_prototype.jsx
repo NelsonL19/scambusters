@@ -139,7 +139,7 @@ const Level_Prototype = (props) => {
     return (
         //Calls the load level function with the level that is being selected.
         <div style = {{fontSize: getFontSize()}}>
-
+            <div className="playArea">
             {props.settings.musicToggle && 
                 <ReactAudioPlayer
                     src={elevatorMusic}
@@ -178,6 +178,7 @@ const Level_Prototype = (props) => {
                 lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass }}
             />
             <div className="misclick-circle"></div>
+            </div>
         </div>
     )
 }

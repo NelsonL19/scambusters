@@ -7,12 +7,16 @@ p.general {
     font-size: 150%;
 }
 
-p.name{
+p.name {
     font-size: 200%;
     font-weight: 500;
 }
 
-p.lobby{
+p.lobby {
     font-size: 350%;
     font-weight: 900;
+}
+
+div.content {
+    background-color: rgb(67, 182, 232);
 }

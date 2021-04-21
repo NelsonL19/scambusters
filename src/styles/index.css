@@ -17,6 +17,13 @@ code {
   size: 100px;
 }
 
+.bbbImg {
+  max-width:7%;
+  margin-left: 50px;
+  margin-right: 0%;
+  object-fit: contain;
+}
+
 div.titleBlock {
   display: flex;
   flex-direction: column;
@@ -61,6 +68,20 @@ div.playDiv {
   border: 1px solid black;
 }
 
+div.playDiv2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: blanchedalmond;
+  width: 75%;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 4px 4px 15px #333333;
+  border: 1px solid black;
+  margin-left: 17.5%;
+}
+
+
 div.lobbyDiv {
   display: flex;
   flex-direction: column;
@@ -85,6 +106,10 @@ div.lobbyInput {
 
 .lobbyTitle {
   font-weight: 200;
+}
+
+.row {
+  display: flex;
 }
 
 .lobby-input{

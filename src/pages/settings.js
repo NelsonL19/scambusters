@@ -28,6 +28,7 @@ const Settings = (props) => {
 
 return (
     <>
+    <div className="settingsPage">
       <h1 className = "gameSubtitle">Settings</h1>
       <h2>Sound settings</h2>
       <div className = "settings-grid">
@@ -90,6 +91,7 @@ return (
       </div>
       <Button type="danger" size="large" onClick = {() => cancel()} className = "settings-button">Cancel</Button>
       <Button type="primary" size="large" onClick = {() => saveSettings()} className = "settings-button">Save Settings</Button>
+      </div>
     </>
   )
 }

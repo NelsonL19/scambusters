@@ -36,8 +36,10 @@ div.titleBlock {
 /*For Alt Version: background-color: rgb(67,182,232);*/
 /*For Regular Background: background-color: rgb(66,170,219)*/
 div.backgroundColors {
+  position: absolute;
   background-color: rgb(67,182,232);
-  background-size: 170%;
+  height: 100%;
+  width: 100%;
 }
 
 h1.gameTitle {

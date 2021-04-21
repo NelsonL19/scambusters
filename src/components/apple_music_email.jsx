@@ -39,7 +39,7 @@ const Apple_music_email = (props) => {
                 <br />
                     <br />
                 Your Apple Music account has been frozen because we are unable to validate your
-                account information. Once you have updated your <Tooltip title={"The capitalization in the sender's name is incorrect"} trigger={[]} visible={props.evidenceFound.includes(0)} placement='top'>
+                account information. Once you have updated your <Tooltip title={"Uncharacteristic typo"} trigger={[]} visible={props.evidenceFound.includes(0)} placement='top'>
                         <Clickable_Region handleCRClick={props.handleCRClick} evID={0} found={props.evidenceFound.includes(0)} content=" accountrecords" />
                     </Tooltip>, we will try again
                 to validate your information and your account suspension will be lifted. This will help

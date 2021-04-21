@@ -25,7 +25,8 @@ div.misclick-circle.visible{
 }
 
 div.playArea {
+    position: absolute;
     background-color: rgb(67,182,232);
     width: 100%;
     height: 100%;
-  }
+}

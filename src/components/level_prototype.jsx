@@ -83,7 +83,7 @@ const Level_Prototype = (props) => {
         if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
             setTimeout(() => {
-                //setAllTooltipsVisible(false)
+                setAllTooltipsVisible(false)
             }, 3000);
         }
 
@@ -104,7 +104,7 @@ const Level_Prototype = (props) => {
         if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
             setTimeout(() => {
-                //setAllTooltipsVisible(false)
+                setAllTooltipsVisible(false)
             }, 3000);
         }
 

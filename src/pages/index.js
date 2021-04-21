@@ -76,12 +76,11 @@ const Home = (props) => {
   return (
     <>
       <div className="backgroundColors">
+      <img className="bbbImg" src={bbbLogo} alt="bbb Image" onClick={() => bbbClick()}></img>
         <div className="titleBlock">
           <img id="logoImg" src={titleLogo} alt="Logo Image" size="100px"></img>
         </div>
         <br/>
-        <div className="row">
-          <img className="bbbImg" src={bbbLogo} alt="bbb Image" onClick={() => bbbClick()}></img>
           <div className="playDiv">
             <div className="lobbyDiv">
               <h2 className="lobbyTitle">Create a new lobby</h2>
@@ -102,9 +101,9 @@ const Home = (props) => {
               <Button className="lobby-button" type="primary" size="large" onClick={joinLobby_SP}>Begin Single Player</Button>
             </div>
           </div>
-        </div>
+
         <br />
-        <div className="playDiv2">
+        <div className="playDiv">
           <Button className="credits-button" type="primary" size="large" onClick={goToSettings}>Settings</Button>
           <Button className="credits-button" type="primary" size="large" onClick={goToCredits}>Credits</Button>
         </div>

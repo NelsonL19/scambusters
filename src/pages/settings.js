@@ -53,7 +53,7 @@ return (
 
         <span>Music:</span>
         <span style = {{width:'100%', textAlign:'center'}}>
-            off 
+            off
             <Switch 
                 defaultChecked = {tempSettings.musicToggle} 
                 onChange = {() => updateTempSettings("musicToggle", !tempSettings.musicToggle)}>

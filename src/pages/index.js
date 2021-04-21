@@ -103,7 +103,7 @@ const Home = (props) => {
           </div>
 
         <br />
-        <div className="playDiv">
+        <div className="settingDiv">
           <Button className="credits-button" type="primary" size="large" onClick={goToSettings}>Settings</Button>
           <Button className="credits-button" type="primary" size="large" onClick={goToCredits}>Credits</Button>
         </div>

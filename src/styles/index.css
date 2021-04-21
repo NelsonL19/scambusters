@@ -74,6 +74,16 @@ div.playDiv {
   border: 1px solid black;
 }
 
+div.settingDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(188, 188, 188);
+  width: 25%;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 4px 4px 15px #333333;
+}
 
 div.lobbyDiv {
   display: flex;
@@ -147,4 +157,17 @@ button.credits-button{
     height: 0px;
     margin: 10px;
   }
+
+  div.settingDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(188, 188, 188);
+    width: 25%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px #333333;
+  }
+
 }

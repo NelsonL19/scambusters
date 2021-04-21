@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState, Suspense } from 'react';
 import { useHistory } from 'react-router-dom'
 import Browser_Bar from './browser_bar.jsx'
 import UI_Overlay from './ui_overlay.jsx'
-import './level_prototype.css'
+import '../styles/level_prototype.css'
 import ReactAudioPlayer from 'react-audio-player';
 import elevatorMusic from '../assets/leopard-print-elevator-by-kevin-macleod-from-filmmusic-io.mp3'
 import misclickSFX from '../assets/ComputerError.mp3'
@@ -36,7 +36,6 @@ const Level_Prototype = (props) => {
             correctFX.volume = props.settings.soundVolume/100
             correctFX.play();
         }
-
         setEvidenceFound([...evidenceFound, evID])
     }
 
@@ -149,7 +148,9 @@ const Level_Prototype = (props) => {
                 />
             }
             <div className="minification" onClick={(e) => handleMisclick(e)}>
-                <Browser_Bar url={props.level.url} />
+                {props.level.url != "REMOVE_URL_BAR" &&
+                    <Browser_Bar url={props.level.url} />
+                }
                 <Suspense fallback={<div>Loading Level...</div>}>
                     {props.level.type == "scamOrNot" &&
                         <Level

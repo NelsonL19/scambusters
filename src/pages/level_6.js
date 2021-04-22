@@ -1,20 +1,23 @@
 import React, {Component, useEffect, useState} from 'react';
-import {Iphone_Text, Browser_Bar} from '../components';
+import {Puppy_Site, Browser_Bar} from '../components';
 
 
-export default class Level_4 extends Component {
+export default class Level_6 extends Component {
     constructor(props){
         super(props)
         this.state = {
             data: null
         }
     }
-
+    
     render(){
         return(
             <>
-               <Iphone_Text handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound}/>
+                <Puppy_Site handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound}/>
             </>
         )
+
+
+
     }
 }

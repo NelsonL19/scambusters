@@ -9,7 +9,6 @@ export default class Browser_Bar extends Component {
         this.state = {
             data: null
         }
-        console.log("LEEL ", this.props.url)
     }
     //The Render Function allows the browserbar to display on each level, using the classes and elements below.
     render(){

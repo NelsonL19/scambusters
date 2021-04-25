@@ -1,0 +1,97 @@
+div.div_god {
+    display: flex;
+    flex-direction: row;
+}
+
+div.puppySection {
+    width: 50%;
+}
+
+div.puppyRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+div.puppyBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 7px 50px 7px 50px;
+    padding: 5px;
+    background: rgb(69, 69, 69);
+}
+
+img.puppyPic {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+h3.tight {
+    margin: 0;
+    color: white;
+}
+
+h1.tight {
+    margin: 0;
+    color: white;
+}
+
+
+
+div.applicationSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 90%;
+    align-items: center;
+}
+
+h1.appHeader {
+    font-size: 300%;
+    font-weight: 700;
+}
+
+.pup-input {
+    margin: 10px;
+    border: 1px solid rgb(145, 145, 145);
+    color: black;
+}
+
+.bottomDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 90%;
+    justify-content: space-around;
+}
+
+img.bbbPic {
+    width: 200px;
+    height: 300px;
+    object-fit: contain;
+}
+
+h1.timerTicker {
+    font-size: 500%;
+    font-weight: 900;
+    animation: glow 1s ease-in-out infinite alternate;
+    color: white;
+    -webkit-text-stroke: 1px black;
+}
+
+@keyframes glow {
+    from {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+
+  .normal {
+      color: black;
+  }

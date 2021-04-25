@@ -40,7 +40,8 @@ const Level_Prototype = (props) => {
     }
 
     const handleMisclick = (e) => {
-        if (props.level.type == "scamOrNot") {
+        
+        if (props.level.type == "scamOrNot" || isLevelComplete) {
             return
         }
 

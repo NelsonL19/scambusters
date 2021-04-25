@@ -5,7 +5,7 @@ const Clickable_Region = (props) =>{
 
     const handleClick = (e) => {
         e.stopPropagation();
-        if(!props.found){
+        if(!props.found && !props.isLevelComplete){
             props.handleCRClick(props.evID)
         }
     } 

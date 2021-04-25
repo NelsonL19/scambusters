@@ -11,6 +11,7 @@ const Lobby_Joined = (props) => {
 
 return (
     <>
+    <div>
     <center>
       <h1 className="joined">Lobby Joined!</h1>
       <p className="general">Your Username is:</p>
@@ -19,6 +20,7 @@ return (
       <p className="lobby"> {props.location.state.pass}</p>
       <Button type="primary" onClick={() => startGame()}>Start Game</Button>
       </center>
+      </div>
     </>
   )
 }

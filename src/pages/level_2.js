@@ -15,7 +15,7 @@ export default class Level_2 extends Component {
     render(){
         return(
             <>
-               <Apple_music_email handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound}/>
+               <Apple_music_email handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound} isLevelComplete={this.props.isLevelComplete}/>
             </>
         )
     }

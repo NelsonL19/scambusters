@@ -13,7 +13,7 @@ export default class Level_6 extends Component {
     render(){
         return(
             <>
-                <Puppy_Site handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound}/>
+                <Puppy_Site handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound} isLevelComplete={this.props.isLevelComplete}/>
             </>
         )
 

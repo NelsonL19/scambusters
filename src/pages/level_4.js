@@ -13,7 +13,7 @@ export default class Level_4 extends Component {
     render(){
         return(
             <>
-               <Iphone_Text handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound}/>
+               <Iphone_Text handleCRClick = {this.props.handleCRClick} evidenceFound = {this.props.evidenceFound} isLevelComplete={this.props.isLevelComplete}/>
             </>
         )
     }

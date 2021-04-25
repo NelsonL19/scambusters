@@ -27,8 +27,8 @@ const Apple_music_email = (props) => {
                 <h1 className="emailName">Update Your Account Information</h1>
                 <p className="sender">
                     From: 
-                    <Tooltip title={"This email address doesn't seem like an Apple company email address"} trigger={[]} visible={props.evidenceFound.includes(1)} placement='bottom'>
-                        <Clickable_Region handleCRClick={props.handleCRClick} evID={1} found={props.evidenceFound.includes(1)} content="  Update.account.confirmed@altervista.org" />
+                    <Tooltip title={"This email address doesn't seem like an Apple company email address"} trigger={[]} visible={props.evidenceFound.includes(1) || props.isLevelComplete} placement='bottom'>
+                        <Clickable_Region isLevelComplete={props.isLevelComplete} handleCRClick={props.handleCRClick} evID={1} found={props.evidenceFound.includes(1)} content="  Update.account.confirmed@altervista.org" />
                     </Tooltip>
                 </p>
                 <p>to me</p>
@@ -39,8 +39,8 @@ const Apple_music_email = (props) => {
                 <br />
                     <br />
                 Your Apple Music account has been frozen because we are unable to validate your
-                account information. Once you have updated your <Tooltip title={"Uncharacteristic typo"} trigger={[]} visible={props.evidenceFound.includes(0)} placement='top'>
-                        <Clickable_Region handleCRClick={props.handleCRClick} evID={0} found={props.evidenceFound.includes(0)} content=" accountrecords" />
+                account information. Once you have updated your <Tooltip title={"Uncharacteristic typo"} trigger={[]} visible={props.evidenceFound.includes(0) || props.isLevelComplete} placement='top'>
+                        <Clickable_Region isLevelComplete={props.isLevelComplete} handleCRClick={props.handleCRClick} evID={0} found={props.evidenceFound.includes(0)} content=" accountrecords" />
                     </Tooltip>, we will try again
                 to validate your information and your account suspension will be lifted. This will help
                 protect your account in the future. This process does not take more than 3 minutes.

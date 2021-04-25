@@ -88,8 +88,8 @@ const Puppy_Site = (props) => {
                 </div>
             </div>
             <div className="applicationSection">
-                <Tooltip title={"Spelling mistake"} trigger={[]} visible={props.evidenceFound.includes(4)} placement='top'>
-                        <Clickable_Region className="normal" handleCRClick={props.handleCRClick} evID={4} found={props.evidenceFound.includes(4)} content={<h1 className="appHeader">Fill out your apication!</h1>}/>
+                <Tooltip title={"Spelling mistake"} trigger={[]} visible={props.evidenceFound.includes(4) || props.isLevelComplete} placement='top'>
+                        <Clickable_Region className="normal" isLevelComplete={props.isLevelComplete} handleCRClick={props.handleCRClick} evID={4} found={props.evidenceFound.includes(4)} content={<h1 className="appHeader">Fill out your apication!</h1>}/>
                 </Tooltip>
                 <div style={{display: "flex", width: '50%'}}>
                     <input className="pup-input" placeholder="First Name"></input>
@@ -103,19 +103,19 @@ const Puppy_Site = (props) => {
                     <input className="pup-input" placeholder="Zip Code"></input>
                     <input className="pup-input" placeholder="State"></input>
                 </div>
-                <Tooltip title={"Suspicious, unprofessional email address"} trigger={[]} visible={props.evidenceFound.includes(1)} placement='left'>
-                        <Clickable_Region className="normal" handleCRClick={props.handleCRClick} evID={1} found={props.evidenceFound.includes(1)} content={<p>Contact us: <i>puppy-adopt-nearby@hotmail.com</i></p>}/>
+                <Tooltip title={"Suspicious, unprofessional email address"} trigger={[]} visible={props.evidenceFound.includes(1) || props.isLevelComplete} placement='left'>
+                        <Clickable_Region className="normal" isLevelComplete={props.isLevelComplete} handleCRClick={props.handleCRClick} evID={1} found={props.evidenceFound.includes(1)} content={<p>Contact us: <i>puppy-adopt-nearby@hotmail.com</i></p>}/>
                 </Tooltip>
                 <Button className="btn" type="primary" shape="round" size="large" style={{ background: "#36b023", borderColor: "white", width: "80%", margin: "10px", marginBottom: "30px" }}>Submit Application</Button>
                 <div className="bottomDiv">
                     <div style={{display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center"}}>
                         <h1 className="appHeader">Time Left to Adopt:</h1>
-                        <Tooltip title={"Forcing people to act quickly without thinking"} trigger={[]} visible={props.evidenceFound.includes(2)} placement='left'>
-                            <Clickable_Region className="normal" handleCRClick={props.handleCRClick} evID={2} found={props.evidenceFound.includes(2)} content={<h1 className="timerTicker">{formSecondsLeft(buySecondsLeft)}</h1>}/>
+                        <Tooltip title={"Forcing people to act quickly without thinking"} trigger={[]} visible={props.evidenceFound.includes(2) || props.isLevelComplete} placement='left'>
+                            <Clickable_Region className="normal" isLevelComplete={props.isLevelComplete} handleCRClick={props.handleCRClick} evID={2} found={props.evidenceFound.includes(2)} content={<h1 className="timerTicker">{formSecondsLeft(buySecondsLeft)}</h1>}/>
                         </Tooltip>
                     </div>
-                    <Tooltip title={"This image was just pulled from online! It doesn't necessarily mean this website is safe"} trigger={[]} visible={props.evidenceFound.includes(3)} placement='bottom'>
-                        <Clickable_Region className="normal" handleCRClick={props.handleCRClick} evID={3} found={props.evidenceFound.includes(3)} content={<img className="bbbPic" src={bbb_fake} alt="BBB Logo"/>}/>
+                    <Tooltip title={"This image was just pulled from online! It doesn't necessarily mean this website is safe"} trigger={[]} visible={props.evidenceFound.includes(3) || props.isLevelComplete} placement='bottom'>
+                        <Clickable_Region className="normal" isLevelComplete={props.isLevelComplete} handleCRClick={props.handleCRClick} evID={3} found={props.evidenceFound.includes(3)} content={<img className="bbbPic" src={bbb_fake} alt="BBB Logo"/>}/>
                     </Tooltip>
                     
                 </div>

@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import { Button } from 'antd';
 import Level_End from './level_end.jsx'
 import '../styles/ui_overlay.css'
+import { RightOutlined, CaretRightOutlined } from '@ant-design/icons';
 
 export default class UI_Overlay extends Component {
     constructor(props) {
@@ -13,6 +14,7 @@ export default class UI_Overlay extends Component {
             isCorrect: false,
             isTimeOut: false
         }
+        this.giveUp.bind(this)
     }
 
     componentDidMount () {
@@ -91,6 +93,10 @@ export default class UI_Overlay extends Component {
         // }
     }
 
+    giveUp() {
+        console.log("gave up")
+    }
+
     createEvidenceMarkers = (num) => {
         var children = []
         for(let i = 0; i < num; i++){
@@ -133,7 +139,7 @@ export default class UI_Overlay extends Component {
                             <h3>Scam or Legit?</h3>
                             <div className="scam-buttons">
                                 <Button className="btn" onClick={this.props.level.isScam ? this.props.handleCorrect : this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
-                                <Button className="btn" onClick={!this.props.level.isScam ? this.props.handleCorrect : this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#01F59C", borderColor: "white" }}>LEGIT</Button>
+                                <Button className="btn" onClick={!this.props.level.isScam ? this.props.handleCorrect : this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#19bd00", borderColor: "white" }}>LEGIT</Button>
                             </div>
                         </div>
                     </div>
@@ -173,6 +179,9 @@ export default class UI_Overlay extends Component {
                             <h3>Evidence Collected:</h3>
                             <div className="collection-count">
                                 {this.createEvidenceMarkers(this.props.level.evidenceAmount)}
+                            </div>
+                            <div className="giveUpBtnDiv">
+                                <Button className="btn" onClick={this.props.handleGiveUp} type="primary" shape="round" size="medium" style={{ background: "#d1a70f", borderColor: "white", marginTop: "10px" }}>Skip Level<CaretRightOutlined /></Button>
                             </div>
                         </div>
                     </div>

@@ -110,6 +110,20 @@ const Level_Prototype = (props) => {
 
     }
 
+    // handler for giving up on an evidence collecting level
+    const handleGiveUp = () => {
+        if (isLevelComplete) {
+            return
+        }
+        if(props.settings.soundToggle){
+            let loseSound = new Audio(incorrectSound);
+            loseSound.volume = props.settings.soundVolume/100
+            loseSound.play();
+        }
+        setIsLevelComplete(true)
+        setIsCorrect(false)
+    }
+
     //handle click of "next level" button
     const resetLevelState = () => {
         setEvidenceFound([])
@@ -174,6 +188,7 @@ const Level_Prototype = (props) => {
                 isCorrect={isCorrect}
                 handleCorrect={handleCorrect}
                 handleIncorrect={handleIncorrect}
+                handleGiveUp={handleGiveUp}
                 resetLevelState={resetLevelState}
                 misclicks={misclicks}
                 lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass }}

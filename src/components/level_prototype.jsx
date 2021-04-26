@@ -194,7 +194,7 @@ const Level_Prototype = (props) => {
                 handleGiveUp={handleGiveUp}
                 resetLevelState={resetLevelState}
                 misclicks={misclicks}
-                lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass }}
+                lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass, connection: navigator.onLine }}
             />
             <div className="misclick-circle"></div>
             </div>

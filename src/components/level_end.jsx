@@ -45,13 +45,15 @@ const Level_End = (props) => {
 
 
     useEffect(() => {
-        db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
-            console.log(doc.data())
-            setPastScore(doc.data()[props.lobbyInfo.user])
-            db.collection("lobbies").doc(props.lobbyInfo.pass).update({
-                [props.lobbyInfo.user]: totalScore + pastScore
+        if (props.connection == true) {
+            db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
+                console.log(doc.data())
+                setPastScore(doc.data()[props.lobbyInfo.user])
+                db.collection("lobbies").doc(props.lobbyInfo.pass).update({
+                    [props.lobbyInfo.user]: totalScore + pastScore
+                })
             })
-        })
+        }
     }, [])
 
     //Calls the load level function with the level that is being selected.

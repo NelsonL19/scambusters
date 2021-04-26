@@ -132,6 +132,7 @@ const Level_Prototype = (props) => {
         setEvidenceFound([])
         setIsCorrect(false)
         setIsLevelComplete(false)
+        setAllTooltipsVisible(false)
         console.log("triggered")
     }
 

@@ -86,7 +86,7 @@ const Home = (props) => {
               <h2 className="lobbyTitle">Create a new lobby</h2>
               <Button className="lobby-button" type="primary" size="large" onClick={createLobby}>Create New Lobby</Button>
             </div>
-            <div class="vl"></div>
+            <div className="vl"></div>
             <div className="lobbyDiv">
               <h2 className="lobbyTitle">Join an existing lobby</h2>
               <div className="lobbyInput">
@@ -95,7 +95,7 @@ const Home = (props) => {
               </div>
               <Button className="lobby-button" type="primary" size="large" onClick={joinLobby}>Join Lobby</Button>
             </div>
-            <div class="vl"></div>
+            <div className="vl"></div>
             <div className="lobbyDiv">
               <h2 className="lobbyTitle">Play single player</h2>
               <Button className="lobby-button" type="primary" size="large" onClick={joinLobby_SP}>Begin Single Player</Button>

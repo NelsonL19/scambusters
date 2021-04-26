@@ -17,7 +17,7 @@ const Credits = (props) => {
     <div className="page">
     <center>
       <br/>
-      <div class="info">
+      <div className="info">
       <h2 className="subTitles">The Scambusters® Video Game Team:</h2>
       <p className="name">Nelson Lopez</p>
       <p className="name">Jerett Rende</p>
@@ -26,7 +26,7 @@ const Credits = (props) => {
       </div>
 
       <br/>
-      <div class="info">
+      <div className="info">
       <h2 className="subTitles">Original Scambusters® Game:</h2>
       <p className="name">Steve Fromme</p>
       <p className="name">BBB Educational Foundation of Eastern NC, Inc.</p>
@@ -37,7 +37,7 @@ const Credits = (props) => {
       </div>
       
       <br/>
-      <div class="info">
+      <div className="info">
       <h2  className="subTitles">Licenses and Attributions</h2>
       <p>Leopard Print Elevator by Kevin MacLeod<br />
           Link: https://incompetech.filmmusic.io/song/3974-leopard-print-elevator<br />

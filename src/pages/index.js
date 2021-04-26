@@ -25,14 +25,20 @@ const Home = (props) => {
       history.push({ pathname: "/lobby-created", state: { pass: randomPass } })
     }
     )
-
-
   }
 
   const joinLobby = () => {
     db.collection("lobbies").doc(passcode).update({
       [username]: 0
     })
+    let docu = document.documentElement;
+    if (docu.requestFullscreen) {
+      docu.requestFullscreen();
+    } else if (docu.webkitRequestFullscreen) {
+      docu.webkitRequestFullscreen();
+    } else if (docu.msRequestFullscreen) {
+      docu.msRequestFullscreen();
+    }
     history.push({ pathname: "/lobby-joined", state: { user: username, pass: passcode } })
   }
 
@@ -43,6 +49,16 @@ const Home = (props) => {
     db.collection("lobbies").doc('GUEST').update({
       [tempUser]: 0
     })
+
+    let docu = document.documentElement;
+    if (docu.requestFullscreen) {
+      docu.requestFullscreen();
+    } else if (docu.webkitRequestFullscreen) {
+      docu.webkitRequestFullscreen();
+    } else if (docu.msRequestFullscreen) {
+      docu.msRequestFullscreen();
+    }
+
     history.push({ pathname: "/level1", state: { user: tempUser, pass: "GUEST" } })
   }
 

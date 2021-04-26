@@ -11,7 +11,7 @@ const Coupon = (props) => {
         <Row className="coupon">
             <Col span={12}>
             <div className="daily">
-                <Tooltip title = {"Unlike in a scam, this coupon is NOT asking for any kind of information or money."} trigger = {[]} visible = {props.allTooltipsVisible} placement = 'left'>
+                <Tooltip title = {"Unlike in a scam, this coupon is NOT asking for any kind of information or money."} trigger = {[]} visible = {props.allTooltipsVisible || props.isLevelComplete} placement = 'left'>
                 <img className="logo" src={logo} alt="AppleMusic" width="30%" height="30%"/>
                 </Tooltip>
 
@@ -52,7 +52,7 @@ const Coupon = (props) => {
                     <Col className="coupons"> 
                     Only $15.99 - 16" One Topping Pizza, 2 Liter Soda, and Breadsticks
                     </Col>
-                    <Tooltip title = {"The worst case scenario is that this coupon is invalid. If so, one has the option to either pay full price or not place an order. "} trigger = {[]} visible = {props.allTooltipsVisible} placement = 'bottom'>
+                    <Tooltip title = {"The worst case scenario is that this coupon is invalid. If so, one has the option to either pay full price or not place an order. "} trigger = {[]} visible = {props.allTooltipsVisible || props.isLevelComplete} placement = 'bottom'>
                     <Col className="coupons"> 
                     $10 off any order of $40 or more
                     </Col>

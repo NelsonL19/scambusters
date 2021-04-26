@@ -25,7 +25,7 @@ const Level_End = (props) => {
         if (props.level.levelNum == 7) {
             history.push({ pathname: "/game_end", state: { score: pastScore + totalScore, pass: props.lobbyInfo.pass }})
         } else {
-            history.push({ pathname: `/level${props.level.levelNum + 1}`, state: { user: props.lobbyInfo.user, pass: props.lobbyInfo.pass } })
+            history.push({ pathname: `/level${props.level.levelNum + 1}`, state: { user: props.lobbyInfo.user, pass: props.lobbyInfo.pass, connection: props.lobbyInfo.connection, offlineScore: totalScore + pastScore } })
         }
     }
 
@@ -53,6 +53,8 @@ const Level_End = (props) => {
                     [props.lobbyInfo.user]: totalScore + pastScore
                 })
             })
+        } else {
+            setPastScore(props.lobbyInfo.offlineScore)
         }
     }, [])
 

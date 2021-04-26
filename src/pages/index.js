@@ -59,7 +59,7 @@ const Home = (props) => {
       docu.msRequestFullscreen();
     }
 
-    history.push({ pathname: "/level1", state: { user: tempUser, pass: "GUEST", connection: navigator.onLine } })
+    history.push({ pathname: "/level1", state: { user: tempUser, pass: "GUEST", connection: navigator.onLine, offlineScore: 0 } })
   }
 
   const generatePasscode = () => {

@@ -13,6 +13,12 @@ p.name {
     font-weight: 500;
 }
 
+p.version {
+    font-size: 200%;
+    font-weight: 500;
+    margin-bottom: 1px;
+}
+
 h2.subTitles {
     font-size: 350%;
     font-weight: 900;

@@ -59,6 +59,10 @@ const Credits = (props) => {
       License: Mixkit Sound Effects Free License</p>
       </div>
       <br/>
+      <div className="info">
+      <p className="version">Current Game Version: V0.7-Beta</p>
+      </div>
+      <br/>
       <Button type="danger" onClick={() => returnToMain()}>Return to Main Menu</Button>
       </center>
       <br/>

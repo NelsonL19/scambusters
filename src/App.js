@@ -73,6 +73,13 @@ function App() {
       url: "https://acme-adoptions.com",
       evidenceAmount: 4
     },
+    {
+      levelNum: 7,
+      type: "scamOrNot",
+      isScam: false,
+      url: "https://mail.google.com/mail/u/0/#inbox",
+      evidenceAmount: 0
+    },
   ]
   //Function is returning the location and levels that are being played in our app
   return (
@@ -115,6 +122,10 @@ function App() {
         </Route>
         <Route path = "/level6" render={(props) => (
           <Level_Prototype {...props} level = {levelInfo[6]} settings = {settings}/>
+        )}>
+        </Route>
+        <Route path = "/level7" render={(props) => (
+          <Level_Prototype {...props} level = {levelInfo[7]} settings = {settings}/>
         )}>
         </Route>
       </Switch>

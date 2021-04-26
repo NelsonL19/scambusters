@@ -83,9 +83,10 @@ const Level_Prototype = (props) => {
         setIsCorrect(true)
         if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
-            setTimeout(() => {
-                setAllTooltipsVisible(false)
-            }, 3000);
+            // keep all tooltips up after the score
+            // setTimeout(() => {
+            //     setAllTooltipsVisible(false)
+            // }, 3000);
         }
 
     }
@@ -104,9 +105,10 @@ const Level_Prototype = (props) => {
         setIsCorrect(false)
         if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
-            setTimeout(() => {
-                setAllTooltipsVisible(false)
-            }, 3000);
+            // keep all tooltips up after the score
+            // setTimeout(() => {
+            //     setAllTooltipsVisible(false)
+            // }, 3000);
         }
 
     }

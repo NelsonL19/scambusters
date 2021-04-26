@@ -1,0 +1,61 @@
+#flexEmail {
+    display: flex;
+    flex-direction: row;
+    height:calc(100vh - 80px);
+    background-color:white
+}
+
+.outside {
+    padding-top: 20px;
+}
+
+.message1 {
+padding: 10px;
+border-color: black;
+border-style: solid;
+width: 90%;
+}
+
+.message2 {
+padding: 10px;
+border-color: black;
+border-style: solid;
+width: 90%;
+}
+
+.mailBox button {
+    background-color: lightgray;
+    color: black;
+    padding: 10px 24px;
+    width: 150%;
+    display: block;
+}
+
+#compose {
+    margin-top: 80px;
+    margin-bottom: 10%;
+}
+
+.message {
+    border-width: 10px;
+    padding-left: 10%;
+    background-color:rgba(255, 255, 255, 0);
+}
+
+.emailName {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.sender {
+    line-height: 1rem;
+    color: gray;
+}
+
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black
+}
+
+
+

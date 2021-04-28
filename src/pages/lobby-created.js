@@ -29,6 +29,19 @@ const Lobby_Created = (props) => {
       return () => unsubscribe()
     }, []);
 
+    useEffect(() => {
+      //sort players
+      const ordered = Object.keys(players).sort().reduce(
+        (obj, key) => { 
+          console.log(obj, key, obj[key], players[key])
+          obj[key] = players[key]; 
+          return obj;
+        }, 
+        {}
+      );
+      console.log("ordered:", ordered)
+    }, [players])
+
     const showDeletePopover = () => {
       openNotificationWithIcon('warning')
     }

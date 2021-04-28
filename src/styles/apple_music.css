@@ -5,7 +5,9 @@
     background-color:white
 }
 
-
+.mailBox {
+    z-index: 10;
+}
 
 .mailBox button {
     background-color: lightgray;
@@ -24,6 +26,7 @@
     border-width: 10px;
     padding-left: 10%;
     background-color:rgba(255, 255, 255, 0);
+    overflow: scroll;
 }
 
 .emailName {

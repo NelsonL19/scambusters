@@ -13,7 +13,7 @@ const Apple_music_email = (props) => {
 
 
     return (
-        <div className="flex-container" id="flexApple"  >
+        <div className="flex-container" id="flexApple">
             <div className="mailBox">
                 <button id="compose">Compose</button>
                 <button>Inbox</button>

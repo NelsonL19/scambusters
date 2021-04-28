@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {MemoryRouter, Switch, Route} from 'react-router-dom'
 import {useState} from 'react'
 
 import Home from './pages/index.js'
@@ -83,7 +83,7 @@ function App() {
   ]
   //Function is returning the location and levels that are being played in our app
   return (
-    <Router>
+    <MemoryRouter>
       <Switch>
         <Route exact path = "/">
           <Home></Home>
@@ -129,7 +129,7 @@ function App() {
         )}>
         </Route>
       </Switch>
-    </Router>
+    </MemoryRouter>
   );
 }
 

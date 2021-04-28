@@ -20,7 +20,6 @@ const Game_End = (props) => {
     if (props.location.state.score > 5000) { prefix = "a Great" };
     if (props.location.state.score > 10000) { prefix = "an Amazing" };
     if (props.location.state.score > 15000) { prefix = "a Super" };
-
     if (props.location.state.pass == "GUEST") { props.location.state.pass = "Single Player Mode" }
   }
 

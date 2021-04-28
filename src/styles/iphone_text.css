@@ -34,18 +34,25 @@ to {
     margin-left: auto;
     margin-right: auto;
     object-fit: contain;
-    width: 45%;
+    width: 850px;
+}
+
+.phone-container{
+    width:850px;
+    height: 850px;
+    position:relative;
+    margin:auto
 }
 
 .phoneNumberDiv {
     /* positioning and sizing */
     position: absolute;
     padding: 5px;
-    width: 13%;
+    width: 20em;
     height: 9%;
     top: 50%;
     left: 50%;
-    transform: translate(-37%, -380%);
+    transform: translate(calc(-34% + 1.1em), calc(-375% - .6em));
 
 }
 
@@ -53,11 +60,11 @@ to {
     /* positioning and sizing */
     position: absolute;
     padding: 5px;
-    width: 13%;
-    height: 11%;
+    width: calc(180px + 5em);
+    height: 10em;
     top: 50%;
     left: 50%;
-    transform: translate(-70%, -210%);
+    transform: translate(calc(-75% + 2em), -190px);
 
     /* coloring and style */
     background-color: #333333;
@@ -75,11 +82,11 @@ to {
     /* positioning and sizing */
     position: absolute;
     padding: 5px;
-    width: 13%;
-    height: 9%;
+    width: calc(180px + 5em);
+    height: 10em;
     top: 50%;
     left: 50%;
-    transform: translate(-70%, -130%);
+    transform: translate(calc(-75% + 2em), calc(-200px + 11.5em));
 
     /* coloring and style */
     background-color: #333333;
@@ -95,10 +102,10 @@ to {
 
 p.imessageText {
     color: white;
-    font-size: medium;
+    font-size: 1.2em;
 }
 
 p.phoneNumberText {
     color: white;
-    font-size: medium;
+    font-size: 1.2em;
 }

@@ -1,0 +1,19 @@
+h1.targetHead{
+    font-size:3rem;
+    margin-bottom:0;
+    padding-left:20px;
+}
+
+h2.targetSubhead{
+    font-size:2rem;
+    color:red;
+    font-weight:700;
+}
+
+.message {
+    border-width: 10px;
+    padding-left: 10%;
+    padding-top:20px;
+    padding-bottom:20px;
+    background-color:white;
+}

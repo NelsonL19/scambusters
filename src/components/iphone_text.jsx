@@ -13,32 +13,34 @@ const Iphone_Text = (props) => {
 
     return (
         <div className="div_god">
-            <img className="iphone_img" src={iphone} alt="iphone"/>
-            <div className="phoneNumberDiv">
-                <p className="phoneNumberText">
-                    <Tooltip title = {"Random unknown phone number"} trigger = {[]} visible = {props.evidenceFound.includes(2) || props.isLevelComplete} placement = 'top'>
-                        <Clickable_Region isLevelComplete={props.isLevelComplete} handleCRClick = {props.handleCRClick} evID = {2} found = {props.evidenceFound.includes(2)} content = "+1 (804) 540-6813"/>
-                    </Tooltip> 
-                </p>
+            <div className = "phone-container">
+                <img className="iphone_img" src={iphone} alt="iphone"/>
+                <div className="phoneNumberDiv">
+                    <p className="phoneNumberText">
+                        <Tooltip title = {"Random unknown phone number"} trigger = {[]} visible = {props.evidenceFound.includes(2)} placement = 'top'>
+                            <Clickable_Region handleCRClick = {props.handleCRClick} evID = {2} found = {props.evidenceFound.includes(2)} content = "+1 (804) 540-6813"/>
+                        </Tooltip> 
+                    </p>
+                </div>
+                <div className="messageDiv">
+                    <p className="imessageText">
+                        USPS Update: Azlan, Package with tracking number&nbsp;                     
+                        <Tooltip title = {"This is not what a USPS Tracking Number looks like"} trigger = {[]} visible = {props.evidenceFound.includes(0)} placement = 'left'>
+                            <Clickable_Region handleCRClick = {props.handleCRClick} evID = {0} found = {props.evidenceFound.includes(0)} content = "ID-IW8476"/>
+                        </Tooltip> 
+                        &nbsp;is pending delivery in our warehouse.
+                    </p>
+                </div>
+                <div className="messageDiv2">
+                    <p className="imessageText">
+                        To avoid additional fees, please confirm delivery time:&nbsp; 
+                        <Tooltip title = {"Suspicious, unofficial URL"} trigger = {[]} visible = {props.evidenceFound.includes(1)} placement = 'bottom'>
+                            <Clickable_Region handleCRClick = {props.handleCRClick} evID = {1} found = {props.evidenceFound.includes(1)} content = "xb15r.com/Sb91xj2Y"/>
+                        </Tooltip> 
+                    </p>
+                </div>
             </div>
-            <div className="messageDiv">
-                <p className="imessageText">
-                    USPS Update: Azlan, Package with tracking number&nbsp;                     
-                    <Tooltip title = {"This is not what a USPS Tracking Number looks like"} trigger = {[]} visible = {props.evidenceFound.includes(0) || props.isLevelComplete} placement = 'left'>
-                        <Clickable_Region isLevelComplete={props.isLevelComplete} handleCRClick = {props.handleCRClick} evID = {0} found = {props.evidenceFound.includes(0)} content = "ID-IW8476"/>
-                    </Tooltip> 
-                    &nbsp;is pending delivery in our warehouse.
-                </p>
-            </div>
-            <div className="messageDiv2">
-                {test()}
-                <p className="imessageText">
-                    To avoid additional fees, please confirm delivery time:&nbsp; 
-                    <Tooltip title = {"Suspicious, unofficial URL"} trigger = {[]} visible = {props.evidenceFound.includes(1) || props.isLevelComplete} placement = 'bottom'>
-                        <Clickable_Region isLevelComplete={props.isLevelComplete} handleCRClick = {props.handleCRClick} evID = {1} found = {props.evidenceFound.includes(1)} content = "xb15r.com/Sb91xj2Y"/>
-                    </Tooltip> 
-                </p>
-            </div>
+
         </div>
 
         

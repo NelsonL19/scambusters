@@ -81,6 +81,13 @@ function App() {
       url: "https://mail.google.com/mail/u/0/#inbox",
       evidenceAmount: 0
     },
+    {
+      levelNum: 8,
+      type: "evidenceCollect",
+      isScam: true,
+      url: "REMOVE_URL_BAR",
+      evidenceAmount: 4
+    },
   ]
   //Function is returning the location and levels that are being played in our app
   return (
@@ -97,7 +104,10 @@ function App() {
         <Route path = "/credits" component = {Credits}></Route>
         <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>
-        <Route path = "/game_end" component = {Game_End}></Route>
+        <Route path = "/game_end" render={(props) => (
+              <Game_End {...props} settings = {settings}/>
+        )}>
+        </Route>
         <Route path = "/level0" render={(props) => (
           <Level_Prototype {...props} level = {levelInfo[0]} settings = {settings}/>
         )}>
@@ -128,6 +138,10 @@ function App() {
         </Route>
         <Route path = "/level7" render={(props) => (
           <Level_Prototype {...props} level = {levelInfo[7]} settings = {settings}/>
+        )}>
+        </Route>
+        <Route path = "/level8" render={(props) => (
+          <Level_Prototype {...props} level = {levelInfo[8]} settings = {settings}/>
         )}>
         </Route>
       </Switch>

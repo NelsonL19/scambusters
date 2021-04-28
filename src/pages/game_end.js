@@ -33,12 +33,14 @@ const Game_End = (props) => {
 
   return (
     <>
-      <ReactAudioPlayer
-        src={victoryMusic}
-        autoPlay={true}
-        loop={true}
-        volume={0.5}
-      />
+      {props.settings.musicToggle && 
+        <ReactAudioPlayer
+          src={victoryMusic}
+          autoPlay={true}
+          loop={true}
+          volume={0.5}
+        />
+      }
       <div className="endText">
         <div className="info">
         <h1 className="congrats" onLoad={loadPrefixs()}>{result}</h1>

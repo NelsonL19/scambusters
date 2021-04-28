@@ -16,7 +16,7 @@ const Fake_Netflix = (props) => {
                 <Tooltip title = {"Netflix wouldn't ask for your credit card when you sign in"} trigger = {[]} visible = {props.allTooltipsVisible} placement = 'right'>
                     <input placeholder = "Credit Card Number"></input>
                 </Tooltip>
-                <p className ="ccText">Please enter the credit card number associated with your account</p>
+                <p className = "subtext">Please enter the credit card number associated with your account</p>
                 <Tooltip title = {"Password is misspelled"} trigger = {[]} visible = {props.allTooltipsVisible} placement = 'bottom'>
                     <input placeholder = "Pasword"></input>
                 </Tooltip>

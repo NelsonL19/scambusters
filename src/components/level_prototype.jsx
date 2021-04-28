@@ -144,11 +144,11 @@ const Level_Prototype = (props) => {
     const getFontSize = () =>{
         switch(props.settings.fontSize){
             case "sm":
-                return "8px"
-            case "md":
                 return "12px"
-            case "lg":
+            case "md":
                 return "16px"
+            case "lg":
+                return "20px"
         }
     }
 

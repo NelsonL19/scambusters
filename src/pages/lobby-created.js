@@ -9,6 +9,7 @@ const Lobby_Created = (props) => {
     const history = useHistory();
     const db = firebase.firestore()
     const [players, setPlayers] = useState({})
+    const [sortedPlayers, setSortedPlayers] = useState({})
     const [popoverVisible, setPopoverVisible] = useState(false) 
     const [lobbyActive, setLobbyActive] = useState(true)
     const openNotificationWithIcon = type => {
@@ -30,16 +31,22 @@ const Lobby_Created = (props) => {
     }, []);
 
     useEffect(() => {
-      //sort players
-      const ordered = Object.keys(players).sort().reduce(
-        (obj, key) => { 
-          console.log(obj, key, obj[key], players[key])
-          obj[key] = players[key]; 
-          return obj;
-        }, 
-        {}
-      );
-      console.log("ordered:", ordered)
+      //sort players after fetching
+      var arr = []
+      for(var i = 0; i < Object.keys(players).length; i++){
+        console.log("LLL", Object.keys(players)[i], players[Object.keys(players)[i]])
+        arr.push({
+          name: Object.keys(players)[i],
+          score: players[Object.keys(players)[i]]
+        })
+      }
+      arr.sort((a,b) => b.score - a.score);
+      var finalSorted = {}
+      for(var k in arr){
+        console.log(k)
+        finalSorted[arr[k].name] = arr[k].score
+      }
+      setSortedPlayers(finalSorted)
     }, [players])
 
     const showDeletePopover = () => {
@@ -75,7 +82,7 @@ const Lobby_Created = (props) => {
     const playersToCSV = () => {
       const csv = [
         ('name,score'), // header row first
-        ...Object.keys(players).map(player => `${player},${players[player]}`)
+        ...Object.keys(sortedPlayers).map(player => `${player},${sortedPlayers[player]}`)
       ].join('\r\n')
       console.log(csv)
 
@@ -107,7 +114,7 @@ const Lobby_Created = (props) => {
             <div className="usersInLobbyDiv">
               <h2>Players in this lobby</h2>
               <div className="lobbyBodyDiv">
-                {Object.keys(players).map((player, i) => {
+                {Object.keys(sortedPlayers).map((player, i) => {
                   return(
                     <p className="playerName">{player}</p>
                   )
@@ -118,11 +125,11 @@ const Lobby_Created = (props) => {
             <div className="statsDiv">
               <h2>Player Stats</h2>
               <div className="statsBodyDiv">
-                {Object.keys(players).map((player, i) => {
+                {Object.keys(sortedPlayers).map((player, i) => {
                   return(
                     <div className="playerRow">
                       <p className="playerName">{player}</p>
-                      <p className="playerScore" style={{fontWeight: "lighter", fontSize: "larger"}}>{players[player]}</p>
+                      <p className="playerScore" style={{fontWeight: "lighter", fontSize: "larger"}}>{sortedPlayers[player]}</p>
                     </div>
                   )
                 })}

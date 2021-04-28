@@ -1,7 +1,6 @@
 #flexEmail {
     display: flex;
     flex-direction: row;
-    height:calc(100vh - 80px);
     background-color:white
 }
 

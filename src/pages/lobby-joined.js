@@ -6,8 +6,8 @@ import '../styles/join.css'
 
 const Lobby_Joined = (props) => {
     const history = useHistory();
-    const startGame = () => {history.push({pathname: "/level1", state: {user: props.location.state.user, pass: props.location.state.pass}})}
-
+    const startGame = () => {history.push({pathname: "/level1", state: {user: props.location.state.user, pass: props.location.state.pass, connection: props.location.state.connection, offlineScore: props.location.state.offlineScore, hasFailed: props.location.state.hasFailed}})}
+    //user: username, pass: passcode, connection: navigator.onLine, offlineScore: 0, hasFailed: false
 
 return (
     <>

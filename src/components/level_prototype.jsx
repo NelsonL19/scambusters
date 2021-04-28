@@ -125,6 +125,7 @@ const Level_Prototype = (props) => {
         }
         setIsLevelComplete(true)
         setIsCorrect(false)
+        console.log("gave up")
     }
 
     //handle click of "next level" button
@@ -195,7 +196,7 @@ const Level_Prototype = (props) => {
                 handleGiveUp={handleGiveUp}
                 resetLevelState={resetLevelState}
                 misclicks={misclicks}
-                lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass, connection: props.location.state.connection, offlineScore: props.location.state.offlineScore }}
+                lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass, connection: props.location.state.connection, offlineScore: props.location.state.offlineScore, hasFailed: props.location.state.hasFailed}}
             />
             <div className="misclick-circle"></div>
             </div>

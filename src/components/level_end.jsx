@@ -21,11 +21,16 @@ const Level_End = (props) => {
     //resets level state and redirects to next level
     //TODO: Pass in length of array, if levelnum = length, go to gameend
     const handleNextLevelClick = () => {
+        let failed = props.lobbyInfo.hasFailed;
+        if (!props.isCorrect) {
+            failed = true;
+            console.log("test");
+        }
         props.resetLevelState()
         if (props.level.levelNum == 7) {
-            history.push({ pathname: "/game_end", state: { score: pastScore + totalScore, pass: props.lobbyInfo.pass }})
+            history.push({ pathname: "/game_end", state: { score: pastScore + totalScore, pass: props.lobbyInfo.pass, hasFailed: failed }})
         } else {
-            history.push({ pathname: `/level${props.level.levelNum + 1}`, state: { user: props.lobbyInfo.user, pass: props.lobbyInfo.pass, connection: props.lobbyInfo.connection, offlineScore: totalScore + pastScore } })
+            history.push({ pathname: `/level${props.level.levelNum + 1}`, state: { user: props.lobbyInfo.user, pass: props.lobbyInfo.pass, connection: props.lobbyInfo.connection, offlineScore: totalScore + pastScore, hasFailed: failed} })
         }
     }
 

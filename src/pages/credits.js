@@ -45,6 +45,9 @@ const Credits = (props) => {
       <p>Blippy Trance by Kevin MacLeod<br />
       Link: https://incompetech.filmmusic.io/song/5759-blippy-trance<br />
       License: https://filmmusic.io/standard-license</p>
+      <p>Jazz Brunch by Kevin MacLeod<br />
+      Link: https://incompetech.filmmusic.io/song/3937-jazz-brunch<br />
+      License: https://filmmusic.io/standard-license</p>
       <p>Computer Error Alert by Mike Koenig<br />
       Link: https://soundbible.com/1540-Computer-Error-Alert.html
       License: Attribution 3.0</p>

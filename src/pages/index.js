@@ -39,7 +39,7 @@ const Home = (props) => {
     } else if (docu.msRequestFullscreen) {
       docu.msRequestFullscreen();
     }
-    history.push({ pathname: "/lobby-joined", state: { user: username, pass: passcode } })
+    history.push({ pathname: "/lobby-joined", state: { user: username, pass: passcode, connection: navigator.onLine, offlineScore: 0, hasFailed: false } })
   }
 
   const joinLobby_SP = () => {
@@ -59,7 +59,7 @@ const Home = (props) => {
       docu.msRequestFullscreen();
     }
 
-    history.push({ pathname: "/level1", state: { user: tempUser, pass: "GUEST", connection: navigator.onLine, offlineScore: 0 } })
+    history.push({ pathname: "/level1", state: { user: tempUser, pass: "GUEST", connection: navigator.onLine, offlineScore: 0, hasFailed: false } })
   }
 
   const generatePasscode = () => {

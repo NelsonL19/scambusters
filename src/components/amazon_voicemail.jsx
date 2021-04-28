@@ -17,7 +17,7 @@ const Amazon_Voicemail = (props) => {
 
     return (
         <div className = "voicemail">
-            <Tooltip title = {"Amazon would never inform you of frauduelant charges over the phone."} trigger = {[]} visible = {props.allTooltipsVisible || props.isLevelComplete} placement = 'right'>
+            <Tooltip title = {"Amazon would never inform you of fraudulent charges over the phone."} trigger = {[]} visible = {props.allTooltipsVisible || props.isLevelComplete} placement = 'right'>
             <Tooltip title = {"Amazon will never ask you to disclose or verify sensitive personal information over the phone."} trigger = {[]} visible = {props.allTooltipsVisible || props.isLevelComplete} placement = 'left'>            
             <div className = "audio">
                 <div className = "player">

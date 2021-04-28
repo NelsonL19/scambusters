@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     height:calc(100vh - 80px);
-
+    background-color:white
 }
 
 
@@ -23,6 +23,7 @@
 .message {
     border-width: 10px;
     padding-left: 10%;
+    background-color:rgba(255, 255, 255, 0);
 }
 
 .emailName {
@@ -40,7 +41,6 @@ p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black
 }
-
 
 .message button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -16,9 +16,9 @@ Again the number is 669-247-0906. Thank you.`;
 const Amazon_Voicemail = (props) => {
 
     return (
-        <div className = "website">
-            <Tooltip title = {"Amazon would never inform you of frauduelant charges over the phone."} trigger = {[]} visible = {props.allTooltipsVisible} placement = 'right'>
-            <Tooltip title = {"Amazon will never ask you to disclose or verify sensitive personal information over the phone."} trigger = {[]} visible = {props.allTooltipsVisible} placement = 'left'>            
+        <div className = "voicemail">
+            <Tooltip title = {"Amazon would never inform you of frauduelant charges over the phone."} trigger = {[]} visible = {props.allTooltipsVisible || props.isLevelComplete} placement = 'right'>
+            <Tooltip title = {"Amazon will never ask you to disclose or verify sensitive personal information over the phone."} trigger = {[]} visible = {props.allTooltipsVisible || props.isLevelComplete} placement = 'left'>            
             <div className = "audio">
                 <div className = "player">
                     <ReactAudioPlayer

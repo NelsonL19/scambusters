@@ -1,9 +1,10 @@
 .coupon {
     background-color: #F5EFE8;
     border: 2px dotted black;
+    padding-bottom: 13%;
 }
 
-.background {
+.backgroundCoupon {
     border: 20px solid white;
 }
 

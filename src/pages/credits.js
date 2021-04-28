@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState, Suspense } from 'react';
 import { Link, useHistory } from 'react-router-dom'
 import { firebase } from '../firebase-config/config'
 import { Button } from 'antd';
+import '../styles/credits.css';
 
 const Credits = (props) => {
   const history = useHistory();
@@ -13,27 +14,39 @@ const Credits = (props) => {
 
   return (
     <>
-      <h1>Credits</h1>
-      <h2>The Scambusters® Video Game Team:</h2>
-      <p>Nelson Lopez</p>
-      <p>Jerett Rende</p>
-      <p>Savannah Evans</p>
-      <p>Benjamin Bunze</p>
-      <h2>Original Scambusters® Game:</h2>
-      <p>Steve Fromme</p>
-      <p>The Better Business Buearu of Raleigh, NC.</p>
-      <h2>Special Thanks:</h2>
-      <p>Dr. Diane Pozefsky</p>
-      <p>The Computer Science Department at the University of North Carolina at Chapel Hill</p>
-      <p>You!</p>
-      
+    <div className="page">
+    <center>
+      <br/>
+      <div className="info">
+      <h2 className="subTitles">The Scambusters® Video Game Team:</h2>
+      <p className="name">Nelson Lopez</p>
+      <p className="name">Jerett Rende</p>
+      <p className="name">Savannah Evans</p>
+      <p className="name">Benjamin Bunze</p>
+      </div>
 
-      <h2>Licenses and Attributions</h2>
+      <br/>
+      <div className="info">
+      <h2 className="subTitles">Original Scambusters® Game:</h2>
+      <p className="name">Steve Fromme</p>
+      <p className="name">BBB Educational Foundation of Eastern NC, Inc.</p>
+      <h2 className="subTitles">Special Thanks:</h2>
+      <p className="name">Dr. Diane Pozefsky</p>
+      <p className="name">The Computer Science Department at the University of North Carolina at Chapel Hill</p>
+      <p className="name">Player like You!</p>
+      </div>
+      
+      <br/>
+      <div className="info">
+      <h2  className="subTitles">Licenses and Attributions</h2>
       <p>Leopard Print Elevator by Kevin MacLeod<br />
           Link: https://incompetech.filmmusic.io/song/3974-leopard-print-elevator<br />
           License: https://filmmusic.io/standard-license</p>
       <p>Blippy Trance by Kevin MacLeod<br />
       Link: https://incompetech.filmmusic.io/song/5759-blippy-trance<br />
+      License: https://filmmusic.io/standard-license</p>
+      <p>Jazz Brunch by Kevin MacLeod<br />
+      Link: https://incompetech.filmmusic.io/song/3937-jazz-brunch<br />
       License: https://filmmusic.io/standard-license</p>
       <p>Computer Error Alert by Mike Koenig<br />
       Link: https://soundbible.com/1540-Computer-Error-Alert.html
@@ -47,7 +60,17 @@ const Credits = (props) => {
       <p>Failure arcade alert notification<br />
       Link: https://mixkit.co/free-sound-effects/video-game/
       License: Mixkit Sound Effects Free License</p>
-      <button onClick={() => returnToMain()}>Return to Main Menu</button>
+      </div>
+      <br/>
+      <div className="info">
+      <p className="version">Current Game Version: V0.7-Beta</p>
+      </div>
+      <br/>
+      <Button type="danger" onClick={() => returnToMain()}>Return to Main Menu</Button>
+      </center>
+      <br/>
+      <br/>
+      </div>
     </>
   )
 }

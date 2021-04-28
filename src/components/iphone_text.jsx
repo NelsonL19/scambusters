@@ -6,15 +6,13 @@ import { Tooltip } from 'antd';
 
 const Iphone_Text = (props) => {
 
-    const test = (e) => {
-        console.log(e.target)
-        console.log(e.currentTarget)
+    const test = () => {
+        console.log(props)
     }
 
 
     return (
         <div className="div_god">
-
             <div className = "phone-container">
                 <img className="iphone_img" src={iphone} alt="iphone"/>
                 <div className="phoneNumberDiv">

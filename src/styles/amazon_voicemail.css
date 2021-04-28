@@ -10,8 +10,7 @@ div.ant-collapse-header{
     font-size:1.4em;
 }
 
-
-.website{
+.voicemail{
     display:flex;
     height:calc(100vh - 80px);
     background-color:gray;

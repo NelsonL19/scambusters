@@ -23,7 +23,9 @@ b{
 .website{
     display:flex;
     height:calc(100vh - 80px);
-    background-color:gray;
+    background-image: url('../assets/netflixBack.jpg');
+    background-size:100%;
+    background-position: 100%;
 }
 
 .title{
@@ -40,7 +42,7 @@ b{
     width:30em;
     margin:auto;
     padding:50px;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .sign-in-header{

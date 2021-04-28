@@ -21,11 +21,16 @@ const Level_End = (props) => {
     //resets level state and redirects to next level
     //TODO: Pass in length of array, if levelnum = length, go to gameend
     const handleNextLevelClick = () => {
+        let failed = props.lobbyInfo.hasFailed;
+        if (!props.isCorrect) {
+            failed = true;
+            console.log("test");
+        }
         props.resetLevelState()
-        if (props.level.levelNum == 5) {
-            history.push({ pathname: "/game_end", state: { score: pastScore + totalScore, pass: props.lobbyInfo.pass }})
+        if (props.level.levelNum == 8) {
+            history.push({ pathname: "/game_end", state: { score: pastScore + totalScore, pass: props.lobbyInfo.pass, hasFailed: failed }})
         } else {
-            history.push({ pathname: `/level${props.level.levelNum + 1}`, state: { user: props.lobbyInfo.user, pass: props.lobbyInfo.pass } })
+            history.push({ pathname: `/level${props.level.levelNum + 1}`, state: { user: props.lobbyInfo.user, pass: props.lobbyInfo.pass, connection: props.lobbyInfo.connection, offlineScore: totalScore + pastScore, hasFailed: failed} })
         }
     }
 
@@ -45,13 +50,17 @@ const Level_End = (props) => {
 
 
     useEffect(() => {
-        db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
-            console.log(doc.data())
-            setPastScore(doc.data()[props.lobbyInfo.user])
-            db.collection("lobbies").doc(props.lobbyInfo.pass).update({
-                [props.lobbyInfo.user]: totalScore + pastScore
+        if (props.connection == true) {
+            db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
+                console.log(doc.data())
+                setPastScore(doc.data()[props.lobbyInfo.user])
+                db.collection("lobbies").doc(props.lobbyInfo.pass).update({
+                    [props.lobbyInfo.user]: totalScore + pastScore
+                })
             })
-        })
+        } else {
+            setPastScore(props.lobbyInfo.offlineScore)
+        }
     }, [])
 
     //Calls the load level function with the level that is being selected.

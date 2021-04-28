@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState, Suspense } from 'react';
 import { useHistory } from 'react-router-dom'
 import Browser_Bar from './browser_bar.jsx'
 import UI_Overlay from './ui_overlay.jsx'
-import './level_prototype.css'
+import '../styles/level_prototype.css'
 import ReactAudioPlayer from 'react-audio-player';
 import elevatorMusic from '../assets/leopard-print-elevator-by-kevin-macleod-from-filmmusic-io.mp3'
 import misclickSFX from '../assets/ComputerError.mp3'
@@ -36,12 +36,12 @@ const Level_Prototype = (props) => {
             correctFX.volume = props.settings.soundVolume/100
             correctFX.play();
         }
-
         setEvidenceFound([...evidenceFound, evID])
     }
 
     const handleMisclick = (e) => {
-        if (props.level.type == "scamOrNot") {
+        
+        if (props.level.type == "scamOrNot" || isLevelComplete) {
             return
         }
 
@@ -83,9 +83,10 @@ const Level_Prototype = (props) => {
         setIsCorrect(true)
         if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
-            setTimeout(() => {
-                setAllTooltipsVisible(false)
-            }, 3000);
+            // keep all tooltips up after the score
+            // setTimeout(() => {
+            //     setAllTooltipsVisible(false)
+            // }, 3000);
         }
 
     }
@@ -104,11 +105,27 @@ const Level_Prototype = (props) => {
         setIsCorrect(false)
         if (props.level.type == "scamOrNot") {
             setAllTooltipsVisible(true)
-            setTimeout(() => {
-                setAllTooltipsVisible(false)
-            }, 3000);
+            // keep all tooltips up after the score
+            // setTimeout(() => {
+            //     setAllTooltipsVisible(false)
+            // }, 3000);
         }
 
+    }
+
+    // handler for giving up on an evidence collecting level
+    const handleGiveUp = () => {
+        if (isLevelComplete) {
+            return
+        }
+        if(props.settings.soundToggle){
+            let loseSound = new Audio(incorrectSound);
+            loseSound.volume = props.settings.soundVolume/100
+            loseSound.play();
+        }
+        setIsLevelComplete(true)
+        setIsCorrect(false)
+        console.log("gave up")
     }
 
     //handle click of "next level" button
@@ -116,6 +133,7 @@ const Level_Prototype = (props) => {
         setEvidenceFound([])
         setIsCorrect(false)
         setIsLevelComplete(false)
+        setAllTooltipsVisible(false)
         console.log("triggered")
     }
 
@@ -139,7 +157,7 @@ const Level_Prototype = (props) => {
     return (
         //Calls the load level function with the level that is being selected.
         <div style = {{fontSize: getFontSize()}}>
-
+            <div className="playArea">
             {props.settings.musicToggle && 
                 <ReactAudioPlayer
                     src={elevatorMusic}
@@ -149,7 +167,9 @@ const Level_Prototype = (props) => {
                 />
             }
             <div className="minification" onClick={(e) => handleMisclick(e)}>
-                <Browser_Bar url={props.level.url} />
+                {props.level.url != "REMOVE_URL_BAR" &&
+                    <Browser_Bar url={props.level.url} />
+                }
                 <Suspense fallback={<div>Loading Level...</div>}>
                     {props.level.type == "scamOrNot" &&
                         <Level
@@ -173,11 +193,13 @@ const Level_Prototype = (props) => {
                 isCorrect={isCorrect}
                 handleCorrect={handleCorrect}
                 handleIncorrect={handleIncorrect}
+                handleGiveUp={handleGiveUp}
                 resetLevelState={resetLevelState}
                 misclicks={misclicks}
-                lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass }}
+                lobbyInfo={{ user: props.location.state.user, pass: props.location.state.pass, connection: props.location.state.connection, offlineScore: props.location.state.offlineScore, hasFailed: props.location.state.hasFailed}}
             />
             <div className="misclick-circle"></div>
+            </div>
         </div>
     )
 }

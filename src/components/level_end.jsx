@@ -50,7 +50,7 @@ const Level_End = (props) => {
 
 
     useEffect(() => {
-        if (props.connection == true) {
+        if (props.lobbyInfo.connection == true) {
             db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
                 console.log(doc.data())
                 setPastScore(doc.data()[props.lobbyInfo.user])

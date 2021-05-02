@@ -13,6 +13,7 @@ padding: 10px;
 border-color: black;
 border-style: solid;
 width: 90%;
+overflow: scroll;
 }
 
 .message2 {
@@ -21,7 +22,14 @@ border-color: black;
 border-style: solid;
 width: 90%;
 overflow: scroll;
+<<<<<<< HEAD
 
+=======
+}
+
+.mailBox {
+    z-index: 10;
+>>>>>>> 8c92f5ddf0d5c9860415c29b6038eb3db6301fd3
 }
 
 .mailBox button {

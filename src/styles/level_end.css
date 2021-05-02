@@ -66,6 +66,8 @@ div.endLevelParent {
     height: 60%;
     border-radius: 20px;
     padding: 30px;
+    opacity: 60%;
+    pointer-events: auto;
 
     /* alignment */
     display: flex;
@@ -73,6 +75,11 @@ div.endLevelParent {
     justify-content: flex-start;
     align-items: center;
 }
+
+div.endLevelParent:hover {
+  opacity: 100%;
+}
+
 
 h1.endHeaderCorrect {
     font-size: 300%;

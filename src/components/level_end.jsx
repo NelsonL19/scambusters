@@ -21,6 +21,7 @@ const Level_End = (props) => {
     //resets level state and redirects to next level
     //TODO: Pass in length of array, if levelnum = length, go to gameend
     const handleNextLevelClick = () => {
+        updatePastScore()
         let failed = props.lobbyInfo.hasFailed;
         if (!props.isCorrect) {
             failed = true;
@@ -48,15 +49,19 @@ const Level_End = (props) => {
 
     })
 
+    const updatePastScore = () => {
+        setPastScore(pastScore + totalScore)
+    }
 
     useEffect(() => {
         if (props.lobbyInfo.connection == true) {
             db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {
                 console.log(doc.data())
-                setPastScore(doc.data()[props.lobbyInfo.user])
                 db.collection("lobbies").doc(props.lobbyInfo.pass).update({
-                    [props.lobbyInfo.user]: totalScore + pastScore
+                    [props.lobbyInfo.user]: totalScore + doc.data()[props.lobbyInfo.user]
                 })
+                setPastScore(doc.data()[props.lobbyInfo.user])
+
             })
         } else {
             setPastScore(props.lobbyInfo.offlineScore)

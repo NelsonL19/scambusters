@@ -78,6 +78,7 @@ div.endLevelParent {
 
 div.endLevelParent:hover {
   opacity: 100%;
+  z-index: 10000;
 }
 
 

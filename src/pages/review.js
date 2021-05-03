@@ -81,6 +81,41 @@ const Review = (props) => {
                     </ol>
                 </div>
                 <br/>
+
+                <br/>
+                <div className="info">
+                    <h2 className="levelNum">Level 6: Puppy Adoption</h2>
+                    <ol>
+                        <li className="levelClues">Scammers want to collect either money from you, or information which can be used for that purpose. 
+                        This coupon requests neither information nor money. It simply offers discounts. The worst that can happen if the coupons are not accepted by the restaurant
+                        is that you would have the option of paying full price or not ordering.</li>
+                    </ol>
+                </div>
+                <br/>
+
+                <br/>
+                <div className="info">
+                    <h2 className="levelNum">Level 7: IRS Emails</h2>
+                    <ol>
+                        <li className="levelClues">Scammers want to collect either money from you, or information which can be used for that purpose. 
+                        This coupon requests neither information nor money. It simply offers discounts. The worst that can happen if the coupons are not accepted by the restaurant
+                        is that you would have the option of paying full price or not ordering.</li>
+                    </ol>
+                </div>
+                <br/>
+
+                <br/>
+                <div className="info">
+                    <h2 className="levelNum">Level 8: Target Secret Shopper</h2>
+                    <ol>
+                        <li className="levelClues">Scammers want to collect either money from you, or information which can be used for that purpose. 
+                        This coupon requests neither information nor money. It simply offers discounts. The worst that can happen if the coupons are not accepted by the restaurant
+                        is that you would have the option of paying full price or not ordering.</li>
+                    </ol>
+                </div>
+                <br/>
+
+                <br/>
                 <center>
                 <Button type="danger" onClick={() => returnToMain()}>Return to Main Menu</Button>
                 </center>

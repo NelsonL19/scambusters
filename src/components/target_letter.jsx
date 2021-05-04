@@ -27,7 +27,7 @@ const Target_Letter = (props) => {
                     </Tooltip>which covers the assignment bills, evaluation costs, and your survey commission payment of $400. Below are instructions for your first assignment
                 </p>
                 <ul>
-                    <li>Confirm the recipet of package by email at richardfels@gmail.com or (702) 632-2078</li>
+                    <li>Confirm the receipt of package by email at richardfels@gmail.com or (702) 632-2078</li>
                     <li>Deposit the check with any option your bank offers: ATM deposit, mobile deposit, or bank deposit</li>
                     <li>Your first assignment, <b>EBAY GIFT CARD</b>
                         <ul>

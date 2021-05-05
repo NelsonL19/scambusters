@@ -27,7 +27,7 @@ const Level_End = (props) => {
             failed = true;
             console.log("test");
         }
-        props.resetLevelState()
+        props.resetLevelAndOverlayState()
         if (props.level.levelNum == 8) {
             history.push({ pathname: "/game_end", state: { score: pastScore + totalScore, pass: props.lobbyInfo.pass, hasFailed: failed }})
         } else {

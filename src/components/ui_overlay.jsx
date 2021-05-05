@@ -109,6 +109,16 @@ export default class UI_Overlay extends Component {
         return children
     }
 
+
+    resetLevelAndOverlayState = () => {
+        this.props.resetLevelState()
+        this.setState({
+            timeBonus: 3000,
+            isTimeOut: false
+        })
+        
+    }
+
     render () {
         let levelType = this.props.level.type;
         // for (let i = 0; i < this.state.evidence.length; i++) {
@@ -149,7 +159,7 @@ export default class UI_Overlay extends Component {
                                 level = {this.props.level} 
                                 timeBonus = {!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}
                                 isCorrect = {this.props.isCorrect}
-                                resetLevelState = {this.props.resetLevelState}
+                                resetLevelAndOverlayState = {this.resetLevelAndOverlayState}
                                 lobbyInfo = {this.props.lobbyInfo}
                             />
                         }
@@ -192,7 +202,7 @@ export default class UI_Overlay extends Component {
                                 timeBonus = {!this.state.isTimeOut ? this.state.timeBonus - this.props.misclicks*100 : 0}
                                 isCorrect =  {this.props.isCorrect}
                                 numCollected = {this.props.evidenceFound.length}
-                                resetLevelState = {this.props.resetLevelState}
+                                resetLevelAndOverlayState = {this.resetLevelAndOverlayState}
                                 lobbyInfo = {this.props.lobbyInfo}
                             />
                         }

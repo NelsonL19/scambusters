@@ -19,6 +19,9 @@ const Review = (props) => {
         loop={true}
         volume={0.5}
       />
+      <nav className="navigation" aria-label="dropdown navigation">
+      <Button type="danger" onClick={() => returnToMain()}>Return to Main Menu</Button>
+      </nav>
                 <br />
                 <div className="info">
                     <h1 className="reviewTitle">Review of Each Level</h1>
@@ -121,10 +124,7 @@ const Review = (props) => {
 
                 <br/>
                 <center>
-                <Button type="danger" onClick={() => returnToMain()}>Return to Main Menu</Button>
                 </center>
-                <br/>
-                <br/>
         </>
     )
 }

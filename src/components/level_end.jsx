@@ -19,7 +19,9 @@ const Level_End = (props) => {
 
 
     //resets level state and redirects to next level
-    //TODO: Pass in length of array, if levelnum = length, go to gameend
+    //TODO if Time Allows: Pass in length of array, if levelnum = length, go to gameend
+    //Current Status: Checks if it's at level 8, the current final level, and if it is, next screen is end screen.
+    //If the game is offline, this is also where the current score is fowarded to the next one.
     const handleNextLevelClick = () => {
         updatePastScore()
         let failed = props.lobbyInfo.hasFailed;
@@ -35,6 +37,7 @@ const Level_End = (props) => {
         }
     }
 
+    //This checks to see if the level is a scam or not, then sets the timer for the level. 
     useEffect(() => {
         if (props.level.type == "scamOrNot") {
             const waitTimer = setTimeout(() => {
@@ -53,6 +56,9 @@ const Level_End = (props) => {
         setPastScore(pastScore + totalScore)
     }
 
+    //This function is what updates our leaderboards internally and in Firebase. 
+    //If the game is online, it'll get the scores from Firebase, then Push the new score to Firebase.
+    //If the game is offline, it'll set the past score internally only.
     useEffect(() => {
         if (props.lobbyInfo.connection == true) {
             db.collection("lobbies").doc(props.lobbyInfo.pass).get().then((doc) => {

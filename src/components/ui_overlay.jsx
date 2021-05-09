@@ -4,6 +4,7 @@ import Level_End from './level_end.jsx'
 import '../styles/ui_overlay.css'
 import { RightOutlined, CaretRightOutlined } from '@ant-design/icons';
 
+//This bad boy creates the UI Overlay that will exist ontop of each level. This includes the HUD and all that jazz.
 export default class UI_Overlay extends Component {
     constructor(props) {
         super(props)
@@ -17,6 +18,7 @@ export default class UI_Overlay extends Component {
         this.giveUp.bind(this)
     }
 
+    //This counts down the bonus timer.
     componentDidMount () {
         this.bonusTimerID = setInterval(
             () => this.tickDownBonus(), 10
@@ -29,6 +31,7 @@ export default class UI_Overlay extends Component {
 
     }
 
+    //This checks to see if it's an evidence level, then if you've found a pieee of evidence.
     componentDidUpdate () {
         if(this.props.level.type == "evidenceCollect"){
             if(this.props.evidenceFound.length >= this.props.level.evidenceAmount && this.props.isLevelComplete == false){
@@ -40,10 +43,13 @@ export default class UI_Overlay extends Component {
         } 
     }
 
+    //Resets the timer for the next level.
     componentWillUnmount () {
         clearInterval(this.bonusTimerID)
     }
 
+
+    //This is what ticks down the timer and actully gives you the bonus for the level if you do it fast. Not if you're slow. Because that would probably be dumb. idk.
     tickDownBonus () {
         // only count down if the bonus > 0 AND the level is still being played.
         if (this.state.timeBonus - this.props.misclicks*100 <= 0) {
@@ -62,41 +68,13 @@ export default class UI_Overlay extends Component {
 
     }
 
-    scamPressed () {
-        // // make sure the level is not already done!
-        // if (this.state.isLevelComplete) { return }
 
-        // if (this.props.level.isScam) {
-        //     // Correct!
-        //     this.setState({ isLevelComplete: true, isCorrect: true })
-        // }
-        // else {
-        //     // Incorrect
-        //     this.setState({ isLevelComplete: true, isCorrect: false })
-        // }
-    }
-
-
-
-    legitPressed () {
-        // // make sure the level is not already done!
-        // if (this.state.isLevelComplete) { return }
-
-        // if (this.props.level.isScam) {
-        //     // Incorrect
-        //     this.setState({ isLevelComplete: true, isCorrect: false })
-        // }
-        // else {
-        //     // Correct!
-        //     this.setState({ isLevelComplete: true, isCorrect: true })
-
-        // }
-    }
-
+    //TEST FUNCTION: To make sure that we're handling people giving up correctly
     giveUp() {
         console.log("gave up")
     }
 
+    //This actually creates the evidence markers for each level by counting how many are supposed to be in there, and then adding them in by returning it as an HTML div.
     createEvidenceMarkers = (num) => {
         var children = []
         for(let i = 0; i < num; i++){
@@ -109,7 +87,7 @@ export default class UI_Overlay extends Component {
         return children
     }
 
-
+    //This resets the score and state to the original. Hasta la vista baby!
     resetLevelAndOverlayState = () => {
         this.props.resetLevelState()
         this.setState({
@@ -119,6 +97,8 @@ export default class UI_Overlay extends Component {
         
     }
 
+    //This displays the content to the player
+    //It checks to see what type of level it is, renders the correct overlay, and once the game is done, renders the end screen. 
     render () {
         let levelType = this.props.level.type;
         // for (let i = 0; i < this.state.evidence.length; i++) {

@@ -3,7 +3,7 @@ import iphone from '../assets/iphone_blank.png'
 import {Clickable_Region} from '../components'
 import { Tooltip } from 'antd';
 
-
+//This file is for creating and rendering the iPhone text message USPS scam. It creates the HTML and renders it onto the browser.
 const Iphone_Text = (props) => {
 
     const test = () => {

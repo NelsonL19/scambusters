@@ -2,6 +2,7 @@ import '../styles/irs_email.css'
 import { Clickable_Region } from '../components'
 import { Tooltip } from 'antd';
 
+//This file creates the IRS Email HTML Page by emulating a GMail Mailbox and asking players if it's legit/fake. It's real. 
 const IRS_Email = (props) => {
 
     return (

@@ -7,7 +7,7 @@ import titleLogo from '../assets/scambustersLogoAlt.jpg'
 import bbbLogo from '../assets/bbbLogo.jpg'
 
 
-//GameEngine takes a list of systems and an object of entities (described by renderers)
+//This is the center of the app, and the landing page for new users.
 const Home = (props) => {
 
   const [passcode, setPasscode] = useState("")
@@ -16,6 +16,7 @@ const Home = (props) => {
   const db = firebase.firestore()
   const history = useHistory();
 
+  //This creates a new lobby for a host by making a passcode, then adding it to firebase + sending them to admin page.
   const createLobby = () => {
 
     const randomPass = generatePasscode()
@@ -27,6 +28,8 @@ const Home = (props) => {
     )
   }
 
+  //This joins a lobby that has been made already by a host. It then forces the player into fullscreen mode! Because Freewill is an illusion.
+  //It also checks to see if there's a internet connection or not, since the game can be played offline!
   const joinLobby = () => {
     db.collection("lobbies").doc(passcode).update({
       [username]: 0
@@ -44,6 +47,7 @@ const Home = (props) => {
 
   const joinLobby_SP = () => {
     // For joining single player lobbies only
+    //makes a fake user name.
     var tempUser = Math.random().toString(36).substring(6)
     setUsername(tempUser)
     db.collection("lobbies").doc('GUEST').update({
@@ -62,6 +66,7 @@ const Home = (props) => {
     history.push({ pathname: "/level1", state: { user: tempUser, pass: "GUEST", connection: navigator.onLine, offlineScore: 0, hasFailed: false } })
   }
 
+  //this makes a lobby password if you're an admin.
   const generatePasscode = () => {
     let pass = ""
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -73,6 +78,7 @@ const Home = (props) => {
     return pass
   }
 
+  //These next 3 functions just handle going to basic pages.
   const goToCredits = () => {
     history.push({ pathname: "/credits" })
   }

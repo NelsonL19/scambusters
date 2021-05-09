@@ -4,6 +4,8 @@ import voicemail from '../assets/Amazon_scam.mp3'
 import { Button, Tooltip, Collapse } from 'antd'
 import { CaretRightOutlined } from '@ant-design/icons'
 
+//All Imports go up here
+
 const { Panel } = Collapse;
 const text = `This call is in regard to your purchase on Amazon.com.
 You have been charged $349.99 on your Visa card.
@@ -27,6 +29,7 @@ const Amazon_Voicemail = (props) => {
                     controls={true}
                     loop={false}
                     />
+                    {/*This is the audioplayer that we use in order to play the voicemail*/}
                 </div>
                 <br/>
                 <div className = "transcript">
@@ -36,7 +39,7 @@ const Amazon_Voicemail = (props) => {
                         expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
                         className="site-collapse-custom-collapse">
                     <Panel header="View Audio Transcript"><p className = "transcript">{text}</p></Panel>
-                    </Collapse>
+                    </Collapse> {/*This is the collapsable block that we use for the transcript */}
                 </div>
             </div>
             </Tooltip>

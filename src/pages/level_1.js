@@ -2,6 +2,7 @@ import React, {Component, useEffect, useState} from 'react';
 import {Fake_Netflix, Browser_Bar} from '../components';
 
 
+//This renders Fake Netflix.
 export default class Level_1 extends Component {
     constructor(props){
         super(props)

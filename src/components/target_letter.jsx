@@ -3,10 +3,10 @@ import logo from '../assets/targetlogo.png'
 import { Clickable_Region } from '../components'
 import { Tooltip } from 'antd';
 
-
+//This file creates the Target HTML Page by emulating a mailed letter and asking players to find out why it's fake
 const Target_Letter = (props) => {
 
-
+    //This renders the HTML and puts it on screen for the user can see. 
     return (
         <div className="flex-container"  >
 

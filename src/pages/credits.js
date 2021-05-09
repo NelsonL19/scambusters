@@ -4,6 +4,7 @@ import { firebase } from '../firebase-config/config'
 import { Button } from 'antd';
 import '../styles/credits.css';
 
+//This file displays us! Basically who helped out/worked on the game and anyone else!
 const Credits = (props) => {
   const history = useHistory();
   const returnToMain = () => { history.push({ pathname: "/" }) }

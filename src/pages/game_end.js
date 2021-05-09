@@ -8,6 +8,7 @@ import scambustersLogo from '../assets/scambustersMedal.png'
 import ReactAudioPlayer from 'react-audio-player';
 import victoryMusic from '../assets/blippyTrance.mp3'
 
+//This is the victory end screen! This plays at the end of the game!
 const Game_End = (props) => {
   const history = useHistory();
   const goToReview = () => { history.push({ pathname: "/review" }) }
@@ -16,6 +17,7 @@ const Game_End = (props) => {
 
   //TODO: Adjust app.js in order to pass in length of levels array. When Level_End.jsx loads and it's at the end of the array, it should link here
 
+  //This reads your final score, and see if the player was good or not.
   const loadPrefixs = () => {
     if (props.location.state.score > 0) { prefix = "a" };
     if (props.location.state.score > 20000) { prefix = "a Great" };

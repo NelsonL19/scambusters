@@ -11,6 +11,8 @@ import '@firebase/firestore';
 //     measurementId: process.env.MEASUREMENT_ID
 //   };
 
+//This file is what connects our game to Firebase, which is our external Database. 
+//PLEASE DO NOT TOUCH UNLESS YOU KNOW WHAT YOU'RE DOING. Any errors here, and it can't connect to the internet at all.
 const firebaseConfig = {
     apiKey: "AIzaSyCcnrt25F6KRA0Hr7twmvxrawM4Q_mgLOs",
     authDomain: "scambusters-47d4a.firebaseapp.com",

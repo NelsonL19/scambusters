@@ -9,13 +9,13 @@ import p_dach from '../assets/puppy-4.jpg'
 import bbb_fake from '../assets/bbbfake.png' 
 
 
-
+//This file creates the Puppy HTML Page by emulating a Adoption Intrest Form and asking players to find out why it's fake
 const Puppy_Site = (props) => {
 
     const [buySecondsLeft, setBuySecondsLeft ] =  useState(899);
     console.log(props.allTooltipsVisible)
 
-
+    //This creates the timer for the HTML countdown displayed on screen
     useEffect(()=>{
         let myInterval = setInterval(() => {
             if (buySecondsLeft > 0) {
@@ -27,7 +27,7 @@ const Puppy_Site = (props) => {
         };
     });
     
-
+    //This creates the HTML for the countdown displayed on screen for adopting a dog. Should be zero because cats are better, idk. 
     const formSecondsLeft = (sec) => {
         var min = ~~(sec/60)
         var secLeft = sec - min*60
@@ -41,7 +41,7 @@ const Puppy_Site = (props) => {
         return `00:${min}:${secLeft}`
     }
 
-
+    //This renders the HTML for the puppy adoption site. These are some cute puppies, but cats are still better.
     return (
         <div className="div_god">
             <div className="puppySection">

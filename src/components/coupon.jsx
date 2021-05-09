@@ -6,6 +6,7 @@ const Coupon = (props) => {
 
     console.log(props.allTooltipsVisible)
 
+    //This creates the HTML Page for Sal's Coupon Level
     return (
         <div className="backgroundCoupon">
         <Row className="coupon">

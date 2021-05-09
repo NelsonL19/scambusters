@@ -10,7 +10,7 @@ const Clickable_Region = (props) =>{
         }
     } 
 
-
+    //This inserts a clickable region into the game, and handles the resulting code when it's clicked and found/not found
     return (
 
         <div className = {`clickable-region ${props.found ? "found" : ""}`} onClick = {(e) => handleClick(e)}>

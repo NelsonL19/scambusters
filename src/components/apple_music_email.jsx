@@ -22,7 +22,7 @@ const Apple_music_email = (props) => {
                 <button>Drafts</button>
                 <button>Junk</button>
             </div>
-
+            {/**This is the left side of the html message, meant to emulate the mailbox bottons in GMail*/}
             <div className="message">
                 <h1 className="emailName">Update Your Account Information</h1>
                 <p className="sender">
@@ -61,6 +61,7 @@ const Apple_music_email = (props) => {
                     <br /><br />
                     Copyright 2021 Apple Inc. All rights reserved. Apple is located at 2211 N. First St, San Jose, CA 95131</p>
             </div>
+            {/**This is the body of the email itself, having Clickable Regions and Tooltips to support the evidence collecting portions of it*/}
         </div>
 
 

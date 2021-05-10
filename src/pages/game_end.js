@@ -40,7 +40,7 @@ const Game_End = (props) => {
           src={victoryMusic}
           autoPlay={true}
           loop={true}
-          volume={0.5}
+          volume={(props.settings.musicVolume/100) * 0.5}
         />
       }
       <div className="endText">

@@ -54,7 +54,7 @@ const Target_Letter = (props) => {
                     </li>
                 </ul>
                 <p><b>Reminder:</b> At any store chosen for your EBAY GIFT CARDs, 
-                    <Tooltip title={"Asking you to send money/information worth money"} trigger={[]} visible={props.evidenceFound.includes(3) || props.isLevelComplete} placement='left'>
+                    <Tooltip title={"Asks you to be secretive"} trigger={[]} visible={props.evidenceFound.includes(3) || props.isLevelComplete} placement='left'>
                         <Clickable_Region isLevelComplete={props.isLevelComplete} handleCRClick={props.handleCRClick} evID={3} found={props.evidenceFound.includes(3)} content="under no circumstances should you acknowledge that you are evaluating their services, " />
                     </Tooltip>
                     as that will defeat the purpose of the whole program.

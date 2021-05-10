@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState, Suspense } from 'react';
+import React, { Component, useEffect, useState, useRef, Suspense } from 'react';
 import { useHistory } from 'react-router-dom'
 import Browser_Bar from './browser_bar.jsx'
 import UI_Overlay from './ui_overlay.jsx'
@@ -20,6 +20,7 @@ const Level_Prototype = (props) => {
     const [allTooltipsVisible, setAllTooltipsVisible] = useState(false)
     const [misclicks, setMisclicks] = useState(0)
     //This function is responsible for taking in the level number, and rendering the level content that is being used for each level.
+
 
     const loadLevel = (number) => {
         const Level = React.lazy(() =>
@@ -137,8 +138,22 @@ const Level_Prototype = (props) => {
         console.log("triggered")
     }
 
+
+    function usePrevious(value) {
+        const ref = useRef();
+        useEffect(() => {
+          ref.current = value;
+        });
+        return ref.current;
+    }
+
+    const prevLevel = usePrevious(props.level)
+
+
     useEffect(() => {
-        setEvidenceFound([])
+        if(prevLevel != undefined && prevLevel.levelNum != props.level.levelNum){
+            setEvidenceFound([])
+        }
     }, [props.level])
 
     const getFontSize = () =>{
@@ -188,6 +203,8 @@ const Level_Prototype = (props) => {
             </div>
             <UI_Overlay
                 level={props.level}
+                settings = {props.settings}
+                setSettings = {props.setSettings}
                 evidenceFound={evidenceFound}
                 isLevelComplete={isLevelComplete}
                 isCorrect={isCorrect}

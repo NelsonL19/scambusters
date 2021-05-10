@@ -32,21 +32,23 @@ const Lobby_Created = (props) => {
 
     useEffect(() => {
       //sort players after fetching
-      var arr = []
-      for(var i = 0; i < Object.keys(players).length; i++){
-        console.log("LLL", Object.keys(players)[i], players[Object.keys(players)[i]])
-        arr.push({
-          name: Object.keys(players)[i],
-          score: players[Object.keys(players)[i]]
-        })
+      if(players != undefined){
+        var arr = []
+        for(var i = 0; i < Object.keys(players).length; i++){
+          console.log("LLL", Object.keys(players)[i], players[Object.keys(players)[i]])
+          arr.push({
+            name: Object.keys(players)[i],
+            score: players[Object.keys(players)[i]]
+          })
+        }
+        arr.sort((a,b) => b.score - a.score);
+        var finalSorted = {}
+        for(var k in arr){
+          console.log(k)
+          finalSorted[arr[k].name] = arr[k].score
+        }
+        setSortedPlayers(finalSorted)
       }
-      arr.sort((a,b) => b.score - a.score);
-      var finalSorted = {}
-      for(var k in arr){
-        console.log(k)
-        finalSorted[arr[k].name] = arr[k].score
-      }
-      setSortedPlayers(finalSorted)
     }, [players])
 
     const showDeletePopover = () => {

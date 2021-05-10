@@ -29,7 +29,7 @@ const Settings = (props) => {
 return (
     <>
     <div className="settingsPage">
-      <h1 className = "gameSubtitle">Settings</h1>
+      <h1 className = "settingsSubtitle">Settings</h1>
       <h2>Sound settings</h2>
       <div className = "settings-grid">
         <span>Sound Effects:</span>

@@ -188,6 +188,8 @@ const Level_Prototype = (props) => {
             </div>
             <UI_Overlay
                 level={props.level}
+                settings = {props.settings}
+                setSettings = {props.setSettings}
                 evidenceFound={evidenceFound}
                 isLevelComplete={isLevelComplete}
                 isCorrect={isCorrect}

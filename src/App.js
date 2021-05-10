@@ -109,39 +109,39 @@ function App() {
         )}>
         </Route>
         <Route path = "/level0" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[0]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[0]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
         <Route path = "/level1" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[1]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[1]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
         <Route path = "/level2" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[2]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[2]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
          <Route path = "/level3" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[3]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[3]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
         <Route path = "/level4" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[4]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[4]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
         <Route path = "/level5" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[5]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[5]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
         <Route path = "/level6" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[6]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[6]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
         <Route path = "/level7" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[7]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[7]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
         <Route path = "/level8" render={(props) => (
-          <Level_Prototype {...props} level = {levelInfo[8]} settings = {settings}/>
+          <Level_Prototype {...props} level = {levelInfo[8]} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
       </Switch>

@@ -1,7 +1,11 @@
 import React, { Component, useEffect, useState } from 'react';
-import { Button } from 'antd';
+import { Button, Popover, Slider } from 'antd';
 import Level_End from './level_end.jsx'
 import '../styles/ui_overlay.css'
+import musicOn from '../assets/music_note_black_24dp.svg' 
+import musicOff from  "../assets/music_off_black_24dp.svg"
+import soundsOn from '../assets/volume_up_black_24dp.svg'
+import soundsOff from '../assets/volume_off_black_24dp.svg'
 import { RightOutlined, CaretRightOutlined } from '@ant-design/icons';
 
 //This bad boy creates the UI Overlay that will exist ontop of each level. This includes the HUD and all that jazz.
@@ -13,8 +17,35 @@ export default class UI_Overlay extends Component {
             timeBonus: 3000,
             isLevelComplete: false,
             isCorrect: false,
-            isTimeOut: false
+            isTimeOut: false,
+            musicPopoverVisible: false,
+            soundPopoverVisible: false,
+
         }
+        this.musicPopoverBody = (
+                <>
+                <div style = {{textAlign:'center', fontSize:"20px", paddingBottom:"10px"}}>Music Volume</div>
+                <img src = {musicOn} ></img>
+                <Slider 
+                    className = "slider" 
+                    defaultValue = {this.props.settings.musicVolume}
+                    onAfterChange = {(value)=> props.setSettings({...this.props.settings, musicVolume: value})}>
+                </Slider>
+                </>
+        )
+
+        this.soundPopoverBody = (
+            <>
+            <div style = {{textAlign:'center', fontSize:"20px", paddingBottom:"10px"}}>Sound Volume</div>
+            <img src = {soundsOn} ></img>
+            <Slider 
+                className = "slider" 
+                defaultValue = {this.props.settings.soundVolume}
+                onAfterChange = {(value)=> props.setSettings({...this.props.settings, soundVolume: value})}>
+            </Slider>
+            </>
+        )
+        console.log(this.props)
         this.giveUp.bind(this)
     }
 
@@ -32,7 +63,7 @@ export default class UI_Overlay extends Component {
     }
 
     //This checks to see if it's an evidence level, then if you've found a pieee of evidence.
-    componentDidUpdate () {
+    componentDidUpdate (prevState) {
         if(this.props.level.type == "evidenceCollect"){
             if(this.props.evidenceFound.length >= this.props.level.evidenceAmount && this.props.isLevelComplete == false){
                 this.props.handleCorrect()
@@ -46,6 +77,7 @@ export default class UI_Overlay extends Component {
     //Resets the timer for the next level.
     componentWillUnmount () {
         clearInterval(this.bonusTimerID)
+        console.log("here")
     }
 
 
@@ -94,7 +126,43 @@ export default class UI_Overlay extends Component {
             timeBonus: 3000,
             isTimeOut: false
         })
-        
+
+    }
+
+    toggleMusicPopover = () => {
+        if(!this.props.settings.musicToggle){
+            this.props.setSettings({...this.props.settings, musicToggle: true})
+        }
+        if(this.state.soundPopoverVisible){
+            this.setState({
+                soundPopoverVisible: false,
+                musicPopoverVisible: true,
+
+            })
+        }
+        else{
+            this.setState({
+                musicPopoverVisible: !this.state.musicPopoverVisible,
+            })
+        }
+
+    }
+    toggleSoundPopover = () =>{
+        if(!this.props.settings.soundToggle){
+            this.props.setSettings({...this.props.settings, soundToggle: true})
+        }
+        if(this.state.musicPopoverVisible){
+            this.setState({
+                musicPopoverVisible: false,
+                soundPopoverVisible: true,  
+            })
+        }
+        else{
+            this.setState({
+                soundPopoverVisible: !this.state.soundPopoverVisible
+            })
+        }
+
     }
 
     //This displays the content to the player
@@ -130,10 +198,47 @@ export default class UI_Overlay extends Component {
                             <div className="scam-buttons">
                                 <Button className="btn" onClick={this.props.level.isScam ? this.props.handleCorrect : this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#D80635", borderColor: "white" }}>SCAM</Button>
                                 <Button className="btn" onClick={!this.props.level.isScam ? this.props.handleCorrect : this.props.handleIncorrect} type="primary" shape="round" size="large" style={{ background: "#19bd00", borderColor: "white" }}>LEGIT</Button>
+
                             </div>
                         </div>
                     </div>
-                    <>
+                    <div className = "sound-container">
+                        <button className = "musicBtn" onClick = {this.toggleMusicPopover}>
+                                    {this.props.settings.musicToggle ?
+                                        <img src = {musicOn} height = "50px" width = "50px"></img>
+                                        :
+                                        <img src = {musicOff} height = "50px" width = "50px"></img>
+                                    }
+                                    {this.state.musicPopoverVisible &&
+                                        <div className = "custom-popover">
+                                            <div style = {{textAlign:'center', fontSize:"20px", paddingBottom:"10px"}}>Music Volume</div>
+                                            <Slider 
+                                                className = "slider" 
+                                                defaultValue = {this.props.settings.musicVolume}
+                                                onAfterChange = {(value)=> this.props.setSettings({...this.props.settings, musicVolume: value})}>
+                                            </Slider>
+                                        </div>
+                                    }
+                            </button>
+                            <button className = "soundBtn" onClick = {this.toggleSoundPopover}>
+                                {this.props.settings.soundToggle ?
+                                    <img src = {soundsOn} height = "50px" width = "50px"></img>
+                                    :
+                                    <img src = {soundsOff} height = "50px" width = "50px"></img>
+                                }
+                                {this.state.soundPopoverVisible &&
+                                    <div className = "custom-popover">
+                                        <div style = {{textAlign:'center', fontSize:"20px", paddingBottom:"10px"}}>Sound Volume</div>
+                                        <Slider 
+                                            className = "slider" 
+                                            defaultValue = {this.props.settings.soundVolume}
+                                            onAfterChange = {(value)=> this.props.setSettings({...this.props.settings, soundVolume: value})}>
+                                        </Slider>
+                                    </div>
+                                }
+                            </button> 
+                    </div>
+                    <div>
                         {this.props.isLevelComplete &&
                             <Level_End 
                                 level = {this.props.level} 
@@ -143,7 +248,7 @@ export default class UI_Overlay extends Component {
                                 lobbyInfo = {this.props.lobbyInfo}
                             />
                         }
-                    </>
+                    </div>
                 </div>
             )
 
@@ -173,6 +278,42 @@ export default class UI_Overlay extends Component {
                             <div className="giveUpBtnDiv">
                                 <Button className="btn" onClick={this.props.handleGiveUp} type="primary" shape="round" size="medium" style={{ background: "#d1a70f", borderColor: "white", marginTop: "10px" }}>Skip Level<CaretRightOutlined /></Button>
                             </div>
+                        </div>
+                        <div className = "sound-container">
+                                <button className = "musicBtn" onClick = {this.toggleMusicPopover}>
+                                    {this.props.settings.musicToggle ?
+                                        <img src = {musicOn} height = "50px" width = "50px"></img>
+                                        :
+                                        <img src = {musicOff} height = "50px" width = "50px"></img>
+                                    }
+                                    {this.state.musicPopoverVisible &&
+                                        <div className = "custom-popover">
+                                            <div style = {{textAlign:'center', fontSize:"20px", paddingBottom:"10px"}}>Music Volume</div>
+                                            <Slider 
+                                                className = "slider" 
+                                                defaultValue = {this.props.settings.musicVolume}
+                                                onAfterChange = {(value)=> this.props.setSettings({...this.props.settings, musicVolume: value})}>
+                                            </Slider>
+                                        </div>
+                                    }
+                                </button>
+                                <button className = "soundBtn" onClick = {this.toggleSoundPopover}>
+                                    {this.props.settings.soundToggle ?
+                                        <img src = {soundsOn} height = "50px" width = "50px"></img>
+                                        :
+                                        <img src = {soundsOff} height = "50px" width = "50px"></img>
+                                    }
+                                    {this.state.soundPopoverVisible &&
+                                        <div className = "custom-popover">
+                                            <div style = {{textAlign:'center', fontSize:"20px", paddingBottom:"10px"}}>Sound Volume</div>
+                                            <Slider 
+                                                className = "slider" 
+                                                defaultValue = {this.props.settings.soundVolume}
+                                                onAfterChange = {(value)=> this.props.setSettings({...this.props.settings, soundVolume: value})}>
+                                            </Slider>
+                                        </div>
+                                    }
+                                </button> 
                         </div>
                     </div>
                     <>

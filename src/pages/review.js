@@ -12,13 +12,16 @@ const Review = (props) => {
 
 
     return (
+      
+        
         <>
+        {props.settings.musicToggle && 
         <ReactAudioPlayer
-        src={jazzMusic}
-        autoPlay={true}
-        loop={true}
-        volume={0.5}
-      />
+            src={jazzMusic}
+            autoPlay={true}
+            loop={true}
+            volume={0.5 * (props.settings.musicVolume/100)}
+        />}
       <nav className="navigation" aria-label="dropdown navigation">
       <Button type="danger" onClick={() => returnToMain()}>Return to Main Menu</Button>
       </nav>

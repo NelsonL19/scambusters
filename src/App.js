@@ -100,7 +100,10 @@ function App() {
               <Settings {...props} settings = {settings} setSettings = {setSettings}/>
         )}>
         </Route>
-        <Route path = "/review" component = {Review}></Route>
+        <Route path = "/review" render={(props) => (
+              <Review {...props} settings = {settings} setSettings = {setSettings}/>
+        )}>
+        </Route>
         <Route path = "/credits" component = {Credits}></Route>
         <Route path = "/lobby-created" component = {Lobby_Created}></Route>
         <Route path = "/lobby-joined" component = {Lobby_Joined}></Route>

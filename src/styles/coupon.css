@@ -26,3 +26,10 @@
     border: 2px dotted black;
     font-size: 1.4em;
 }
+
+
+@media screen and (max-width:1450px){
+    .coupons{
+        padding:20px;
+    }
+}

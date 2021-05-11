@@ -39,16 +39,9 @@ const Level_End = (props) => {
 
     //This checks to see if the level is a scam or not, then sets the timer for the level. 
     useEffect(() => {
-        if (props.level.type == "scamOrNot") {
-            const waitTimer = setTimeout(() => {
-                setShowContent(true)
-            }, 3000)
-        }
-        else {
-            console.log(props)
+        const waitTimer = setTimeout(() => {
             setShowContent(true)
-        }
-
+        }, 2200)
 
     })
 

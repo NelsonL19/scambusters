@@ -63,7 +63,9 @@ div.endLevelParent {
     /* grey backround block */
     background-color: rgba(50, 50, 50, 0.9);
     width: 30%;
+    min-width:600px;
     height: 60%;
+    min-height:575px;
     border-radius: 20px;
     padding: 30px;
     opacity: 0.6;
